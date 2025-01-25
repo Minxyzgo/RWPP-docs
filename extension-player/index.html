@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -443,6 +448,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Player
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -452,6 +468,41 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      相关函数
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      字段及函数
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -567,6 +618,32 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      相关函数
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      字段及函数
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -586,6 +663,33 @@
   <h1>Player</h1>
 
 <p><a href="https://github.com/Minxyzgo/RWPP/blob/main/rwpp-core/src/commonMain/kotlin/io/github/rwpp/game/Player.kt">源码</a></p>
+<p>代表一个玩家的实例</p>
+<h2 id="_1">相关函数</h2>
+<ul>
+<li><code>game:getGameRoom():getPlayers()</code> 返回房间内所有的玩家</li>
+<li><code>game:getGameRoom():getLocalPlayer()</code> 返回本地玩家</li>
+</ul>
+<h2 id="_2">字段及函数</h2>
+<ul>
+<li><code>getConnectHexId()</code> 返回玩家的连接网格编号，类型为<code>string</code></li>
+<li><code>getName()</code> 返回玩家的名字，类型为<code>string</code></li>
+<li><code>setName(name)</code> 设置玩家的名字，<code>name</code> 类型为<code>string</code></li>
+<li><code>getSpawnPoint()</code> 返回玩家的出生点, 类型为<code>number</code></li>
+<li><code>setSpawnPoint(point)</code> 设置玩家的出生点，<code>point</code> 类型为<code>number</code></li>
+<li><code>getTeam()</code> 返回玩家的队伍，类型为<code>number</code></li>
+<li><code>setTeam(team)</code> 设置玩家的队伍，<code>team</code> 类型为<code>number</code></li>
+<li><code>getStartingUnit()</code> 返回玩家的起始单位，类型为<code>number</code></li>
+<li><code>setStartingUnit(unit)</code> 设置玩家的起始单位，<code>unit</code> 类型为<code>number</code></li>
+<li><code>getColor()</code> 返回玩家的颜色，类型为<code>number</code></li>
+<li><code>setColor(color)</code> 设置玩家的颜色，<code>color</code> 类型为<code>number</code></li>
+<li><code>isSpectator()</code> 返回玩家是否为旁观者，类型为<code>boolean</code></li>
+<li><code>isAI()</code> 返回玩家是否为AI，类型为<code>boolean</code></li>
+<li><code>getDifficulty()</code> 返回AI玩家的难度，类型为<code>Difficulty</code></li>
+<li><code>setDifficulty(difficulty)</code> 设置AI玩家的难度，<code>difficulty</code> 类型为<code>Difficulty</code></li>
+<li><code>getClient()</code> 返回玩家的连接实例，类型为<code>Client</code></li>
+<li><code>getPing()</code> 返回玩家的延迟，类型为<code>string</code></li>
+<li><code>applyConfigChange(spawnPoint, team, color, startingUnit, difficulty, changeTeamFromSpawn)</code> 应用玩家的配置更改，并同时进行广播。 <code>spawnPoint</code> 类型为<code>number</code>, <code>team</code> 类型为<code>number</code>, <code>color</code> 类型为<code>number</code>, <code>startingUnit</code> 类型为<code>number</code>, <code>difficulty</code> 类型为<code>Difficulty</code>, <code>changeTeamFromSpawn</code> 类型为<code>boolean</code>， 表示是否根据出生点更新队伍</li>
+</ul>
 
 
 
