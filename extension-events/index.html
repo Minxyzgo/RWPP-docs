@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../extension-player/">
+        <link rel="prev" href="../extension-api/">
       
       
-        <link rel="next" href="../extension-gameroom/">
+        <link rel="next" href="../extension-bbs-api/">
       
       
       <link rel="icon" href="../img/logo.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Game - RWPP docs</title>
+        <title>事件列表 - RWPP docs</title>
       
     
     
@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -93,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Game
+              事件列表
             
           </span>
         </div>
@@ -412,10 +417,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../extension-events/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    事件列表
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -424,6 +447,33 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      事件
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -496,17 +546,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../extension-game/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -515,7 +558,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -588,6 +630,23 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      事件
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -604,9 +663,99 @@
   
 
 
-  <h1>Game</h1>
+  <h1>事件列表</h1>
 
-<p><a href="https://github.com/Minxyzgo/RWPP/blob/main/rwpp-core/src/commonMain/kotlin/io/github/rwpp/game/Game.kt">源码</a></p>
+<h2 id="_1">事件</h2>
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+<ul>
+<li>使用参数时需要使用驼峰命名法，如获取参数player，需要<code>event:getPlayer()</code></li>
+</ul>
+</div>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">事件</th>
+<th style="text-align: left;">触发时机</th>
+<th style="text-align: left;">参数</th>
+<th style="text-align: left;">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>ChatMessageEvent</code></td>
+<td style="text-align: left;">当玩家发送聊天信息时</td>
+<td style="text-align: left;"><code>sender: String</code> <code>message: String</code> <code>player: Player</code> <code>color: Color</code></td>
+<td style="text-align: left;">当事件被中断后，将不会显示此聊天消息</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PlayerJoinEvent</code></td>
+<td style="text-align: left;">当玩家进入房间时</td>
+<td style="text-align: left;"><code>player: Player</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PlayerLeaveEvent</code></td>
+<td style="text-align: left;">当玩家离开房间时</td>
+<td style="text-align: left;"><code>player: Player</code> <code>reason: String</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>StartGameEvent</code></td>
+<td style="text-align: left;">开始游戏时</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PlayerDefeatedEvent</code></td>
+<td style="text-align: left;">玩家战败时</td>
+<td style="text-align: left;"><code>player: Player</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GameLoadedEvent</code></td>
+<td style="text-align: left;">游戏加载完毕时</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>HostGameEvent</code></td>
+<td style="text-align: left;">创建新多人游戏时</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>JoinGameEvent</code></td>
+<td style="text-align: left;">加入已创建的多人游戏时</td>
+<td style="text-align: left;"><code>address: String</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>MapChangedEvent</code></td>
+<td style="text-align: left;">地图切换时</td>
+<td style="text-align: left;"><code>mapName: String</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>DisconnectEvent</code></td>
+<td style="text-align: left;">客户端断开连接时</td>
+<td style="text-align: left;"><code>reason: String</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SystemMessageEvent</code></td>
+<td style="text-align: left;">系统信息</td>
+<td style="text-align: left;"><code>message: String</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>TriggerActivateEvent</code></td>
+<td style="text-align: left;">当特定id的触发器被激活时</td>
+<td style="text-align: left;"><code>id: String</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
 
 
 

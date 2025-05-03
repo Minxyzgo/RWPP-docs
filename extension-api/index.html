@@ -12,7 +12,7 @@
         <link rel="prev" href="../extension-start/">
       
       
-        <link rel="next" href="../extension-player/">
+        <link rel="next" href="../extension-events/">
       
       
       <link rel="icon" href="../img/logo.png">
@@ -486,6 +486,60 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extension
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extesion-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extesion Config
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-handler" class="md-nav__link">
+    <span class="md-ellipsis">
+      External Handler
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sound-pool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sound Pool
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#config" class="md-nav__link">
+    <span class="md-ellipsis">
+      Config
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#net" class="md-nav__link">
+    <span class="md-ellipsis">
+      Net
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#luajava" class="md-nav__link">
     <span class="md-ellipsis">
       LuaJava
@@ -519,7 +573,49 @@
   
   
     <li class="md-nav__item">
-      <a href="../d.md" class="md-nav__link">
+      <a href="../extension-events/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    事件列表
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extension-bbs-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    资源协议
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extension-ui/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -603,32 +699,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../d.md" class="md-nav__link">
+      <a href="../extension-example/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Net
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../d.md" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    ModManager
+    示例
   </span>
   
 
@@ -715,6 +790,60 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extension
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extesion-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extesion Config
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-handler" class="md-nav__link">
+    <span class="md-ellipsis">
+      External Handler
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sound-pool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sound Pool
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#config" class="md-nav__link">
+    <span class="md-ellipsis">
+      Config
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#net" class="md-nav__link">
+    <span class="md-ellipsis">
+      Net
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#luajava" class="md-nav__link">
     <span class="md-ellipsis">
       LuaJava
@@ -756,22 +885,28 @@
 <p class="admonition-title">日志</p>
 <ul>
 <li>作者：Minxyzgo</li>
-<li>日期：2025-01-09</li>
+<li>日期：2025-05-03</li>
 </ul>
 </div>
 <p>RWPP提供以下顶层变量及函数供开发者使用:</p>
 <h2 id="_1">通用</h2>
 <ul>
-<li><code>extension</code> 为该扩展的id，类型为字符串。</li>
+<li><code>id</code> 为该扩展的id。</li>
 </ul>
 <div class="admonition example">
 <p class="admonition-title">示例</p>
-<div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">info</span><span class="p">(</span><span class="n">extension</span><span class="p">)</span> <span class="c1">-- &quot;my-extension&quot;</span>
+<div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">info</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="c1">-- &quot;my-extension&quot;</span>
 </span></code></pre></div>
 </div>
 <ul>
+<li><code>scripts</code> 脚本模块。</li>
+<li><code>ui</code> ui模块。</li>
+<li><code>extension</code> 为该扩展的对象。</li>
+<li><code>externalHandler</code> 外部文件处理模块。</li>
 <li><code>game</code> 当前游戏的实例，详情见<a href="../extension-game/">Game</a>。</li>
 <li><code>net</code> 网络模块。</li>
+<li><code>config</code> 配置模块。</li>
+<li><code>soundPool</code> 声音池模块。</li>
 <li><code>modManager</code> 模组管理器。</li>
 <li><code>isAndroid</code> 当前平台是否为Android。</li>
 <li><code>isDesktop</code> 当前平台是否为桌面。</li>
@@ -821,6 +956,16 @@
 <div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">reply</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span> <span class="s2">&quot;Greeting&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
+<ul>
+<li><code>timer(initial_delay, interval, callback)</code> 创建一个定时器，类型为函数。</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">示例</p>
+<div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">timer</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="kr">function</span><span class="p">()</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="n">info</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kr">end</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
 <h2 id="_2">事件系统</h2>
 <p>RWPP的事件处理在lua中采用回调的方式，有以下关于事件的函数:</p>
 <ul>
@@ -828,13 +973,13 @@
 </ul>
 <div class="admonition example">
 <p class="admonition-title">示例</p>
-<div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">filterEvents</span><span class="p">(</span><span class="s1">&#39;ChatMessageEvent&#39;</span><span class="p">,</span> <span class="s1">&#39;HIGH&#39;</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="n">event</span><span class="p">:</span><span class="n">interrupt</span><span class="p">()</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kr">end</span><span class="p">)</span>
+<div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">filterEvents</span><span class="p">(</span><span class="s1">&#39;ChatMessageEvent&#39;</span><span class="p">,</span> <span class="s1">&#39;HIGH&#39;</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="n">event</span><span class="p">:</span><span class="n">intercept</span><span class="p">()</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">注意</p>
-<p><code>event:interrupt()</code>用于中断事件的传播，如果不调用，则事件会继续传播到其他监听者。</p>
+<p><code>event:intercept()</code>用于中断事件的传播，如果不调用，则事件会继续传播到其他监听者。</p>
 </div>
 </div>
 <ul>
@@ -843,59 +988,10 @@
 </ul>
 <div class="admonition example">
 <p class="admonition-title">示例</p>
-<div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">broadcast</span><span class="p">(</span><span class="s1">&#39;ChatMessageEvent&#39;</span><span class="p">,</span> <span class="s1">&#39;Hello, world!&#39;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">broadcast</span><span class="p">(</span><span class="s1">&#39;ChatMessageEvent&#39;</span><span class="p">,</span> <span class="s1">&#39;Hello, world!&#39;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
-<p>RWPP目前有以下可监听的事件:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">事件</th>
-<th style="text-align: left;">触发时机</th>
-<th style="text-align: left;">参数</th>
-<th style="text-align: left;">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>ChatMessageEvent</code></td>
-<td style="text-align: left;">当玩家发送聊天信息时</td>
-<td style="text-align: left;"><code>var sender: String</code> <code>var message: String</code> <code>player: Player</code> <code>var color: Color</code></td>
-<td style="text-align: left;">当事件被中断后，将不会显示此聊天消息</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>PlayerJoinEvent</code></td>
-<td style="text-align: left;">当玩家进入房间时</td>
-<td style="text-align: left;"><code>player: Player</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>PlayerLeaveEvent</code></td>
-<td style="text-align: left;">当玩家离开房间时</td>
-<td style="text-align: left;"><code>player: Player</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>DisconnectEvent</code></td>
-<td style="text-align: left;">客户端玩家离开房间时</td>
-<td style="text-align: left;"><code>var reason: String</code></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>StartGameEvent</code></td>
-<td style="text-align: left;">开始游戏时</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p class="admonition-title">注意</p>
-<ul>
-<li>使用参数时需要使用驼峰命名法，如获取参数player，需要<code>event:getPlayer()</code></li>
-<li>标注有<code>var</code>的为可变参数，可以进行设置，如<code>event:setColor(Color)</code></li>
-</ul>
-</div>
+<p>RWPP目前有以下可监听的<a href="../extension-events/">事件</a>。</p>
 <h2 id="_3">指令系统</h2>
 <p>RWPP提供了较为简单的指令系统，所有指令的前缀为<code>/</code>，可使用<code>registerCommand(text, params, description, callback)</code>注册指令。</p>
 <ul>
@@ -910,9 +1006,9 @@
 </ul>
 <div class="admonition example">
 <p class="admonition-title">示例</p>
-<div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">registerCommand</span><span class="p">(</span><span class="s1">&#39;say&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;message&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;Say something&#39;</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">player</span><span class="p">)</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="n">info</span><span class="p">(</span><span class="n">player</span><span class="p">:</span><span class="n">getName</span><span class="p">()</span> <span class="o">..</span> <span class="s1">&#39; says: &#39;</span> <span class="o">..</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kr">end</span><span class="p">)</span>
+<div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">registerCommand</span><span class="p">(</span><span class="s1">&#39;say&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;message&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;Say something&#39;</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">player</span><span class="p">)</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="n">info</span><span class="p">(</span><span class="n">player</span><span class="p">:</span><span class="n">getName</span><span class="p">()</span> <span class="o">..</span> <span class="s1">&#39; says: &#39;</span> <span class="o">..</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kr">end</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <h2 id="_4">模块系统</h2>
@@ -921,20 +1017,116 @@
 <li>模块名为 <code>扩展id/xx.lua</code></li>
 </ul>
 <p>例如，有以下模块:
-<div class="language-text highlight"><span class="filename">module1</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>scripts/
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>├── test.lua
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>├── folder/
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>│   ├── test2.lua
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>│   └── ...
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>└──...
+<div class="language-text highlight"><span class="filename">module1</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>scripts/
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>├── test.lua
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>├── folder/
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>│   ├── test2.lua
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>│   └── ...
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>└──...
 </span></code></pre></div></p>
 <p>可以这样调用此模块：
-<div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kd">local</span> <span class="n">module1</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s1">&#39;module1/test.lua&#39;</span><span class="p">)</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kd">local</span> <span class="n">module2</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s1">&#39;module1/folder/test2.lua&#39;</span><span class="p">)</span>
+<div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">local</span> <span class="n">module1</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s1">&#39;module1/test.lua&#39;</span><span class="p">)</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kd">local</span> <span class="n">module2</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s1">&#39;module1/folder/test2.lua&#39;</span><span class="p">)</span>
 </span></code></pre></div></p>
 <h2 id="_5">网络</h2>
 <ul>
-<li><code>registerPacketListener</code></li>
+<li><code>registerPacketDecoder(packet_type: Int, decoder: (DataInputStream) -&gt; Packet)</code> 创建一个新的网络包解码器，类型为函数。</li>
+<li><code>registerPacketListener(packet_type: Int, listener: (Client, Packet) -&gt; Boolean)</code> 创建一个新的网络包监听器，类型为函数。 注意，你需要先创建一个解码器，然后才能注册监听器。<code>listener</code>函数返回<code>true</code>时，表示该包已被处理，不再传播到其他监听者。</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">示例</p>
+<div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">registerPacketDecoder</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">input</span><span class="p">)</span> <span class="c1">-- input: DataInputStream</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    <span class="kr">return</span> <span class="n">java</span><span class="p">.</span><span class="n">proxy</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="n">import</span><span class="p">(</span><span class="s1">&#39;io.github.rwpp.net.Packet&#39;</span><span class="p">),</span> <span class="p">{</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>        <span class="n">data</span> <span class="o">=</span> <span class="n">input</span><span class="p">:</span><span class="n">readUTF</span><span class="p">()</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="p">})</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="n">registerPacketListener</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">packet</span><span class="p">)</span> <span class="c1">-- client: Client, packet: Packet</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>    <span class="n">info</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="n">unwrap</span><span class="p">(</span><span class="n">packet</span><span class="p">).</span><span class="n">data</span><span class="p">)</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="kr">end</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<h2 id="extension">Extension</h2>
+<p><code>extension</code>对象提供了以下方法和字段:</p>
+<ul>
+<li><code>isEnabled()</code> 扩展是否启用。</li>
+<li><code>setEnabled(enabled: Boolean)</code> 设置扩展是否启用。</li>
+<li><code>getFile()</code> 扩展的文件。</li>
+<li><code>getZipFile()</code> 如果扩展为zip文件，则返回zip文件，否则返回nil。</li>
+<li><code>getConfig()</code> 扩展的配置。</li>
+<li><code>settingPanel: MutableList&lt;LuaWidget&gt;</code> 扩展的设置面板，类型为列表。</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">示例</p>
+<div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">extension</span><span class="p">.</span><span class="n">settingPanel</span><span class="p">:</span><span class="n">add</span><span class="p">(</span><span class="n">text</span><span class="p">(</span><span class="s1">&#39;Hello, world!&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="p">(</span><span class="s1">&#39;#FFFFFF&#39;</span><span class="p">)))</span>
+</span></code></pre></div>
+</div>
+<ul>
+<li><code>extraPlayerOptions: MutableList&lt;LuaWidget&gt;</code> 扩展的玩家选项，类型为列表。</li>
+<li><code>extraRoomOptions: MutableList&lt;LuaWidget&gt;</code> 扩展的房间选项，类型为列表。</li>
+<li><code>openInputStream(entry_name: String)</code> 打开扩展的资源文件，类型为函数。</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">示例</p>
+<div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kd">local</span> <span class="n">input</span> <span class="o">=</span> <span class="n">extension</span><span class="p">:</span><span class="n">openInputStream</span><span class="p">(</span><span class="s1">&#39;config.json&#39;</span><span class="p">)</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="kd">local</span> <span class="n">data</span> <span class="o">=</span> <span class="n">input</span><span class="p">:</span><span class="n">readAll</span><span class="p">()</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">input</span><span class="p">:</span><span class="n">close</span><span class="p">()</span>
+</span></code></pre></div>
+</div>
+<h2 id="extesion-config">Extesion Config</h2>
+<p>通过<code>extension:getConfig()</code>获取。</p>
+<ul>
+<li><code>getId()</code> 扩展的id。</li>
+<li><code>getName()</code> 扩展的名称。</li>
+<li><code>getDisplayName()</code> 扩展的显示名称。</li>
+<li><code>getIcon()</code> 扩展的图标。</li>
+<li><code>getVersion()</code> 扩展的版本。</li>
+<li><code>getAuthor()</code> 扩展的作者。</li>
+<li><code>getDescription()</code> 扩展的描述。</li>
+<li><code>getDependencies()</code> 扩展的依赖。</li>
+</ul>
+<h2 id="external-handler">External Handler</h2>
+<p><code>externalHandler</code>对象提供了以下方法:
+ - <code>openFileChooser(onChooseFile: (File) -&gt; Unit)</code> 打开文件选择器。</p>
+<div class="admonition example">
+<p class="admonition-title">示例</p>
+<div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">externalHandler</span><span class="p">:</span><span class="n">openFileChooser</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>    <span class="n">info</span><span class="p">(</span><span class="n">file</span><span class="p">:</span><span class="n">getAbsolutePath</span><span class="p">())</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="kr">end</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<h2 id="sound-pool">Sound Pool</h2>
+<p><code>soundPool</code>对象提供了以下方法:</p>
+<ul>
+<li><code>newSound(input: InputStream, name: String): GameSound</code> 创建一个新的声音。</li>
+<li><code>GameSound.play()</code> 播放声音。</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">示例</p>
+<div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kd">local</span> <span class="n">input</span> <span class="o">=</span> <span class="n">extension</span><span class="p">:</span><span class="n">openInputStream</span><span class="p">(</span><span class="s1">&#39;sound.wav&#39;</span><span class="p">)</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kd">local</span> <span class="n">sound</span> <span class="o">=</span> <span class="n">soundPool</span><span class="p">:</span><span class="n">newSound</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">)</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="n">sound</span><span class="p">:</span><span class="n">play</span><span class="p">()</span>
+</span></code></pre></div>
+</div>
+<h2 id="config">Config</h2>
+<ul>
+<li><code>getGameConfig(name: String)</code> 获取游戏配置。</li>
+<li><code>setGameConfig(name: String, value: Any)</code> 设置游戏配置。</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">示例</p>
+<div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">config</span><span class="p">:</span><span class="n">getGameConfig</span><span class="p">(</span><span class="s1">&#39;musicVolume&#39;</span><span class="p">)</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">config</span><span class="p">:</span><span class="n">setGameConfig</span><span class="p">(</span><span class="s1">&#39;musicVolume&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<h2 id="net">Net</h2>
+<p><code>net</code>对象提供了以下方法:</p>
+<ul>
+<li><code>getClient()</code> 获取一个okhttp客户端。</li>
+<li><code>sendPacketToServer(packet: Packet)</code> 发送一个网络包到服务器。</li>
+<li><code>sendPacketToClients(packet: Packet)</code> 发送一个网络包到所有客户端。</li>
+<li><code>openUriInBrowser(uri: String)</code> 打开一个uri。</li>
+<li><code>downloadFile(url: String, outputFile: File, progress_callback: (progress: Float) -&gt; Unit)</code> 下载一个文件。</li>
+<li><code>getBbsProtocols()</code> 获取论坛<a href="../extension-bbs-api/">协议</a>。</li>
 </ul>
 <h2 id="luajava">LuaJava</h2>
 <p>RWPP的lua基于<a href="https://gudzpoz.github.io/luajava/">LuaJava</a>，因此LuaJava也提供了相关的函数，下面给出一些常用的函数：</p>
@@ -943,20 +1135,20 @@
 </ul>
 <div class="admonition example">
 <p class="admonition-title">示例</p>
-<div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">lang</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">import</span><span class="p">(</span><span class="s1">&#39;java.lang.*&#39;</span><span class="p">)</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">info</span><span class="p">(</span><span class="n">lang</span><span class="p">.</span><span class="n">System</span><span class="p">:</span><span class="n">currentTimeMillis</span><span class="p">())</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="n">R</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">import</span><span class="p">(</span><span class="s1">&#39;android.R.*&#39;</span><span class="p">)</span>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="n">info</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">id</span><span class="p">.</span><span class="n">input</span><span class="p">)</span>
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
-</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="n">j</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">import</span><span class="p">(</span><span class="s1">&#39;java.*.*&#39;</span><span class="p">)</span>
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="n">info</span><span class="p">(</span><span class="n">j</span><span class="p">.</span><span class="n">lang</span><span class="p">.</span><span class="n">System</span><span class="p">:</span><span class="n">currentTimeMillis</span><span class="p">())</span>
-</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="c1">-- Both works</span>
-</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="n">j</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">import</span><span class="p">(</span><span class="s1">&#39;java.*&#39;</span><span class="p">)</span>
-</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="n">info</span><span class="p">(</span><span class="n">j</span><span class="p">.</span><span class="n">lang</span><span class="p">.</span><span class="n">System</span><span class="p">:</span><span class="n">currentTimeMillis</span><span class="p">())</span>
-</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>
-</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="n">System</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">import</span><span class="p">(</span><span class="s1">&#39;java.lang.System&#39;</span><span class="p">)</span>
-</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="n">info</span><span class="p">(</span><span class="n">System</span><span class="p">:</span><span class="n">currentTimeMillis</span><span class="p">())</span>
+<div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">lang</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">import</span><span class="p">(</span><span class="s1">&#39;java.lang.*&#39;</span><span class="p">)</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">info</span><span class="p">(</span><span class="n">lang</span><span class="p">.</span><span class="n">System</span><span class="p">:</span><span class="n">currentTimeMillis</span><span class="p">())</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="n">R</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">import</span><span class="p">(</span><span class="s1">&#39;android.R.*&#39;</span><span class="p">)</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="n">info</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">id</span><span class="p">.</span><span class="n">input</span><span class="p">)</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="n">j</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">import</span><span class="p">(</span><span class="s1">&#39;java.*.*&#39;</span><span class="p">)</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="n">info</span><span class="p">(</span><span class="n">j</span><span class="p">.</span><span class="n">lang</span><span class="p">.</span><span class="n">System</span><span class="p">:</span><span class="n">currentTimeMillis</span><span class="p">())</span>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="c1">-- Both works</span>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="n">j</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">import</span><span class="p">(</span><span class="s1">&#39;java.*&#39;</span><span class="p">)</span>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="n">info</span><span class="p">(</span><span class="n">j</span><span class="p">.</span><span class="n">lang</span><span class="p">.</span><span class="n">System</span><span class="p">:</span><span class="n">currentTimeMillis</span><span class="p">())</span>
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="n">System</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">import</span><span class="p">(</span><span class="s1">&#39;java.lang.System&#39;</span><span class="p">)</span>
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="n">info</span><span class="p">(</span><span class="n">System</span><span class="p">:</span><span class="n">currentTimeMillis</span><span class="p">())</span>
 </span></code></pre></div>
 </div>
 <ul>
@@ -964,12 +1156,12 @@
 </ul>
 <div class="admonition example">
 <p class="admonition-title">示例</p>
-<div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">-- Using java.import(class_name)</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">String</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">import</span><span class="p">(</span><span class="s1">&#39;java.lang.String&#39;</span><span class="p">)</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">str</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">)</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="c1">-- Using java.new(jclass, ...)</span>
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="n">str</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">String</span><span class="p">,</span> <span class="s1">&#39;This is the content of the String&#39;</span><span class="p">)</span>
+<div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1">-- Using java.import(class_name)</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">String</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">import</span><span class="p">(</span><span class="s1">&#39;java.lang.String&#39;</span><span class="p">)</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="n">str</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">)</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="c1">-- Using java.new(jclass, ...)</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="n">str</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">String</span><span class="p">,</span> <span class="s1">&#39;This is the content of the String&#39;</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <ul>
@@ -977,13 +1169,13 @@
 </ul>
 <div class="admonition example">
 <p class="admonition-title">示例</p>
-<div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">-- Calling instance method</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">str</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">String</span><span class="p">,</span> <span class="s1">&#39;Hello, world!&#39;</span><span class="p">)</span>
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">info</span><span class="p">(</span><span class="n">str</span><span class="p">:</span><span class="n">toLowerCase</span><span class="p">())</span>
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
-</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="c1">-- Calling static method</span>
-</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="n">Calendar</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">import</span><span class="p">(</span><span class="s1">&#39;java.util.Calendar&#39;</span><span class="p">)</span>
-</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="n">info</span><span class="p">(</span><span class="n">Calendar</span><span class="p">:</span><span class="n">getInstance</span><span class="p">():</span><span class="n">getTimeInMillis</span><span class="p">())</span>
+<div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1">-- Calling instance method</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="n">str</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">String</span><span class="p">,</span> <span class="s1">&#39;Hello, world!&#39;</span><span class="p">)</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="n">info</span><span class="p">(</span><span class="n">str</span><span class="p">:</span><span class="n">toLowerCase</span><span class="p">())</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="c1">-- Calling static method</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="n">Calendar</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">import</span><span class="p">(</span><span class="s1">&#39;java.util.Calendar&#39;</span><span class="p">)</span>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="n">info</span><span class="p">(</span><span class="n">Calendar</span><span class="p">:</span><span class="n">getInstance</span><span class="p">():</span><span class="n">getTimeInMillis</span><span class="p">())</span>
 </span></code></pre></div>
 </div>
 <ul>
@@ -991,13 +1183,13 @@
 </ul>
 <div class="admonition example">
 <p class="admonition-title">示例</p>
-<div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1">-- Accessing instance field</span>
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">str</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">String</span><span class="p">,</span> <span class="s1">&#39;Hello, world!&#39;</span><span class="p">)</span>
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">info</span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="n">length</span><span class="p">)</span>
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="c1">-- Accessing static field</span>
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="n">Integer</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">import</span><span class="p">(</span><span class="s1">&#39;java.lang.Integer&#39;</span><span class="p">)</span>
-</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="n">info</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="n">MAX_VALUE</span><span class="p">)</span>
+<div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1">-- Accessing instance field</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="n">str</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">String</span><span class="p">,</span> <span class="s1">&#39;Hello, world!&#39;</span><span class="p">)</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="n">info</span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="n">length</span><span class="p">)</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="c1">-- Accessing static field</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="n">Integer</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">import</span><span class="p">(</span><span class="s1">&#39;java.lang.Integer&#39;</span><span class="p">)</span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="n">info</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="n">MAX_VALUE</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <ul>
@@ -1005,11 +1197,11 @@
 </ul>
 <div class="admonition example">
 <p class="admonition-title">示例</p>
-<div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1">-- Converting Java object to Lua object</span>
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">String</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">import</span><span class="p">(</span><span class="s1">&#39;java.lang.String&#39;</span><span class="p">)</span>
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="n">str</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">String</span><span class="p">,</span> <span class="s1">&#39;Hello, world!&#39;</span><span class="p">)</span>
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="n">lua_str</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">luaify</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
-</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="n">info</span><span class="p">(</span><span class="n">lua_str</span><span class="p">)</span>
+<div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c1">-- Converting Java object to Lua object</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="n">String</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">import</span><span class="p">(</span><span class="s1">&#39;java.lang.String&#39;</span><span class="p">)</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="n">str</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">String</span><span class="p">,</span> <span class="s1">&#39;Hello, world!&#39;</span><span class="p">)</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="n">lua_str</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">luaify</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="n">info</span><span class="p">(</span><span class="n">lua_str</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <ul>
@@ -1017,14 +1209,14 @@
 </ul>
 <div class="admonition example">
 <p class="admonition-title">示例</p>
-<div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">button</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="n">import</span><span class="p">(</span><span class="s1">&#39;java.awt.Button&#39;</span><span class="p">),</span> <span class="s1">&#39;Execute&#39;</span><span class="p">)</span>
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="n">callback</span> <span class="o">=</span> <span class="p">{}</span>
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="kr">function</span> <span class="nc">callback</span><span class="p">:</span><span class="nf">actionPerformed</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
-</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>    <span class="c1">-- do something</span>
-</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="kr">end</span>
-</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
-</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="n">buttonProxy</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">proxy</span><span class="p">(</span><span class="s1">&#39;java.awt.ActionListener&#39;</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span>
-</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="n">button</span><span class="p">:</span><span class="n">addActionListener</span><span class="p">(</span><span class="n">buttonProxy</span><span class="p">)</span>
+<div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">button</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="n">import</span><span class="p">(</span><span class="s1">&#39;java.awt.Button&#39;</span><span class="p">),</span> <span class="s1">&#39;Execute&#39;</span><span class="p">)</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="n">callback</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="kr">function</span> <span class="nc">callback</span><span class="p">:</span><span class="nf">actionPerformed</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>    <span class="c1">-- do something</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="kr">end</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="n">buttonProxy</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">proxy</span><span class="p">(</span><span class="s1">&#39;java.awt.ActionListener&#39;</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="n">button</span><span class="p">:</span><span class="n">addActionListener</span><span class="p">(</span><span class="n">buttonProxy</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <h2 id="_6">其它</h2>
@@ -1033,9 +1225,9 @@
 </ul>
 <div class="admonition example">
 <p class="admonition-title">示例</p>
-<div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">functionN</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>    <span class="kr">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="kr">end</span><span class="p">)</span> <span class="c1">--- return kotlin.jvm.Function2</span>
+<div class="language-lua highlight"><span class="filename">my-extension</span><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">functionN</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>    <span class="kr">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="kr">end</span><span class="p">)</span> <span class="c1">--- return kotlin.jvm.Function2</span>
 </span></code></pre></div>
 </div>
 

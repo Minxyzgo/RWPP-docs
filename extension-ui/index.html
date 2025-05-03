@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../extension-player/">
+        <link rel="prev" href="../extension-bbs-api/">
       
       
-        <link rel="next" href="../extension-gameroom/">
+        <link rel="next" href="../extension-player/">
       
       
       <link rel="icon" href="../img/logo.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Game - RWPP docs</title>
+        <title>Lua UI - RWPP docs</title>
       
     
     
@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#lua-ui" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -93,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Game
+              Lua UI
             
           </span>
         </div>
@@ -454,10 +459,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../extension-ui/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Lua UI
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -466,6 +489,33 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lua-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lua UI
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -496,17 +546,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../extension-game/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -515,7 +558,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -588,6 +630,23 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lua-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lua UI
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -604,9 +663,18 @@
   
 
 
-  <h1>Game</h1>
+  <h1>Lua UI</h1>
 
-<p><a href="https://github.com/Minxyzgo/RWPP/blob/main/rwpp-core/src/commonMain/kotlin/io/github/rwpp/game/Game.kt">源码</a></p>
+<h2 id="lua-ui">Lua UI</h2>
+<p>Lua UI目前都以<code>LuaWidget</code>表示，暂时只支持竖向的简单布局，下面是一些控件函数：</p>
+<ul>
+<li><code>color(code: String)</code> 颜色</li>
+<li><code>text(text,  size, color)</code>：显示文本</li>
+<li><code>dropdown(options: Array&lt;String&gt;, label: String, defaultVaule: () -&gt; String, onChange: (Int, String) -&gt; Unit)</code>：下拉框</li>
+<li><code>textButton(text: String, onClick: () -&gt; Unit)</code>：按钮</li>
+<li><code>textField(text: String, defaultText: () -&gt; String, onTextChanged: (String) -&gt; Unit)</code>：输入框</li>
+<li><code>checkbox(text: String, checked: () -&gt; Boolean, onCheckedChange: (Boolean) -&gt; Unit)</code>： 复选框</li>
+</ul>
 
 
 

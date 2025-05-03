@@ -1,0 +1,1115 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../extension-gameroom/">
+      
+      
+      
+      <link rel="icon" href="../img/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+    
+    
+      
+        <title>示例 - RWPP docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="RWPP docs" class="md-header__button md-logo" aria-label="RWPP docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            RWPP docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              示例
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Minxyzgo/RWPP" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    RWPP
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="RWPP docs" class="md-nav__button md-logo" aria-label="RWPP docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    RWPP docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Minxyzgo/RWPP" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    RWPP
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    帮助
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            帮助
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../helper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    如何与Steam集成
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resource/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    如何使用和制作一个资源包
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../special/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    特殊功能
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    扩展
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            扩展
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extension-start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    开始
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extension-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Api文档
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extension-events/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    事件列表
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extension-bbs-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    资源协议
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extension-ui/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lua UI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extension-player/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Player
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extension-game/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Game
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extension-gameroom/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GameRoom
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    示例
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    示例
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      扩展示例
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chat-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chat Filter 聊天过滤器
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      红警2副官语音
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      山丘之王
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      扩展示例
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chat-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chat Filter 聊天过滤器
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      红警2副官语音
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      山丘之王
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>示例</h1>
+
+<h2 id="_1">扩展示例</h2>
+<p>此示例的代码可在<a href="https://www.123865.com/s/6Rijjv-79Fi">123pan</a>中找到</p>
+<h2 id="chat-filter">Chat Filter 聊天过滤器</h2>
+<div class="language-lua highlight"><span class="filename">chat-filter</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">local</span> <span class="n">String</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">import</span><span class="p">(</span><span class="s1">&#39;java.lang.String&#39;</span><span class="p">)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kd">local</span> <span class="n">dicts</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">luaify</span><span class="p">(</span><span class="n">String</span><span class="p">(</span><span class="n">getConfig</span><span class="p">(</span><span class="s1">&#39;dicts&#39;</span><span class="p">)):</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">))</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kd">local</span> <span class="n">hasPermission</span> <span class="o">=</span> <span class="kr">function</span> <span class="p">(</span><span class="n">player</span><span class="p">)</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="kd">local</span> <span class="n">gameRoom</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">getGameRoom</span><span class="p">()</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="kr">return</span> <span class="n">player</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="ow">and</span> <span class="n">player</span><span class="p">:</span><span class="n">equals</span><span class="p">(</span><span class="n">gameRoom</span><span class="p">:</span><span class="n">getLocalPlayer</span><span class="p">())</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="kr">end</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1">-- Return the first index with the given value (or nil if not found).</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="kd">local</span> <span class="n">indexOf</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="kr">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="kr">do</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        <span class="kr">if</span> <span class="n">v</span> <span class="o">==</span> <span class="n">value</span> <span class="kr">then</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>            <span class="kr">return</span> <span class="n">i</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>        <span class="kr">end</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="kr">end</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="kr">return</span> <span class="kc">nil</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="kr">end</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="n">onExit</span><span class="p">(</span><span class="kr">function</span> <span class="p">()</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    <span class="n">setConfig</span><span class="p">(</span><span class="s1">&#39;dicts&#39;</span><span class="p">,</span> <span class="n">String</span><span class="p">:</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">dicts</span><span class="p">))</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="n">registerCommand</span><span class="p">(</span><span class="s1">&#39;addword&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;word&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;Add a forbidden word, anyone who says it will be hidden and kicked out&#39;</span><span class="p">,</span> <span class="kr">function</span> <span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">player</span><span class="p">)</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>    <span class="kr">if</span> <span class="n">hasPermission</span><span class="p">(</span><span class="n">player</span><span class="p">)</span> <span class="kr">then</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>        <span class="n">dicts</span><span class="p">[</span><span class="o">#</span><span class="n">dicts</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>        <span class="n">reply</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="s1">&#39;add successfully&#39;</span><span class="p">)</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>    <span class="kr">end</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="n">registerCommand</span><span class="p">(</span><span class="s1">&#39;listwords&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;List all forbidden words&#39;</span><span class="p">,</span> <span class="kr">function</span> <span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">player</span><span class="p">)</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>    <span class="n">reply</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">String</span><span class="p">:</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">dicts</span><span class="p">))</span>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="n">registerCommand</span><span class="p">(</span><span class="s1">&#39;clearwords&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;Clear all forbidden words&#39;</span><span class="p">,</span> <span class="kr">function</span> <span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">player</span><span class="p">)</span>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>    <span class="kr">if</span> <span class="n">hasPermission</span><span class="p">(</span><span class="n">player</span><span class="p">)</span> <span class="kr">then</span>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>        <span class="n">dicts</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>        <span class="n">reply</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="s1">&#39;clear successfully&#39;</span><span class="p">)</span>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>    <span class="kr">end</span>
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="n">registerCommand</span><span class="p">(</span><span class="s1">&#39;removeword&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;word&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;Remove a forbidden word.&#39;</span><span class="p">,</span> <span class="kr">function</span> <span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">player</span><span class="p">)</span>
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>    <span class="kr">if</span> <span class="n">hasPermission</span><span class="p">(</span><span class="n">player</span><span class="p">)</span> <span class="kr">then</span>
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>        <span class="kd">local</span> <span class="n">index</span> <span class="o">=</span> <span class="n">indexOf</span><span class="p">(</span><span class="n">dicts</span><span class="p">,</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>        <span class="kr">if</span> <span class="n">index</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="kr">then</span>
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>            <span class="nb">table.remove</span><span class="p">(</span><span class="n">dicts</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
+</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>            <span class="n">reply</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="s1">&#39;remove successfully&#39;</span><span class="p">)</span>
+</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>        <span class="kr">end</span>
+</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>    <span class="kr">end</span>
+</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a><span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>
+</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a><span class="n">filterEvents</span><span class="p">(</span><span class="s1">&#39;ChatMessageEvent&#39;</span><span class="p">,</span> <span class="s1">&#39;HIGH&#39;</span><span class="p">,</span> <span class="kr">function</span> <span class="p">(</span><span class="n">event</span><span class="p">)</span>
+</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a>    <span class="kd">local</span> <span class="n">message</span> <span class="o">=</span> <span class="n">event</span><span class="p">:</span><span class="n">getMessage</span><span class="p">()</span>
+</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a>    <span class="kd">local</span> <span class="n">gameRoom</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">getGameRoom</span><span class="p">()</span>
+</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a>    <span class="kr">if</span> <span class="n">event</span><span class="p">:</span><span class="n">getPlayer</span><span class="p">()</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="kr">then</span>
+</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a>        <span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">v</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">dicts</span><span class="p">)</span> <span class="kr">do</span>
+</span><span id="__span-0-57"><a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a>            <span class="kr">if</span> <span class="o">#</span><span class="n">v</span> <span class="o">~=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">String</span><span class="p">(</span><span class="n">message</span><span class="p">):</span><span class="n">contains</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="kr">then</span>
+</span><span id="__span-0-58"><a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a>                <span class="n">event</span><span class="p">:</span><span class="n">intercept</span><span class="p">()</span> <span class="c1">-- 阻止信息显示 注意这不会阻止在游戏内显示</span>
+</span><span id="__span-0-59"><a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a>                <span class="kr">if</span> <span class="n">gameRoom</span><span class="p">:</span><span class="n">isHost</span><span class="p">()</span> <span class="kr">then</span>
+</span><span id="__span-0-60"><a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a>                    <span class="n">reply</span><span class="p">(</span><span class="n">gameRoom</span><span class="p">:</span><span class="n">getLocalPlayer</span><span class="p">(),</span> <span class="s1">&#39;kick player: &#39;</span> <span class="o">..</span> <span class="n">event</span><span class="p">:</span><span class="n">getPlayer</span><span class="p">():</span><span class="n">getName</span><span class="p">())</span>
+</span><span id="__span-0-61"><a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a>                    <span class="n">gameRoom</span><span class="p">:</span><span class="n">kickPlayer</span><span class="p">(</span><span class="n">event</span><span class="p">:</span><span class="n">getPlayer</span><span class="p">())</span>
+</span><span id="__span-0-62"><a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a>                <span class="kr">end</span>
+</span><span id="__span-0-63"><a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a>            <span class="kr">end</span>
+</span><span id="__span-0-64"><a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a>        <span class="kr">end</span>
+</span><span id="__span-0-65"><a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a>    <span class="kr">end</span>
+</span><span id="__span-0-66"><a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a><span class="kr">end</span><span class="p">)</span>
+</span></code></pre></div>
+<h2 id="2">红警2副官语音</h2>
+<div class="language-lua highlight"><span class="filename">redalert2-voice</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">local</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;allies&quot;</span><span class="p">,</span> <span class="s2">&quot;soviet&quot;</span><span class="p">,</span> <span class="s2">&quot;yuri&quot;</span><span class="p">}</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kd">local</span> <span class="n">alignment</span> <span class="o">=</span> <span class="n">getConfig</span><span class="p">(</span><span class="s2">&quot;alignment&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">options</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">onExit</span><span class="p">(</span><span class="kr">function</span> <span class="p">()</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">setConfig</span><span class="p">(</span><span class="s2">&quot;alignment&quot;</span><span class="p">,</span> <span class="n">alignment</span><span class="p">)</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="kd">local</span> <span class="n">playerDefeatedSound</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="kd">local</span> <span class="n">unitDamagedSound</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="kd">local</span> <span class="n">baseDamagedSound</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="kd">local</span> <span class="n">upgradedCompletedSound</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="kd">local</span> <span class="n">playerUnitCreatedSound</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="kd">local</span> <span class="n">playerBuildingConstructedSound</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="kd">local</span> <span class="n">localPlayerLostSound</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="kd">local</span> <span class="n">localPlayerWinSound</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="kd">local</span> <span class="kr">function</span> <span class="nf">changeAlignment</span><span class="p">()</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>    <span class="n">playerDefeatedSound</span> <span class="o">=</span> <span class="n">soundPool</span><span class="p">:</span><span class="n">newSound</span><span class="p">(</span><span class="n">extension</span><span class="p">:</span><span class="n">openInputStream</span><span class="p">(</span><span class="n">alignment</span> <span class="o">..</span> <span class="s2">&quot;_player_defeated.ogg&quot;</span><span class="p">),</span> <span class="n">alignment</span> <span class="o">..</span> <span class="s2">&quot;_player_defeated.ogg&quot;</span><span class="p">)</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>    <span class="n">unitDamagedSound</span> <span class="o">=</span> <span class="n">soundPool</span><span class="p">:</span><span class="n">newSound</span><span class="p">(</span><span class="n">extension</span><span class="p">:</span><span class="n">openInputStream</span><span class="p">(</span><span class="n">alignment</span> <span class="o">..</span> <span class="s2">&quot;_unit_damaged.ogg&quot;</span><span class="p">),</span> <span class="n">alignment</span> <span class="o">..</span> <span class="s2">&quot;_unit_damaged.ogg&quot;</span><span class="p">)</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>    <span class="n">baseDamagedSound</span> <span class="o">=</span> <span class="n">soundPool</span><span class="p">:</span><span class="n">newSound</span><span class="p">(</span><span class="n">extension</span><span class="p">:</span><span class="n">openInputStream</span><span class="p">(</span><span class="n">alignment</span> <span class="o">..</span> <span class="s2">&quot;_base_damaged.ogg&quot;</span><span class="p">),</span> <span class="n">alignment</span> <span class="o">..</span> <span class="s2">&quot;_base_damaged.ogg&quot;</span><span class="p">)</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>    <span class="n">upgradedCompletedSound</span> <span class="o">=</span> <span class="n">soundPool</span><span class="p">:</span><span class="n">newSound</span><span class="p">(</span><span class="n">extension</span><span class="p">:</span><span class="n">openInputStream</span><span class="p">(</span><span class="n">alignment</span> <span class="o">..</span> <span class="s2">&quot;_upgraded_completed.ogg&quot;</span><span class="p">),</span> <span class="n">alignment</span> <span class="o">..</span> <span class="s2">&quot;_upgraded_completed.ogg&quot;</span><span class="p">)</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>    <span class="n">playerUnitCreatedSound</span> <span class="o">=</span> <span class="n">soundPool</span><span class="p">:</span><span class="n">newSound</span><span class="p">(</span><span class="n">extension</span><span class="p">:</span><span class="n">openInputStream</span><span class="p">(</span><span class="n">alignment</span> <span class="o">..</span> <span class="s2">&quot;_player_unit_created.ogg&quot;</span><span class="p">),</span> <span class="n">alignment</span> <span class="o">..</span> <span class="s2">&quot;_player_unit_created.ogg&quot;</span><span class="p">)</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>    <span class="n">playerBuildingConstructedSound</span> <span class="o">=</span> <span class="n">soundPool</span><span class="p">:</span><span class="n">newSound</span><span class="p">(</span><span class="n">extension</span><span class="p">:</span><span class="n">openInputStream</span><span class="p">(</span><span class="n">alignment</span> <span class="o">..</span> <span class="s2">&quot;_player_building_constructed.ogg&quot;</span><span class="p">),</span> <span class="n">alignment</span> <span class="o">..</span> <span class="s2">&quot;_player_building_constructed.ogg&quot;</span><span class="p">)</span>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>    <span class="n">localPlayerLostSound</span> <span class="o">=</span> <span class="n">soundPool</span><span class="p">:</span><span class="n">newSound</span><span class="p">(</span><span class="n">extension</span><span class="p">:</span><span class="n">openInputStream</span><span class="p">(</span><span class="n">alignment</span> <span class="o">..</span> <span class="s2">&quot;_local_player_lost.ogg&quot;</span><span class="p">),</span> <span class="n">alignment</span> <span class="o">..</span> <span class="s2">&quot;_local_player_lost.ogg&quot;</span><span class="p">)</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>    <span class="n">localPlayerWinSound</span> <span class="o">=</span> <span class="n">soundPool</span><span class="p">:</span><span class="n">newSound</span><span class="p">(</span><span class="n">extension</span><span class="p">:</span><span class="n">openInputStream</span><span class="p">(</span><span class="n">alignment</span> <span class="o">..</span> <span class="s2">&quot;_local_player_win.ogg&quot;</span><span class="p">),</span> <span class="n">alignment</span> <span class="o">..</span> <span class="s2">&quot;_local_player_win.ogg&quot;</span><span class="p">)</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="kr">end</span>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="n">extension</span><span class="p">.</span><span class="n">settingPanel</span><span class="p">:</span><span class="n">add</span><span class="p">(</span>
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>    <span class="n">dropdown</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="s2">&quot;选择副官阵营&quot;</span><span class="p">,</span> <span class="kr">function</span> <span class="p">()</span>
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>        <span class="kr">return</span> <span class="n">alignment</span>
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>    <span class="kr">end</span><span class="p">,</span> <span class="kr">function</span> <span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>        <span class="n">alignment</span> <span class="o">=</span> <span class="n">v</span>
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>        <span class="n">changeAlignment</span><span class="p">()</span>
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>    <span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="p">)</span>
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="kd">local</span> <span class="n">playTime</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="kd">local</span> <span class="n">duration</span> <span class="o">=</span> <span class="mi">100</span>
+</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>
+</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a><span class="kd">local</span> <span class="n">Thread</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">import</span><span class="p">(</span><span class="s2">&quot;java.lang.Thread&quot;</span><span class="p">)</span>
+</span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a>
+</span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a><span class="kd">local</span> <span class="kr">function</span> <span class="nf">checkPlayTime</span><span class="p">(</span><span class="n">now</span><span class="p">)</span>
+</span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>    <span class="kr">if</span> <span class="n">now</span> <span class="o">-</span> <span class="n">playTime</span> <span class="o">&gt;</span> <span class="n">duration</span> <span class="kr">then</span>
+</span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a>        <span class="n">playTime</span> <span class="o">=</span> <span class="n">now</span>
+</span><span id="__span-1-46"><a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a>        <span class="kr">return</span> <span class="kc">true</span>
+</span><span id="__span-1-47"><a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a>    <span class="kr">else</span>
+</span><span id="__span-1-48"><a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a>        <span class="kr">return</span> <span class="kc">false</span>
+</span><span id="__span-1-49"><a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a>    <span class="kr">end</span>
+</span><span id="__span-1-50"><a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a><span class="kr">end</span>
+</span><span id="__span-1-51"><a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a>
+</span><span id="__span-1-52"><a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a><span class="n">filterEvents</span><span class="p">(</span><span class="s1">&#39;GameLoadedEvent&#39;</span><span class="p">,</span> <span class="kr">function</span> <span class="p">(</span><span class="n">_</span><span class="p">)</span>
+</span><span id="__span-1-53"><a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a>    <span class="n">changeAlignment</span><span class="p">()</span>
+</span><span id="__span-1-54"><a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a><span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-1-55"><a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a>
+</span><span id="__span-1-56"><a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a><span class="n">filterEvents</span><span class="p">(</span><span class="s1">&#39;GameOverEvent&#39;</span><span class="p">,</span> <span class="kr">function</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</span><span id="__span-1-57"><a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a>    <span class="kd">local</span> <span class="n">room</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">getGameRoom</span><span class="p">()</span>
+</span><span id="__span-1-58"><a id="__codelineno-1-58" name="__codelineno-1-58" href="#__codelineno-1-58"></a>    <span class="kd">local</span> <span class="n">localPlayer</span> <span class="o">=</span> <span class="n">room</span><span class="p">:</span><span class="n">getLocalPlayer</span><span class="p">()</span>
+</span><span id="__span-1-59"><a id="__codelineno-1-59" name="__codelineno-1-59" href="#__codelineno-1-59"></a>    <span class="kr">if</span> <span class="n">e</span><span class="p">:</span><span class="n">getWinTeam</span><span class="p">()</span> <span class="o">==</span> <span class="n">room</span><span class="p">:</span><span class="n">getLocalPlayer</span><span class="p">():</span><span class="n">getTeam</span><span class="p">()</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">localPlayer</span><span class="p">:</span><span class="n">isDefeated</span><span class="p">()</span> <span class="kr">then</span>
+</span><span id="__span-1-60"><a id="__codelineno-1-60" name="__codelineno-1-60" href="#__codelineno-1-60"></a>        <span class="n">Thread</span><span class="p">(</span><span class="kr">function</span> <span class="p">()</span>
+</span><span id="__span-1-61"><a id="__codelineno-1-61" name="__codelineno-1-61" href="#__codelineno-1-61"></a>            <span class="n">Thread</span><span class="p">:</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1200</span><span class="p">)</span>
+</span><span id="__span-1-62"><a id="__codelineno-1-62" name="__codelineno-1-62" href="#__codelineno-1-62"></a>            <span class="n">localPlayerWinSound</span><span class="p">:</span><span class="n">play</span><span class="p">()</span>
+</span><span id="__span-1-63"><a id="__codelineno-1-63" name="__codelineno-1-63" href="#__codelineno-1-63"></a>        <span class="kr">end</span><span class="p">):</span><span class="n">start</span><span class="p">()</span>
+</span><span id="__span-1-64"><a id="__codelineno-1-64" name="__codelineno-1-64" href="#__codelineno-1-64"></a>    <span class="kr">end</span>
+</span><span id="__span-1-65"><a id="__codelineno-1-65" name="__codelineno-1-65" href="#__codelineno-1-65"></a><span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-1-66"><a id="__codelineno-1-66" name="__codelineno-1-66" href="#__codelineno-1-66"></a>
+</span><span id="__span-1-67"><a id="__codelineno-1-67" name="__codelineno-1-67" href="#__codelineno-1-67"></a><span class="kd">local</span> <span class="n">System</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">import</span><span class="p">(</span><span class="s2">&quot;java.lang.System&quot;</span><span class="p">)</span>
+</span><span id="__span-1-68"><a id="__codelineno-1-68" name="__codelineno-1-68" href="#__codelineno-1-68"></a>
+</span><span id="__span-1-69"><a id="__codelineno-1-69" name="__codelineno-1-69" href="#__codelineno-1-69"></a><span class="n">filterEvents</span><span class="p">(</span><span class="s1">&#39;PlayerDefeatedEvent&#39;</span><span class="p">,</span> <span class="kr">function</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</span><span id="__span-1-70"><a id="__codelineno-1-70" name="__codelineno-1-70" href="#__codelineno-1-70"></a>    <span class="kr">if</span> <span class="ow">not</span> <span class="n">checkPlayTime</span><span class="p">(</span><span class="n">System</span><span class="p">:</span><span class="n">currentTimeMillis</span><span class="p">())</span> <span class="kr">then</span> <span class="kr">return</span> <span class="kr">end</span>
+</span><span id="__span-1-71"><a id="__codelineno-1-71" name="__codelineno-1-71" href="#__codelineno-1-71"></a>    <span class="kr">if</span> <span class="n">e</span><span class="p">:</span><span class="n">getPlayer</span><span class="p">()</span> <span class="o">==</span> <span class="n">game</span><span class="p">:</span><span class="n">getGameRoom</span><span class="p">():</span><span class="n">getLocalPlayer</span><span class="p">()</span> <span class="kr">then</span>
+</span><span id="__span-1-72"><a id="__codelineno-1-72" name="__codelineno-1-72" href="#__codelineno-1-72"></a>        <span class="n">localPlayerLostSound</span><span class="p">:</span><span class="n">play</span><span class="p">()</span>
+</span><span id="__span-1-73"><a id="__codelineno-1-73" name="__codelineno-1-73" href="#__codelineno-1-73"></a>    <span class="kr">else</span>
+</span><span id="__span-1-74"><a id="__codelineno-1-74" name="__codelineno-1-74" href="#__codelineno-1-74"></a>        <span class="n">playerDefeatedSound</span><span class="p">:</span><span class="n">play</span><span class="p">()</span>
+</span><span id="__span-1-75"><a id="__codelineno-1-75" name="__codelineno-1-75" href="#__codelineno-1-75"></a>    <span class="kr">end</span>
+</span><span id="__span-1-76"><a id="__codelineno-1-76" name="__codelineno-1-76" href="#__codelineno-1-76"></a><span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-1-77"><a id="__codelineno-1-77" name="__codelineno-1-77" href="#__codelineno-1-77"></a>
+</span><span id="__span-1-78"><a id="__codelineno-1-78" name="__codelineno-1-78" href="#__codelineno-1-78"></a><span class="c1">-- 下面的事件可能会在将来删除</span>
+</span><span id="__span-1-79"><a id="__codelineno-1-79" name="__codelineno-1-79" href="#__codelineno-1-79"></a>
+</span><span id="__span-1-80"><a id="__codelineno-1-80" name="__codelineno-1-80" href="#__codelineno-1-80"></a><span class="n">filterEvents</span><span class="p">(</span><span class="s1">&#39;LocalPlayerUnitDamagedEvent&#39;</span><span class="p">,</span> <span class="kr">function</span> <span class="p">(</span><span class="n">_</span><span class="p">)</span>
+</span><span id="__span-1-81"><a id="__codelineno-1-81" name="__codelineno-1-81" href="#__codelineno-1-81"></a>    <span class="kr">if</span> <span class="n">checkPlayTime</span><span class="p">(</span><span class="n">System</span><span class="p">:</span><span class="n">currentTimeMillis</span><span class="p">())</span> <span class="kr">then</span> <span class="n">unitDamagedSound</span><span class="p">:</span><span class="n">play</span><span class="p">()</span> <span class="kr">end</span>
+</span><span id="__span-1-82"><a id="__codelineno-1-82" name="__codelineno-1-82" href="#__codelineno-1-82"></a><span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-1-83"><a id="__codelineno-1-83" name="__codelineno-1-83" href="#__codelineno-1-83"></a>
+</span><span id="__span-1-84"><a id="__codelineno-1-84" name="__codelineno-1-84" href="#__codelineno-1-84"></a><span class="n">filterEvents</span><span class="p">(</span><span class="s1">&#39;LocalPlayerBaseDamagedEvent&#39;</span><span class="p">,</span> <span class="kr">function</span> <span class="p">(</span><span class="n">_</span><span class="p">)</span>
+</span><span id="__span-1-85"><a id="__codelineno-1-85" name="__codelineno-1-85" href="#__codelineno-1-85"></a>    <span class="kr">if</span> <span class="n">checkPlayTime</span><span class="p">(</span><span class="n">System</span><span class="p">:</span><span class="n">currentTimeMillis</span><span class="p">())</span> <span class="kr">then</span> <span class="n">baseDamagedSound</span><span class="p">:</span><span class="n">play</span><span class="p">()</span> <span class="kr">end</span>
+</span><span id="__span-1-86"><a id="__codelineno-1-86" name="__codelineno-1-86" href="#__codelineno-1-86"></a><span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-1-87"><a id="__codelineno-1-87" name="__codelineno-1-87" href="#__codelineno-1-87"></a>
+</span><span id="__span-1-88"><a id="__codelineno-1-88" name="__codelineno-1-88" href="#__codelineno-1-88"></a><span class="n">filterEvents</span><span class="p">(</span><span class="s1">&#39;LocalPlayerUnitCreatedEvent&#39;</span><span class="p">,</span> <span class="kr">function</span> <span class="p">(</span><span class="n">_</span><span class="p">)</span>
+</span><span id="__span-1-89"><a id="__codelineno-1-89" name="__codelineno-1-89" href="#__codelineno-1-89"></a>    <span class="kr">if</span> <span class="n">checkPlayTime</span><span class="p">(</span><span class="n">System</span><span class="p">:</span><span class="n">currentTimeMillis</span><span class="p">())</span> <span class="kr">then</span> <span class="n">playerUnitCreatedSound</span><span class="p">:</span><span class="n">play</span><span class="p">()</span> <span class="kr">end</span>
+</span><span id="__span-1-90"><a id="__codelineno-1-90" name="__codelineno-1-90" href="#__codelineno-1-90"></a><span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-1-91"><a id="__codelineno-1-91" name="__codelineno-1-91" href="#__codelineno-1-91"></a>
+</span><span id="__span-1-92"><a id="__codelineno-1-92" name="__codelineno-1-92" href="#__codelineno-1-92"></a><span class="n">filterEvents</span><span class="p">(</span><span class="s1">&#39;LocalPlayerBuildingConstructedEvent&#39;</span><span class="p">,</span> <span class="kr">function</span> <span class="p">(</span><span class="n">_</span><span class="p">)</span>
+</span><span id="__span-1-93"><a id="__codelineno-1-93" name="__codelineno-1-93" href="#__codelineno-1-93"></a>    <span class="kr">if</span> <span class="n">checkPlayTime</span><span class="p">(</span><span class="n">System</span><span class="p">:</span><span class="n">currentTimeMillis</span><span class="p">())</span> <span class="kr">then</span> <span class="n">playerBuildingConstructedSound</span><span class="p">:</span><span class="n">play</span><span class="p">()</span> <span class="kr">end</span>
+</span><span id="__span-1-94"><a id="__codelineno-1-94" name="__codelineno-1-94" href="#__codelineno-1-94"></a><span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-1-95"><a id="__codelineno-1-95" name="__codelineno-1-95" href="#__codelineno-1-95"></a>
+</span><span id="__span-1-96"><a id="__codelineno-1-96" name="__codelineno-1-96" href="#__codelineno-1-96"></a><span class="n">filterEvents</span><span class="p">(</span><span class="s1">&#39;LocalPlayerUpgradedCompletedEvent&#39;</span><span class="p">,</span> <span class="kr">function</span> <span class="p">(</span><span class="n">_</span><span class="p">)</span>
+</span><span id="__span-1-97"><a id="__codelineno-1-97" name="__codelineno-1-97" href="#__codelineno-1-97"></a>    <span class="kr">if</span> <span class="n">checkPlayTime</span><span class="p">(</span><span class="n">System</span><span class="p">:</span><span class="n">currentTimeMillis</span><span class="p">())</span> <span class="kr">then</span> <span class="n">upgradedCompletedSound</span><span class="p">:</span><span class="n">play</span><span class="p">()</span> <span class="kr">end</span>
+</span><span id="__span-1-98"><a id="__codelineno-1-98" name="__codelineno-1-98" href="#__codelineno-1-98"></a><span class="kr">end</span><span class="p">)</span>
+</span></code></pre></div>
+<h2 id="_2">山丘之王</h2>
+<div class="language-lua highlight"><span class="filename">thekingofhills</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">local</span> <span class="n">maxTime</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="mi">60</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">local</span> <span class="n">gameTime</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kd">local</span> <span class="n">Pair</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">import</span><span class="p">(</span><span class="s1">&#39;kotlin.Pair&#39;</span><span class="p">)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kd">local</span> <span class="n">String</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">import</span><span class="p">(</span><span class="s1">&#39;java.lang.String&#39;</span><span class="p">)</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1">-- onExit(function ()</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1">--     setConfig(&quot;gameTime&quot;, tostring(gameTime))</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1">-- end)</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="kd">local</span> <span class="n">currentPlayer</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="n">filterEvents</span><span class="p">(</span><span class="s1">&#39;GameLoadedEvent&#39;</span><span class="p">,</span> <span class="kr">function</span> <span class="p">(</span><span class="n">_</span><span class="p">)</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    <span class="kd">local</span> <span class="n">room</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">getGameRoom</span><span class="p">()</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>    <span class="c1">-- 建议使用timer， 而不是自行创建Thread，因为lua实际是单线程执行，自行Thread可能导致线程死锁</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>    <span class="kd">local</span> <span class="n">surrenderedPlayers</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">import</span><span class="p">(</span><span class="s1">&#39;java.util.Stack&#39;</span><span class="p">)()</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>    <span class="n">timer</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="kr">function</span> <span class="p">()</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>        <span class="kr">if</span> <span class="n">surrenderedPlayers</span><span class="p">:</span><span class="n">empty</span><span class="p">()</span> <span class="kr">then</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>            <span class="kr">return</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>        <span class="kr">end</span>
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>        <span class="c1">-- sendSurrender 可能需要部分延迟，此部分还未测试</span>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>        <span class="n">room</span><span class="p">:</span><span class="n">sendSurrender</span><span class="p">(</span><span class="n">surrenderedPlayers</span><span class="p">:</span><span class="n">pop</span><span class="p">())</span>
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>    <span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>    <span class="n">timer</span><span class="p">(</span>
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>        <span class="mi">0</span><span class="p">,</span> <span class="c1">-- initial delay</span>
+</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>        <span class="mi">1000</span><span class="p">,</span> <span class="c1">-- period</span>
+</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>        <span class="kr">function</span> <span class="p">()</span>
+</span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>            <span class="kr">if</span> <span class="n">currentPlayer</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="ow">and</span> <span class="n">gameTime</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="kr">then</span> 
+</span><span id="__span-2-34"><a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a>                <span class="kd">local</span> <span class="n">players</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">luaify</span><span class="p">(</span><span class="n">room</span><span class="p">:</span><span class="n">getPlayers</span><span class="p">())</span>
+</span><span id="__span-2-35"><a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a>                <span class="kr">if</span> <span class="n">gameTime</span> <span class="o">==</span> <span class="n">maxTime</span> <span class="ow">or</span> <span class="n">gameTime</span> <span class="o">==</span> <span class="mi">100</span> <span class="ow">or</span> <span class="n">gameTime</span> <span class="o">==</span> <span class="mi">50</span> <span class="ow">or</span> <span class="n">gameTime</span> <span class="o">&lt;=</span> <span class="mi">10</span> <span class="kr">then</span>
+</span><span id="__span-2-36"><a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a>                    <span class="n">room</span><span class="p">:</span><span class="n">sendSystemMessage</span><span class="p">(</span><span class="s2">&quot;游戏将在: &quot;</span> <span class="o">..</span> <span class="n">gameTime</span> <span class="o">..</span> <span class="s2">&quot;秒后结束！&quot;</span><span class="p">)</span>
+</span><span id="__span-2-37"><a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a>                <span class="kr">end</span>
+</span><span id="__span-2-38"><a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a>                <span class="n">gameTime</span> <span class="o">=</span> <span class="n">gameTime</span> <span class="o">-</span> <span class="mi">1</span>
+</span><span id="__span-2-39"><a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a>                <span class="kr">if</span> <span class="n">gameTime</span> <span class="o">==</span> <span class="mi">0</span> <span class="kr">then</span>
+</span><span id="__span-2-40"><a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a>
+</span><span id="__span-2-41"><a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a>                    <span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">player</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">players</span><span class="p">)</span> <span class="kr">do</span>
+</span><span id="__span-2-42"><a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a>                        <span class="kr">if</span> <span class="n">player</span><span class="p">:</span><span class="n">getTeam</span><span class="p">()</span> <span class="o">~=</span> <span class="n">currentPlayer</span><span class="p">:</span><span class="n">getTeam</span><span class="p">()</span> <span class="kr">then</span>
+</span><span id="__span-2-43"><a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a>                            <span class="n">surrenderedPlayers</span><span class="p">:</span><span class="n">push</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
+</span><span id="__span-2-44"><a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a>                        <span class="kr">end</span>
+</span><span id="__span-2-45"><a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a>                    <span class="kr">end</span>
+</span><span id="__span-2-46"><a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a>                    <span class="c1">--currentPlayer = nil</span>
+</span><span id="__span-2-47"><a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a>                    <span class="n">room</span><span class="p">:</span><span class="n">sendSystemMessage</span><span class="p">(</span><span class="s2">&quot;游戏结束！&quot;</span><span class="p">)</span>
+</span><span id="__span-2-48"><a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a>                    <span class="n">gameTime</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+</span><span id="__span-2-49"><a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a>                <span class="kr">end</span> 
+</span><span id="__span-2-50"><a id="__codelineno-2-50" name="__codelineno-2-50" href="#__codelineno-2-50"></a>            <span class="kr">end</span>
+</span><span id="__span-2-51"><a id="__codelineno-2-51" name="__codelineno-2-51" href="#__codelineno-2-51"></a>        <span class="kr">end</span>
+</span><span id="__span-2-52"><a id="__codelineno-2-52" name="__codelineno-2-52" href="#__codelineno-2-52"></a>    <span class="p">)</span>
+</span><span id="__span-2-53"><a id="__codelineno-2-53" name="__codelineno-2-53" href="#__codelineno-2-53"></a>
+</span><span id="__span-2-54"><a id="__codelineno-2-54" name="__codelineno-2-54" href="#__codelineno-2-54"></a>    <span class="c1">-- 在游戏开始时, 若gameMapTransformer不为nil, 则会提前解析map生成XMLMap(具体看源码)，解析的map可以进行修改来达到各种目的</span>
+</span><span id="__span-2-55"><a id="__codelineno-2-55" name="__codelineno-2-55" href="#__codelineno-2-55"></a>    <span class="n">room</span><span class="p">:</span><span class="n">setGameMapTransformer</span><span class="p">(</span><span class="kr">function</span> <span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">map</span><span class="p">)</span> <span class="c1">-- 这个地方创建了java Proxy, 第一个参数为Proxy对象，之后才是实际参数，这点需要注意</span>
+</span><span id="__span-2-56"><a id="__codelineno-2-56" name="__codelineno-2-56" href="#__codelineno-2-56"></a>        <span class="kd">local</span> <span class="n">tileWidth</span> <span class="o">=</span> <span class="n">map</span><span class="p">:</span><span class="n">getTileWidth</span><span class="p">()</span>
+</span><span id="__span-2-57"><a id="__codelineno-2-57" name="__codelineno-2-57" href="#__codelineno-2-57"></a>        <span class="kd">local</span> <span class="n">tileHeight</span> <span class="o">=</span> <span class="n">map</span><span class="p">:</span><span class="n">getTileHeight</span><span class="p">()</span>
+</span><span id="__span-2-58"><a id="__codelineno-2-58" name="__codelineno-2-58" href="#__codelineno-2-58"></a>        <span class="kd">local</span> <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">map</span><span class="p">:</span><span class="n">getWidth</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">tileWidth</span>
+</span><span id="__span-2-59"><a id="__codelineno-2-59" name="__codelineno-2-59" href="#__codelineno-2-59"></a>        <span class="kd">local</span> <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">map</span><span class="p">:</span><span class="n">getHeight</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">tileHeight</span>
+</span><span id="__span-2-60"><a id="__codelineno-2-60" name="__codelineno-2-60" href="#__codelineno-2-60"></a>        <span class="n">map</span><span class="p">:</span><span class="n">addMapObject</span><span class="p">(</span>
+</span><span id="__span-2-61"><a id="__codelineno-2-61" name="__codelineno-2-61" href="#__codelineno-2-61"></a>            <span class="s2">&quot;add_laboratory&quot;</span><span class="p">,</span> <span class="c1">-- id</span>
+</span><span id="__span-2-62"><a id="__codelineno-2-62" name="__codelineno-2-62" href="#__codelineno-2-62"></a>            <span class="s2">&quot;unitAdd&quot;</span><span class="p">,</span> <span class="c1">-- type</span>
+</span><span id="__span-2-63"><a id="__codelineno-2-63" name="__codelineno-2-63" href="#__codelineno-2-63"></a>            <span class="n">x</span><span class="p">,</span> <span class="c1">-- x</span>
+</span><span id="__span-2-64"><a id="__codelineno-2-64" name="__codelineno-2-64" href="#__codelineno-2-64"></a>            <span class="n">y</span><span class="p">,</span> <span class="c1">-- y</span>
+</span><span id="__span-2-65"><a id="__codelineno-2-65" name="__codelineno-2-65" href="#__codelineno-2-65"></a>            <span class="n">tileWidth</span><span class="p">,</span>  <span class="c1">-- width</span>
+</span><span id="__span-2-66"><a id="__codelineno-2-66" name="__codelineno-2-66" href="#__codelineno-2-66"></a>            <span class="n">tileHeight</span><span class="p">,</span> <span class="c1">-- height</span>
+</span><span id="__span-2-67"><a id="__codelineno-2-67" name="__codelineno-2-67" href="#__codelineno-2-67"></a>            <span class="kr">function</span> <span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">list</span><span class="p">)</span>
+</span><span id="__span-2-68"><a id="__codelineno-2-68" name="__codelineno-2-68" href="#__codelineno-2-68"></a>                <span class="n">list</span><span class="p">:</span><span class="n">add</span><span class="p">(</span><span class="n">Pair</span><span class="p">(</span><span class="s2">&quot;resetActivationAfter&quot;</span><span class="p">,</span> <span class="s2">&quot;1s&quot;</span><span class="p">))</span>
+</span><span id="__span-2-69"><a id="__codelineno-2-69" name="__codelineno-2-69" href="#__codelineno-2-69"></a>                <span class="n">list</span><span class="p">:</span><span class="n">add</span><span class="p">(</span><span class="n">Pair</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;add_laboratory&quot;</span><span class="p">))</span>
+</span><span id="__span-2-70"><a id="__codelineno-2-70" name="__codelineno-2-70" href="#__codelineno-2-70"></a>                <span class="n">list</span><span class="p">:</span><span class="n">add</span><span class="p">(</span><span class="n">Pair</span><span class="p">(</span><span class="s2">&quot;team&quot;</span><span class="p">,</span> <span class="s2">&quot;-1&quot;</span><span class="p">))</span>
+</span><span id="__span-2-71"><a id="__codelineno-2-71" name="__codelineno-2-71" href="#__codelineno-2-71"></a>                <span class="n">list</span><span class="p">:</span><span class="n">add</span><span class="p">(</span><span class="n">Pair</span><span class="p">(</span><span class="s2">&quot;spawnUnits&quot;</span><span class="p">,</span> <span class="s2">&quot;laboratory*1&quot;</span><span class="p">))</span>
+</span><span id="__span-2-72"><a id="__codelineno-2-72" name="__codelineno-2-72" href="#__codelineno-2-72"></a>                <span class="n">list</span><span class="p">:</span><span class="n">add</span><span class="p">(</span><span class="n">Pair</span><span class="p">(</span><span class="s2">&quot;activatedBy&quot;</span><span class="p">,</span> <span class="s2">&quot;detect_laboratory_death&quot;</span><span class="p">))</span>
+</span><span id="__span-2-73"><a id="__codelineno-2-73" name="__codelineno-2-73" href="#__codelineno-2-73"></a>                <span class="n">list</span><span class="p">:</span><span class="n">add</span><span class="p">(</span><span class="n">Pair</span><span class="p">(</span><span class="s2">&quot;allToActivate&quot;</span><span class="p">,</span> <span class="s2">&quot;true&quot;</span><span class="p">))</span>
+</span><span id="__span-2-74"><a id="__codelineno-2-74" name="__codelineno-2-74" href="#__codelineno-2-74"></a>                <span class="n">list</span><span class="p">:</span><span class="n">add</span><span class="p">(</span><span class="n">Pair</span><span class="p">(</span><span class="s2">&quot;showOnMap&quot;</span><span class="p">,</span> <span class="s2">&quot;true&quot;</span><span class="p">))</span>
+</span><span id="__span-2-75"><a id="__codelineno-2-75" name="__codelineno-2-75" href="#__codelineno-2-75"></a>            <span class="kr">end</span>
+</span><span id="__span-2-76"><a id="__codelineno-2-76" name="__codelineno-2-76" href="#__codelineno-2-76"></a>        <span class="p">)</span>
+</span><span id="__span-2-77"><a id="__codelineno-2-77" name="__codelineno-2-77" href="#__codelineno-2-77"></a>
+</span><span id="__span-2-78"><a id="__codelineno-2-78" name="__codelineno-2-78" href="#__codelineno-2-78"></a>        <span class="n">map</span><span class="p">:</span><span class="n">addMapObject</span><span class="p">(</span>
+</span><span id="__span-2-79"><a id="__codelineno-2-79" name="__codelineno-2-79" href="#__codelineno-2-79"></a>            <span class="s2">&quot;detect_laboratory_death&quot;</span><span class="p">,</span> <span class="c1">-- id</span>
+</span><span id="__span-2-80"><a id="__codelineno-2-80" name="__codelineno-2-80" href="#__codelineno-2-80"></a>            <span class="s2">&quot;unitDetect&quot;</span><span class="p">,</span> <span class="c1">-- type</span>
+</span><span id="__span-2-81"><a id="__codelineno-2-81" name="__codelineno-2-81" href="#__codelineno-2-81"></a>            <span class="mi">0</span><span class="p">,</span> <span class="c1">-- x</span>
+</span><span id="__span-2-82"><a id="__codelineno-2-82" name="__codelineno-2-82" href="#__codelineno-2-82"></a>            <span class="mi">0</span><span class="p">,</span> <span class="c1">-- y</span>
+</span><span id="__span-2-83"><a id="__codelineno-2-83" name="__codelineno-2-83" href="#__codelineno-2-83"></a>            <span class="n">map</span><span class="p">:</span><span class="n">getWidth</span><span class="p">()</span> <span class="o">*</span> <span class="n">tileWidth</span><span class="p">,</span>  <span class="c1">-- width</span>
+</span><span id="__span-2-84"><a id="__codelineno-2-84" name="__codelineno-2-84" href="#__codelineno-2-84"></a>            <span class="n">map</span><span class="p">:</span><span class="n">getHeight</span><span class="p">()</span> <span class="o">*</span> <span class="n">tileHeight</span><span class="p">,</span> <span class="c1">-- height</span>
+</span><span id="__span-2-85"><a id="__codelineno-2-85" name="__codelineno-2-85" href="#__codelineno-2-85"></a>            <span class="kr">function</span> <span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">list</span><span class="p">)</span>
+</span><span id="__span-2-86"><a id="__codelineno-2-86" name="__codelineno-2-86" href="#__codelineno-2-86"></a>                <span class="n">list</span><span class="p">:</span><span class="n">add</span><span class="p">(</span><span class="n">Pair</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;detect_laboratory_death&quot;</span><span class="p">))</span>
+</span><span id="__span-2-87"><a id="__codelineno-2-87" name="__codelineno-2-87" href="#__codelineno-2-87"></a>                <span class="n">list</span><span class="p">:</span><span class="n">add</span><span class="p">(</span><span class="n">Pair</span><span class="p">(</span><span class="s2">&quot;unitType&quot;</span><span class="p">,</span> <span class="s2">&quot;laboratory&quot;</span><span class="p">))</span>
+</span><span id="__span-2-88"><a id="__codelineno-2-88" name="__codelineno-2-88" href="#__codelineno-2-88"></a>                <span class="n">list</span><span class="p">:</span><span class="n">add</span><span class="p">(</span><span class="n">Pair</span><span class="p">(</span><span class="s2">&quot;maxUnits&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">))</span>
+</span><span id="__span-2-89"><a id="__codelineno-2-89" name="__codelineno-2-89" href="#__codelineno-2-89"></a>                <span class="n">list</span><span class="p">:</span><span class="n">add</span><span class="p">(</span><span class="n">Pair</span><span class="p">(</span><span class="s2">&quot;resetActivationAfter&quot;</span><span class="p">,</span> <span class="s2">&quot;1s&quot;</span><span class="p">))</span>
+</span><span id="__span-2-90"><a id="__codelineno-2-90" name="__codelineno-2-90" href="#__codelineno-2-90"></a>            <span class="kr">end</span>
+</span><span id="__span-2-91"><a id="__codelineno-2-91" name="__codelineno-2-91" href="#__codelineno-2-91"></a>        <span class="p">)</span>
+</span><span id="__span-2-92"><a id="__codelineno-2-92" name="__codelineno-2-92" href="#__codelineno-2-92"></a>
+</span><span id="__span-2-93"><a id="__codelineno-2-93" name="__codelineno-2-93" href="#__codelineno-2-93"></a>        <span class="kd">local</span> <span class="n">players</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">luaify</span><span class="p">(</span><span class="n">room</span><span class="p">:</span><span class="n">getPlayers</span><span class="p">())</span>
+</span><span id="__span-2-94"><a id="__codelineno-2-94" name="__codelineno-2-94" href="#__codelineno-2-94"></a>
+</span><span id="__span-2-95"><a id="__codelineno-2-95" name="__codelineno-2-95" href="#__codelineno-2-95"></a>        <span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">player</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">players</span><span class="p">)</span> <span class="kr">do</span>
+</span><span id="__span-2-96"><a id="__codelineno-2-96" name="__codelineno-2-96" href="#__codelineno-2-96"></a>            <span class="kd">local</span> <span class="n">id</span> <span class="o">=</span> <span class="s2">&quot;team_detect_laboratory_&quot;</span> <span class="o">..</span> <span class="n">player</span><span class="p">:</span><span class="n">getSpawnPoint</span><span class="p">()</span>
+</span><span id="__span-2-97"><a id="__codelineno-2-97" name="__codelineno-2-97" href="#__codelineno-2-97"></a>            <span class="n">map</span><span class="p">:</span><span class="n">addMapObject</span><span class="p">(</span>
+</span><span id="__span-2-98"><a id="__codelineno-2-98" name="__codelineno-2-98" href="#__codelineno-2-98"></a>                <span class="n">id</span><span class="p">,</span> <span class="c1">-- id</span>
+</span><span id="__span-2-99"><a id="__codelineno-2-99" name="__codelineno-2-99" href="#__codelineno-2-99"></a>                <span class="s2">&quot;unitDetect&quot;</span><span class="p">,</span> <span class="c1">-- type</span>
+</span><span id="__span-2-100"><a id="__codelineno-2-100" name="__codelineno-2-100" href="#__codelineno-2-100"></a>                <span class="n">x</span><span class="p">,</span> <span class="c1">-- x</span>
+</span><span id="__span-2-101"><a id="__codelineno-2-101" name="__codelineno-2-101" href="#__codelineno-2-101"></a>                <span class="n">y</span><span class="p">,</span> <span class="c1">-- y</span>
+</span><span id="__span-2-102"><a id="__codelineno-2-102" name="__codelineno-2-102" href="#__codelineno-2-102"></a>                <span class="n">tileWidth</span><span class="p">,</span>  <span class="c1">-- width</span>
+</span><span id="__span-2-103"><a id="__codelineno-2-103" name="__codelineno-2-103" href="#__codelineno-2-103"></a>                <span class="n">tileHeight</span><span class="p">,</span> <span class="c1">-- height</span>
+</span><span id="__span-2-104"><a id="__codelineno-2-104" name="__codelineno-2-104" href="#__codelineno-2-104"></a>                <span class="kr">function</span> <span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">list</span><span class="p">)</span>
+</span><span id="__span-2-105"><a id="__codelineno-2-105" name="__codelineno-2-105" href="#__codelineno-2-105"></a>                    <span class="n">list</span><span class="p">:</span><span class="n">add</span><span class="p">(</span><span class="n">Pair</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">id</span><span class="p">))</span>
+</span><span id="__span-2-106"><a id="__codelineno-2-106" name="__codelineno-2-106" href="#__codelineno-2-106"></a>                    <span class="n">list</span><span class="p">:</span><span class="n">add</span><span class="p">(</span><span class="n">Pair</span><span class="p">(</span><span class="s2">&quot;unitType&quot;</span><span class="p">,</span> <span class="s2">&quot;laboratory&quot;</span><span class="p">))</span>
+</span><span id="__span-2-107"><a id="__codelineno-2-107" name="__codelineno-2-107" href="#__codelineno-2-107"></a>                    <span class="n">list</span><span class="p">:</span><span class="n">add</span><span class="p">(</span><span class="n">Pair</span><span class="p">(</span><span class="s2">&quot;minUnits&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">))</span>
+</span><span id="__span-2-108"><a id="__codelineno-2-108" name="__codelineno-2-108" href="#__codelineno-2-108"></a>                    <span class="n">list</span><span class="p">:</span><span class="n">add</span><span class="p">(</span><span class="n">Pair</span><span class="p">(</span><span class="s2">&quot;resetActivationAfter&quot;</span><span class="p">,</span> <span class="s2">&quot;1s&quot;</span><span class="p">))</span>
+</span><span id="__span-2-109"><a id="__codelineno-2-109" name="__codelineno-2-109" href="#__codelineno-2-109"></a>                    <span class="n">list</span><span class="p">:</span><span class="n">add</span><span class="p">(</span><span class="n">Pair</span><span class="p">(</span><span class="s2">&quot;team&quot;</span><span class="p">,</span> <span class="nb">tostring</span><span class="p">(</span><span class="n">player</span><span class="p">:</span><span class="n">getSpawnPoint</span><span class="p">())))</span>
+</span><span id="__span-2-110"><a id="__codelineno-2-110" name="__codelineno-2-110" href="#__codelineno-2-110"></a>                    <span class="n">list</span><span class="p">:</span><span class="n">add</span><span class="p">(</span><span class="n">Pair</span><span class="p">(</span><span class="s2">&quot;showOnMap&quot;</span><span class="p">,</span> <span class="s2">&quot;true&quot;</span><span class="p">))</span>
+</span><span id="__span-2-111"><a id="__codelineno-2-111" name="__codelineno-2-111" href="#__codelineno-2-111"></a>                <span class="kr">end</span>
+</span><span id="__span-2-112"><a id="__codelineno-2-112" name="__codelineno-2-112" href="#__codelineno-2-112"></a>            <span class="p">)</span>
+</span><span id="__span-2-113"><a id="__codelineno-2-113" name="__codelineno-2-113" href="#__codelineno-2-113"></a>        <span class="kr">end</span>
+</span><span id="__span-2-114"><a id="__codelineno-2-114" name="__codelineno-2-114" href="#__codelineno-2-114"></a>    <span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-2-115"><a id="__codelineno-2-115" name="__codelineno-2-115" href="#__codelineno-2-115"></a><span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-2-116"><a id="__codelineno-2-116" name="__codelineno-2-116" href="#__codelineno-2-116"></a>
+</span><span id="__span-2-117"><a id="__codelineno-2-117" name="__codelineno-2-117" href="#__codelineno-2-117"></a><span class="n">filterEvents</span><span class="p">(</span><span class="s1">&#39;TriggerActivateEvent&#39;</span><span class="p">,</span> <span class="kr">function</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</span><span id="__span-2-118"><a id="__codelineno-2-118" name="__codelineno-2-118" href="#__codelineno-2-118"></a>    <span class="kd">local</span> <span class="n">room</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">getGameRoom</span><span class="p">()</span>
+</span><span id="__span-2-119"><a id="__codelineno-2-119" name="__codelineno-2-119" href="#__codelineno-2-119"></a>    <span class="kd">local</span> <span class="n">id</span> <span class="o">=</span> <span class="n">e</span><span class="p">:</span><span class="n">getId</span><span class="p">()</span>
+</span><span id="__span-2-120"><a id="__codelineno-2-120" name="__codelineno-2-120" href="#__codelineno-2-120"></a>    <span class="kr">if</span> <span class="ow">not</span> <span class="n">room</span><span class="p">:</span><span class="n">isHost</span><span class="p">()</span> <span class="kr">then</span>
+</span><span id="__span-2-121"><a id="__codelineno-2-121" name="__codelineno-2-121" href="#__codelineno-2-121"></a>        <span class="kr">return</span>
+</span><span id="__span-2-122"><a id="__codelineno-2-122" name="__codelineno-2-122" href="#__codelineno-2-122"></a>    <span class="kr">end</span>
+</span><span id="__span-2-123"><a id="__codelineno-2-123" name="__codelineno-2-123" href="#__codelineno-2-123"></a>
+</span><span id="__span-2-124"><a id="__codelineno-2-124" name="__codelineno-2-124" href="#__codelineno-2-124"></a>    <span class="kr">if</span> <span class="n">String</span><span class="p">(</span><span class="n">id</span><span class="p">):</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;add_laboratory&#39;</span><span class="p">)</span> <span class="kr">then</span>
+</span><span id="__span-2-125"><a id="__codelineno-2-125" name="__codelineno-2-125" href="#__codelineno-2-125"></a>        <span class="n">gameTime</span> <span class="o">=</span> <span class="n">maxTime</span>
+</span><span id="__span-2-126"><a id="__codelineno-2-126" name="__codelineno-2-126" href="#__codelineno-2-126"></a>        <span class="n">room</span><span class="p">:</span><span class="n">sendSystemMessage</span><span class="p">(</span><span class="s2">&quot;检测到实验室已经被摧毁！ 重新生成实验室&quot;</span><span class="p">)</span>
+</span><span id="__span-2-127"><a id="__codelineno-2-127" name="__codelineno-2-127" href="#__codelineno-2-127"></a>        <span class="n">currentPlayer</span> <span class="o">=</span> <span class="kc">nil</span>
+</span><span id="__span-2-128"><a id="__codelineno-2-128" name="__codelineno-2-128" href="#__codelineno-2-128"></a>    <span class="kr">end</span>
+</span><span id="__span-2-129"><a id="__codelineno-2-129" name="__codelineno-2-129" href="#__codelineno-2-129"></a>
+</span><span id="__span-2-130"><a id="__codelineno-2-130" name="__codelineno-2-130" href="#__codelineno-2-130"></a>    <span class="kr">if</span> <span class="n">String</span><span class="p">(</span><span class="n">id</span><span class="p">):</span><span class="n">startsWith</span><span class="p">(</span><span class="s2">&quot;team_detect_laboratory_&quot;</span><span class="p">)</span> <span class="kr">then</span>
+</span><span id="__span-2-131"><a id="__codelineno-2-131" name="__codelineno-2-131" href="#__codelineno-2-131"></a>        <span class="kd">local</span> <span class="n">spawnPoint</span> <span class="o">=</span> <span class="nb">tonumber</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="n">luaify</span><span class="p">(</span><span class="n">String</span><span class="p">(</span><span class="n">id</span><span class="p">):</span><span class="n">replaceFirst</span><span class="p">(</span><span class="s2">&quot;team_detect_laboratory_&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)))</span>
+</span><span id="__span-2-132"><a id="__codelineno-2-132" name="__codelineno-2-132" href="#__codelineno-2-132"></a>        <span class="kd">local</span> <span class="n">players</span> <span class="o">=</span> <span class="n">java</span><span class="p">.</span><span class="n">luaify</span><span class="p">(</span><span class="n">room</span><span class="p">:</span><span class="n">getPlayers</span><span class="p">())</span>
+</span><span id="__span-2-133"><a id="__codelineno-2-133" name="__codelineno-2-133" href="#__codelineno-2-133"></a>        <span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">player</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">players</span><span class="p">)</span> <span class="kr">do</span>
+</span><span id="__span-2-134"><a id="__codelineno-2-134" name="__codelineno-2-134" href="#__codelineno-2-134"></a>            <span class="kr">if</span> <span class="n">player</span><span class="p">:</span><span class="n">getSpawnPoint</span><span class="p">()</span> <span class="o">==</span> <span class="n">spawnPoint</span> <span class="kr">then</span>
+</span><span id="__span-2-135"><a id="__codelineno-2-135" name="__codelineno-2-135" href="#__codelineno-2-135"></a>                <span class="kr">if</span> <span class="n">currentPlayer</span> <span class="o">~=</span> <span class="n">player</span> <span class="kr">then</span>
+</span><span id="__span-2-136"><a id="__codelineno-2-136" name="__codelineno-2-136" href="#__codelineno-2-136"></a>                    <span class="n">currentPlayer</span> <span class="o">=</span> <span class="n">player</span>
+</span><span id="__span-2-137"><a id="__codelineno-2-137" name="__codelineno-2-137" href="#__codelineno-2-137"></a>                    <span class="n">room</span><span class="p">:</span><span class="n">sendSystemMessage</span><span class="p">(</span><span class="s2">&quot;警告：检测到玩家 [&quot;</span> <span class="o">..</span> <span class="n">player</span><span class="p">:</span><span class="n">getName</span><span class="p">()</span> <span class="o">..</span> <span class="s2">&quot;] 已经占领了实验室！&quot;</span><span class="p">)</span>
+</span><span id="__span-2-138"><a id="__codelineno-2-138" name="__codelineno-2-138" href="#__codelineno-2-138"></a>                    <span class="n">gameTime</span> <span class="o">=</span> <span class="n">maxTime</span>
+</span><span id="__span-2-139"><a id="__codelineno-2-139" name="__codelineno-2-139" href="#__codelineno-2-139"></a>                <span class="kr">end</span>
+</span><span id="__span-2-140"><a id="__codelineno-2-140" name="__codelineno-2-140" href="#__codelineno-2-140"></a>                <span class="kr">break</span>
+</span><span id="__span-2-141"><a id="__codelineno-2-141" name="__codelineno-2-141" href="#__codelineno-2-141"></a>            <span class="kr">end</span>
+</span><span id="__span-2-142"><a id="__codelineno-2-142" name="__codelineno-2-142" href="#__codelineno-2-142"></a>        <span class="kr">end</span>
+</span><span id="__span-2-143"><a id="__codelineno-2-143" name="__codelineno-2-143" href="#__codelineno-2-143"></a>    <span class="kr">end</span>
+</span><span id="__span-2-144"><a id="__codelineno-2-144" name="__codelineno-2-144" href="#__codelineno-2-144"></a><span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-2-145"><a id="__codelineno-2-145" name="__codelineno-2-145" href="#__codelineno-2-145"></a>
+</span><span id="__span-2-146"><a id="__codelineno-2-146" name="__codelineno-2-146" href="#__codelineno-2-146"></a><span class="n">registerCommand</span><span class="p">(</span><span class="s2">&quot;settime&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;time&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;设置游戏最大时长，单位为秒&quot;</span><span class="p">,</span> <span class="kr">function</span> <span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">player</span><span class="p">)</span>
+</span><span id="__span-2-147"><a id="__codelineno-2-147" name="__codelineno-2-147" href="#__codelineno-2-147"></a>    <span class="kd">local</span> <span class="n">room</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">getGameRoom</span><span class="p">()</span>
+</span><span id="__span-2-148"><a id="__codelineno-2-148" name="__codelineno-2-148" href="#__codelineno-2-148"></a>    <span class="c1">-- 判断玩家是否为房主</span>
+</span><span id="__span-2-149"><a id="__codelineno-2-149" name="__codelineno-2-149" href="#__codelineno-2-149"></a>    <span class="kr">if</span> <span class="n">room</span><span class="p">:</span><span class="n">getLocalPlayer</span><span class="p">()</span> <span class="o">==</span> <span class="n">player</span> <span class="kr">then</span>
+</span><span id="__span-2-150"><a id="__codelineno-2-150" name="__codelineno-2-150" href="#__codelineno-2-150"></a>        <span class="n">maxTime</span> <span class="o">=</span> <span class="nb">tonumber</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="ow">or</span> <span class="mi">100</span>
+</span><span id="__span-2-151"><a id="__codelineno-2-151" name="__codelineno-2-151" href="#__codelineno-2-151"></a>        <span class="n">reply</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="s2">&quot;游戏最大时长设置为: &quot;</span> <span class="o">..</span> <span class="n">maxTime</span><span class="p">)</span>
+</span><span id="__span-2-152"><a id="__codelineno-2-152" name="__codelineno-2-152" href="#__codelineno-2-152"></a>    <span class="kr">end</span>
+</span><span id="__span-2-153"><a id="__codelineno-2-153" name="__codelineno-2-153" href="#__codelineno-2-153"></a><span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-2-154"><a id="__codelineno-2-154" name="__codelineno-2-154" href="#__codelineno-2-154"></a>
+</span><span id="__span-2-155"><a id="__codelineno-2-155" name="__codelineno-2-155" href="#__codelineno-2-155"></a><span class="n">filterEvents</span><span class="p">(</span><span class="s1">&#39;PlayerJoinEvent&#39;</span><span class="p">,</span> <span class="kr">function</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</span><span id="__span-2-156"><a id="__codelineno-2-156" name="__codelineno-2-156" href="#__codelineno-2-156"></a>    <span class="n">reply</span><span class="p">(</span><span class="n">e</span><span class="p">:</span><span class="n">getPlayer</span><span class="p">(),</span> <span class="s2">&quot;欢迎来到山丘之王模式！游戏规则：占领地图中间的实验室一段时间后即可获得胜利&quot;</span><span class="p">)</span>
+</span><span id="__span-2-157"><a id="__codelineno-2-157" name="__codelineno-2-157" href="#__codelineno-2-157"></a><span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-2-158"><a id="__codelineno-2-158" name="__codelineno-2-158" href="#__codelineno-2-158"></a>
+</span><span id="__span-2-159"><a id="__codelineno-2-159" name="__codelineno-2-159" href="#__codelineno-2-159"></a><span class="c1">-- 在游戏地图更改时调用</span>
+</span><span id="__span-2-160"><a id="__codelineno-2-160" name="__codelineno-2-160" href="#__codelineno-2-160"></a><span class="n">filterEvents</span><span class="p">(</span><span class="s1">&#39;MapChangedEvent&#39;</span><span class="p">,</span> <span class="kr">function</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</span><span id="__span-2-161"><a id="__codelineno-2-161" name="__codelineno-2-161" href="#__codelineno-2-161"></a>    <span class="kd">local</span> <span class="n">room</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">getGameRoom</span><span class="p">()</span>
+</span><span id="__span-2-162"><a id="__codelineno-2-162" name="__codelineno-2-162" href="#__codelineno-2-162"></a>    <span class="kr">if</span> <span class="n">room</span><span class="p">:</span><span class="n">isHost</span><span class="p">()</span> <span class="kr">then</span>
+</span><span id="__span-2-163"><a id="__codelineno-2-163" name="__codelineno-2-163" href="#__codelineno-2-163"></a>        <span class="n">room</span><span class="p">:</span><span class="n">setDisplayMapName</span><span class="p">(</span><span class="s2">&quot;山丘之王♦&quot;</span> <span class="o">..</span> <span class="n">e</span><span class="p">:</span><span class="n">getMapName</span><span class="p">())</span>
+</span><span id="__span-2-164"><a id="__codelineno-2-164" name="__codelineno-2-164" href="#__codelineno-2-164"></a>    <span class="kr">end</span>
+</span><span id="__span-2-165"><a id="__codelineno-2-165" name="__codelineno-2-165" href="#__codelineno-2-165"></a><span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-2-166"><a id="__codelineno-2-166" name="__codelineno-2-166" href="#__codelineno-2-166"></a>
+</span><span id="__span-2-167"><a id="__codelineno-2-167" name="__codelineno-2-167" href="#__codelineno-2-167"></a><span class="c1">-- 当本地游戏玩家退出游戏时</span>
+</span><span id="__span-2-168"><a id="__codelineno-2-168" name="__codelineno-2-168" href="#__codelineno-2-168"></a><span class="n">filterEvents</span><span class="p">(</span><span class="s1">&#39;QuitGameEvent&#39;</span><span class="p">,</span> <span class="kr">function</span> <span class="p">(</span><span class="n">_</span><span class="p">)</span>
+</span><span id="__span-2-169"><a id="__codelineno-2-169" name="__codelineno-2-169" href="#__codelineno-2-169"></a>    <span class="n">currentPlayer</span> <span class="o">=</span> <span class="kc">nil</span>
+</span><span id="__span-2-170"><a id="__codelineno-2-170" name="__codelineno-2-170" href="#__codelineno-2-170"></a><span class="kr">end</span><span class="p">)</span>
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.expand", "content.code.copy"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+    
+  </body>
+</html>
