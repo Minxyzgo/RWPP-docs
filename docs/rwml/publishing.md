@@ -17,7 +17,7 @@ compileOnly("io.github.rwpp-team:game-lib:v3-1.15")
 
 ## 发布流程
 
-仓库中的 `scripts/publish-core.ps1` 封装了签名、校验和上传：
+仓库中的 `scripts/publish/publish-core.ps1` 封装了签名、校验和上传：
 
 ```powershell
 .\scripts\publish\publish-core.ps1 -Action PrepareSigning
