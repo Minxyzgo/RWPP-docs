@@ -46,7 +46,7 @@ core 不依赖游戏，因此同一份 API 可以在桌面与 Android 的类路�
 
 ### 桌面
 
-安装程序随 Releases 发布，文件名 `rwml-setup.exe`。下载地址为 [rwml-setup.exe](/downloads/rwml-setup.exe)。下载地址为 [rwml-setup.exe](/downloads/rwml-setup.exe)。
+安装程序随 Releases 发布，文件名 `rwml-setup.exe`。下载地址为 [rwml-setup.exe](/downloads/rwml-setup.exe)。
 
 1. 运行安装程序。程序会从 Steam 注册表与库目录定位游戏，也可以手动选择目录。
 2. 点击安装。原版 `game-lib.jar` 保存为 `game-lib.jar.original`，随后写入 RWML 的归档。
@@ -79,6 +79,12 @@ RWML 可以从 HTTPS 目录读取扩展列表，搜索、安装与更新都在�
 | --- | --- |
 | `--rwml-no-launcher` | 跳过启动器，直接进入游戏 |
 | `--rwml-manager` | 强制打开扩展管理界面 |
+
+## 致谢
+
+字节码改写基于 [RELAY-CN](https://github.com/RELAY-CN) 的 [ASM-Framework](https://github.com/RELAY-CN/ASM-Framework)。感谢作者与维护者提供这套面向 JVM 与 Android 的 ASM 工具库，扩展类改写与 mixin 注册依赖它。
+
+游戏类映射由 [Anvil](https://github.com/RWPP-Team/Anvil) 维护。
 
 ## 接下来
 

@@ -57,6 +57,10 @@ RWML 在游戏启动前决定加载哪些扩展，在类加载阶段改写游戏
 
 日志保留原始语言，不受界面语言影响。
 
+## 致谢
+
+类改写与 mixin 注册使用 [RELAY-CN](https://github.com/RELAY-CN) 的 [ASM-Framework](https://github.com/RELAY-CN/ASM-Framework)，感谢其作者与维护者。桌面端以 agent 形式安装它，Android 端在宿主的 dex 准备阶段使用同一套库。
+
 ## 相关文档
 
 - [扩展系统](extensions.md)
