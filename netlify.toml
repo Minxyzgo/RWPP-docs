@@ -78,7 +78,7 @@
 
 # 扩展归档由函数从 Blobs 流式返回，覆盖静态资源的长缓存与校验头。
 [[headers]]
-  for = "/api/extensions/*"
+  for = "/api/archives/*"
   [headers.values]
     Access-Control-Allow-Origin = "*"
     Cache-Control = "public, max-age=31536000, immutable"

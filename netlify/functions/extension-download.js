@@ -1,9 +1,10 @@
 import { getStore } from "@netlify/blobs";
 
 // 扩展归档存放在 Netlify Blobs 的 extensions 仓库里，函数只负责按名称读取并输出。
-// 路径形如 /api/extensions/rwpp-client-2.0.0-jvm.jar，与目录条目中的 url 字段一致。
+// 路径形如 /api/archives/rwpp-client-2.0.0-jvm.jar，与目录条目中的 url 字段一致。
+// 不使用 /api/extensions/：那条路径已经用于单条扩展的 JSON。
 const STORE = "extensions";
-const MARKER = "/api/extensions/";
+const MARKER = "/api/archives/";
 const CACHE = "public, max-age=31536000, immutable";
 
 function requestedName(pathname) {
@@ -64,4 +65,4 @@ export default async (request) => {
   return new Response(entry.data, { status: 200, headers });
 };
 
-export const config = { path: "/api/extensions/*" };
+export const config = { path: "/api/archives/*" };

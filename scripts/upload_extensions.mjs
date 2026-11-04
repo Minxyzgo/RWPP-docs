@@ -5,7 +5,7 @@
 //   ... -- --apply
 //
 // 不带 --apply 时只上传；带 --apply 时按摘要找到 data/extensions.json 中对应的条目，
-// 把 url 改成 /api/extensions/<文件名>，并由构建阶段的 generate_api.py 重新生成目录。
+// 把 url 改成 /api/archives/<文件名>，并由构建阶段的 generate_api.py 重新生成目录。
 
 import { createHash } from "node:crypto";
 import { readFile, writeFile } from "node:fs/promises";
@@ -50,7 +50,7 @@ async function rewriteManifest(uploaded) {
       if (!match) {
         continue;
       }
-      const next = `/api/extensions/${match.name}`;
+      const next = `/api/archives/${match.name}`;
       if (artifact.url !== next) {
         artifact.url = next;
         replaced += 1;
