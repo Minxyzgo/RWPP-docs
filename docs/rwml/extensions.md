@@ -2,6 +2,12 @@
 
 扩展是一个带 `META-INF/extension.properties` 的 jar。宿主只读取描述符，不执行扩展代码即可完成发现、排序与版本选择。
 
+## 归档来源
+
+扩展归档由本站分发：目录条目里的 `url` 指向 `/api/extensions/<文件名>`，由 Netlify Blobs 中的 `extensions` 仓库读取后返回。客户端只与站点通信，不再跳转到代码托管平台的下载页。
+
+归档以 SHA-256 命名校验，响应头带上 `X-Checksum-Sha256` 与固定缓存，重复安装同一版本时直接命中客户端缓存。
+
 ## 描述符
 
 ```properties

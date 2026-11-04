@@ -1,0 +1,12 @@
+{
+  "name": "rwpp-docs",
+  "private": true,
+  "type": "module",
+  "description": "RWPP-Team 站点：文档、扩展目录与扩展归档分发。",
+  "scripts": {
+    "upload:extensions": "node scripts/upload_extensions.mjs"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0"
+  }
+}

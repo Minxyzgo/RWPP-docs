@@ -39,7 +39,7 @@
         {
           "id": "io.github.rwpp",
           "platform": "jvm",
-          "url": "https://example.com/rwpp-client-2.0.0-jvm.jar",
+          "url": "https://rwpp-team.top/api/extensions/rwpp-client-2.0.0-jvm.jar",
           "sha256": "8545f6d6d3ae3981b19caf357168d24daaeb68f11b70792acf77afca2e9d30c6",
           "size": 79041523
         }
@@ -73,7 +73,7 @@
 | --- | --- | --- |
 | `id` | 否 | 归档内的扩展标识，缺省沿用条目 `id` |
 | `platform` | 否 | `jvm`、`android` 或留空表示全部平台 |
-| `url` | 是 | 绝对 HTTPS 地址 |
+| `url` | 是 | 归档地址，由本站 `/api/extensions/<文件名>` 提供 |
 | `sha256` | 是 | 64 位十六进制摘要 |
 | `size` | 是 | 正整数字节数 |
 
