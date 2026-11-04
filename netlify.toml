@@ -1,5 +1,5 @@
 [build]
-  command = "pip install -r requirements.txt && python scripts/generate_api.py && mkdocs build --clean"
+  command = "python scripts/diagnose_build.py && pip install -r requirements.txt && mkdocs build --clean"
   publish = "site"
   functions = "netlify/functions"
 

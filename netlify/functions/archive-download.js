@@ -20,8 +20,13 @@ const PRESIGN_SECONDS = 300;
 const RATE_WINDOW_MS = 60_000;
 const TOKEN_RATE_LIMIT = 5;
 const IP_RATE_LIMIT = 20;
+// Both budgets sit far below the free tier, so per-instance counting cannot
+// drift past the paid threshold even when several function instances run.
+const MONTHLY_BUDGET = Number(process.env.RWPP_R2_MONTHLY_BUDGET || 500_000);
+const TOKEN_LIFETIME_LIMIT = 10_000;
 
 const rateHits = new Map();
+const tokenSpend = new Map();
 let issued = { month: "", count: 0 };
 let usageCache = { at: 0, bytes: 0, valid: false };
 
@@ -173,8 +178,9 @@ async function quotaBlock() {
   if (state.month === month && Number(state.storageBytes || 0) >= storageLimit) {
     return "storage budget exhausted";
   }
-  if (issued.month === month && issued.count >= limit) {
-    return "runtime operation budget exhausted";
+  const runtimeLimit = Math.min(limit, MONTHLY_BUDGET);
+  if (issued.month === month && issued.count >= runtimeLimit) {
+    return "monthly R2 budget exhausted";
   }
   const bytes = await storageBytes();
   if (bytes !== null && bytes >= storageLimit) {
@@ -324,6 +330,8 @@ exports.handler = async (event) => {
   if (!claims) {
     return failure(401, "invalid or expired archive token");
   }
+  const spent = tokenSpend.get(token) || 0;
+  const tokenExhausted = spent >= TOKEN_LIFETIME_LIMIT;
   const client = event.headers["x-nf-client-connection-ip"]
     || event.headers["x-forwarded-for"]
     || "unknown";
@@ -332,13 +340,15 @@ exports.handler = async (event) => {
   }
 
   const blocked = await quotaBlock();
-  if (!blocked && record.r2) {
+  const r2Reason = blocked || (tokenExhausted ? "archive token budget exhausted" : null);
+  if (!r2Reason && record.r2) {
     try {
       const probe = presign("HEAD", record.r2, PRESIGN_SECONDS);
       if (probe && (await head(probe, true, record.size))) {
         const location = presign("GET", record.r2, PRESIGN_SECONDS);
         if (location) {
           markIssued();
+          tokenSpend.set(token, spent + 1);
           return redirect(location, "r2");
         }
       }
@@ -349,13 +359,13 @@ exports.handler = async (event) => {
 
   try {
     if (await head(record.github, false, record.size)) {
-      return redirect(record.github, "github", blocked || "r2 unavailable");
+      return redirect(record.github, "github", r2Reason || "r2 unavailable");
     }
   } catch (error) {
     console.warn(`archive-download: github probe failed: ${error.message}`);
   }
 
   return failure(503, "archive service is paused", {
-    "X-RWPP-Reason": blocked || "all sources unavailable",
+    "X-RWPP-Reason": r2Reason || "all sources unavailable",
   });
 };

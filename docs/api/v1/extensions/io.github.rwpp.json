@@ -32,7 +32,7 @@
     {
       "id": "io.github.rwpp.api",
       "platform": "jvm",
-      "url": "https://rwpp-team.top/api/archives/rwpp-api-1.0.2-jvm.jar?k=eyJmIjoicndwcC1hcGktMS4wLjItanZtLmphciIsInMiOjE3OTM3OTMyNTksImUiOjE3OTYzODUyNTl9.L643Pz8d9T5HxLnKlQlZlTTx-sy5llJnZFF-Z6OVoPc",
+      "url": "https://rwpp-team.top/api/archives/rwpp-api-1.0.2-jvm.jar?k=eyJmIjoicndwcC1hcGktMS4wLjItanZtLmphciIsInMiOjE3OTM3OTM0ODksImUiOjE3OTYzODU0ODl9.bOtdiPRrQpgOOpXjZI0iXDywj-yxCuq1hTFTi2mdTp0",
       "sha256": "49312a183f06ad42855ca7af71b36ead034893485d3785f3836219cfbc4611ce",
       "size": 9196390,
       "sources": {
@@ -43,7 +43,7 @@
     {
       "id": "io.github.rwpp",
       "platform": "jvm",
-      "url": "https://rwpp-team.top/api/archives/rwpp-client-2.0.0-jvm.jar?k=eyJmIjoicndwcC1jbGllbnQtMi4wLjAtanZtLmphciIsInMiOjE3OTM3OTMyNTksImUiOjE3OTYzODUyNTl9.4kslIAtb3wTX_dSetV_xtXgelid1vBd9ljBwZXayw0I",
+      "url": "https://rwpp-team.top/api/archives/rwpp-client-2.0.0-jvm.jar?k=eyJmIjoicndwcC1jbGllbnQtMi4wLjAtanZtLmphciIsInMiOjE3OTM3OTM0ODksImUiOjE3OTYzODU0ODl9.yhOFwDyddW5zlcUWe-omvBRuYp7swsRekFm8-mQIaDA",
       "sha256": "8545f6d6d3ae3981b19caf357168d24daaeb68f11b70792acf77afca2e9d30c6",
       "size": 79041523,
       "sources": {
@@ -54,7 +54,7 @@
     {
       "id": "io.github.rwpp.api",
       "platform": "android",
-      "url": "https://rwpp-team.top/api/archives/rwpp-api-1.0.2-android.jar?k=eyJmIjoicndwcC1hcGktMS4wLjItYW5kcm9pZC5qYXIiLCJzIjoxNzkzNzkzMjU5LCJlIjoxNzk2Mzg1MjU5fQ.co9jpZfFyq8lV05JVMSqv_SxGZmZAUEnTULwKQ06_V8",
+      "url": "https://rwpp-team.top/api/archives/rwpp-api-1.0.2-android.jar?k=eyJmIjoicndwcC1hcGktMS4wLjItYW5kcm9pZC5qYXIiLCJzIjoxNzkzNzkzNDg5LCJlIjoxNzk2Mzg1NDg5fQ.53cjgm1mcbdMCOkaqDWJDXVplkkjMVQGsSyylSWPbBY",
       "sha256": "4c6f15a56f7d36e4ae885976a382bd77bc75bbce5a445ded31f47fe1d54eb43f",
       "size": 12396163,
       "sources": {
@@ -65,7 +65,7 @@
     {
       "id": "io.github.rwpp",
       "platform": "android",
-      "url": "https://rwpp-team.top/api/archives/rwpp-client-2.0.0-android.jar?k=eyJmIjoicndwcC1jbGllbnQtMi4wLjAtYW5kcm9pZC5qYXIiLCJzIjoxNzkzNzkzMjU5LCJlIjoxNzk2Mzg1MjU5fQ.NnodVl6HBHoKR6Uf8n9Yt2_LDmN3gzR1LFmEzYIE6pc",
+      "url": "https://rwpp-team.top/api/archives/rwpp-client-2.0.0-android.jar?k=eyJmIjoicndwcC1jbGllbnQtMi4wLjAtYW5kcm9pZC5qYXIiLCJzIjoxNzkzNzkzNDg5LCJlIjoxNzk2Mzg1NDg5fQ.pxF7CuIcdlheAxl6FxZznUx_M2kr41DHdeARPCQl8_g",
       "sha256": "1c887b55d25b832fdf13fbd52631b0deb3a9e587180e9aecea50cd3542da063d",
       "size": 45393917,
       "sources": {
