@@ -77,10 +77,93 @@
     grid.innerHTML = featured.map(card).join("");
   }
 
+  // 首屏尘埃层：缓慢上浮的颗粒，随首屏可见性暂停。
+  function startCinema() {
+    const canvas = document.getElementById("cine-canvas");
+    if (!canvas || canvas.dataset.ready === "true") return;
+    const context = canvas.getContext("2d");
+    if (!context) return;
+    canvas.dataset.ready = "true";
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let width = 0;
+    let height = 0;
+    let particles = [];
+    let visible = true;
+    let animation = 0;
+
+    function seed() {
+      const count = Math.min(90, Math.max(24, Math.round((width * height) / 20000)));
+      particles = Array.from({ length: count }, () => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        radius: 0.5 + Math.random() * 1.4,
+        alpha: 0.05 + Math.random() * 0.22,
+        speed: 0.05 + Math.random() * 0.22,
+        phase: Math.random() * Math.PI * 2,
+      }));
+    }
+
+    function resize() {
+      const rect = canvas.getBoundingClientRect();
+      const ratio = Math.min(window.devicePixelRatio || 1, 2);
+      width = rect.width;
+      height = rect.height;
+      canvas.width = Math.round(width * ratio);
+      canvas.height = Math.round(height * ratio);
+      context.setTransform(ratio, 0, 0, ratio, 0, 0);
+      seed();
+      draw(0);
+    }
+
+    function draw(time) {
+      context.clearRect(0, 0, width, height);
+      for (const particle of particles) {
+        particle.y -= particle.speed;
+        particle.x += Math.sin(time * 0.0004 + particle.phase) * 0.12;
+        if (particle.y < -4) {
+          particle.y = height + 4;
+          particle.x = Math.random() * width;
+        }
+        if (particle.x < -4) particle.x = width + 4;
+        if (particle.x > width + 4) particle.x = -4;
+        context.beginPath();
+        context.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+        context.fillStyle = `rgba(206, 232, 212, ${particle.alpha})`;
+        context.fill();
+      }
+    }
+
+    function loop(time) {
+      if (!visible) {
+        animation = 0;
+        return;
+      }
+      draw(time);
+      animation = window.requestAnimationFrame(loop);
+    }
+
+    resize();
+    window.addEventListener("resize", resize, { passive: true });
+
+    if (!reduceMotion) {
+      if ("IntersectionObserver" in window) {
+        new IntersectionObserver((entries) => {
+          visible = entries[0].isIntersecting;
+          if (visible && !animation) {
+            animation = window.requestAnimationFrame(loop);
+          }
+        }, { threshold: 0 }).observe(canvas);
+      }
+      animation = window.requestAnimationFrame(loop);
+    }
+  }
+
   async function init() {
     const root = document.querySelector(".p-page--home");
     if (!root || root.dataset.loaded === "true") return;
     root.dataset.loaded = "true";
+    startCinema();
     try {
       const response = await fetch(new URL("api/v1/index.json", document.baseURI).href, {
         headers: { Accept: "application/json" },

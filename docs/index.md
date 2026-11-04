@@ -1,40 +1,44 @@
 ---
-title: 两个产品，一套运行时
-description: RWPP-Team 维护 RWML 扩展运行时与 RWPP 客户端、服务端，并提供扩展目录与仓库接口。
+title: 划时代的扩展运行时
+description: 划时代的 Rusted Warfare 扩展运行时。RWML 负责扩展加载、校验与更新，RWPP 提供客户端、无头服务端与扩展目录。
 layout: home
 ---
 
-<section class="p-hero">
-  <div class="p-wrap p-hero__inner">
-    <div>
-      <h1>两个产品，一套运行时。</h1>
-      <p class="p-lead">RWML 负责扩展的加载、校验与更新。RWPP 是运行在它上面的客户端与服务端，提供界面、联机与托管。</p>
-      <div class="p-actions">
-        <a class="p-btn p-btn--primary" href="rwml/">了解 RWML</a>
-        <a class="p-btn" href="rwpp/">了解 RWPP</a>
-        <a class="p-link" href="extensions/">浏览扩展目录</a>
+<section class="cine">
+  <canvas class="cine__canvas" id="cine-canvas" aria-hidden="true"></canvas>
+  <div class="cine__veil" aria-hidden="true"></div>
+  <div class="p-wrap cine__inner">
+    <div class="cine__copy">
+      <p class="cine__kicker">RWPP-Team</p>
+      <h1 class="cine__title">
+        <span class="cine__title-pre">划时代的</span>
+        <span class="cine__title-main">扩展运行时</span>
+      </h1>
+      <p class="cine__lead"><strong>更好的 Rusted Warfare。</strong>RWML 负责扩展的加载、校验与更新，RWPP 提供界面、联机与托管。</p>
+      <div class="cine__actions">
+        <a class="p-btn p-btn--primary p-btn--lg" href="/downloads/rwml-setup.exe">下载安装程序</a>
+        <a class="p-btn p-btn--ghost p-btn--lg" href="rwml/">了解 RWML</a>
+        <a class="cine__link" href="extensions/">浏览扩展目录</a>
       </div>
-      <ul class="p-facts">
+      <ul class="cine__facts">
         <li><span>运行时</span><strong>RWML 1.0.2</strong></li>
         <li><span>客户端</span><strong>RWPP 2.0.0</strong></li>
         <li><span>平台</span><strong>Windows、Linux、Android</strong></li>
         <li><span>许可</span><strong>RWPP-Team Shield 1.0.0</strong></li>
       </ul>
     </div>
-    <div>
-      <div class="p-console" role="img" aria-label="桌面端启动日志">
-        <div class="p-console__bar"><span>rwml.log</span><span>启动</span></div>
-        <pre class="p-console__body"><span class="dim">[rwml]</span> Game directory: ...\Rusted Warfare
-<span class="dim">[rwml]</span> Extensions directory: ...\Rusted Warfare\extensions
+    <div class="cine__console" aria-hidden="true">
+      <div class="cine__console-bar"><span>rwml.log</span><span>启动</span></div>
+      <pre class="cine__console-body"><span class="dim">[rwml]</span> Game directory: ...\Rusted Warfare
+<span class="dim">[rwml]</span> Extensions directory: ...\extensions
 <span class="ok">[rwml]</span> Bytecode transformer is active; mixins apply as classes load.
 <span class="dim">[rwml]</span>   <span class="add">+</span> RWML Interface 1.0.2  [io.github.rwml.builtin]
 <span class="dim">[rwml]</span>   <span class="add">+</span> RWML API 1.0.2  [io.github.rwpp.api]
 <span class="dim">[rwml]</span>   <span class="add">+</span> RWPP 2.0.0  [io.github.rwpp]
-<span class="dim">[rwml]</span> Starting Rusted Warfare <span class="p-console__caret"></span></pre>
-      </div>
-      <p class="p-caption">桌面端启动日志节选。标识、版本与加载结果均取自实际运行。</p>
+<span class="dim">[rwml]</span> Starting Rusted Warfare <span class="cine__caret"></span></pre>
     </div>
   </div>
+  <div class="cine__scroll" aria-hidden="true"><span></span>向下浏览</div>
 </section>
 
 <section class="p-section">
