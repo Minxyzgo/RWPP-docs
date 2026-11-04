@@ -15,7 +15,7 @@ layout: wide
     </div>
     <div class="p-specs">
       <div class="p-spec"><span>当前版本</span><strong>1.0.2</strong></div>
-      <div class="p-spec"><span>桌面要求</span><strong>安装程序内置 Java 25</strong></div>
+      <div class="p-spec"><span>桌面要求</span><strong>Windows 10/11 64 位，安装程序内置 Java 25</strong></div>
       <div class="p-spec"><span>Android 要求</span><strong>Android 8.0（API 26）</strong></div>
       <div class="p-spec"><span>许可</span><strong>RWPP-Team Shield 1.0.0</strong></div>
     </div>

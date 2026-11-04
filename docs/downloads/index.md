@@ -15,7 +15,7 @@ layout: wide
     </div>
     <div class="p-specs">
       <div class="p-spec"><span>当前版本</span><strong>1.0.2</strong></div>
-      <div class="p-spec"><span>系统</span><strong>Windows 10 与 11</strong></div>
+      <div class="p-spec"><span>系统</span><strong>Windows 10 与 11（64 位）</strong></div>
       <div class="p-spec"><span>运行时</span><strong>.NET Framework 4.8</strong></div>
       <div class="p-spec"><span>许可</span><strong>RWPP-Team Shield 1.0.0</strong></div>
     </div>
@@ -60,6 +60,6 @@ Get-FileHash .\rwml-setup.exe -Algorithm SHA256
 
 ## 遇到问题
 
-安装失败、启动异常或扩展无法加载时，在 [Issues](https://github.com/RWPP-Team/RWPP/issues) 提交，或加入 [QQ 群](https://qm.qq.com/q/auLINpWtr4)（1004399208）询问。
+安装失败、启动异常或扩展无法加载时，先查看游戏目录下的 `data/rwml-bootstrap.log`。也可以在 [Issues](https://github.com/RWPP-Team/RWPP/issues) 提交，或加入 [QQ 群](https://qm.qq.com/q/auLINpWtr4)（1004399208）询问。
 
 </div>
