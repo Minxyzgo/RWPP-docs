@@ -1,20 +1,18 @@
 // 把扩展归档写入 Netlify Blobs，并把目录中的下载地址改写为站点路径。
 //
 // 用法：
-//   NETLIFY_SITE_ID=... NETLIFY_AUTH_TOKEN=... npm run upload:extensions -- a.jar b.jar
-//   ... -- --apply
+//   NETLIFY_SITE_ID=... NETLIFY_AUTH_TOKEN=... node scripts/upload_extensions.mjs a.jar b.jar [--apply]
 //
 // 不带 --apply 时只上传；带 --apply 时按摘要找到 data/extensions.json 中对应的条目，
-// 把 url 改成 /api/archives/<文件名>，并由构建阶段的 generate_api.py 重新生成目录。
+// 把 url 改成 /api/archives/<文件名>，随后由构建阶段的 generate_api.py 重新生成目录。
 
 import { createHash } from "node:crypto";
 import { readFile, writeFile } from "node:fs/promises";
 import { basename, resolve } from "node:path";
 import process from "node:process";
 
-import { getStore } from "@netlify/blobs";
-
 const STORE = "extensions";
+const API = "https://api.netlify.com/api/v1/blobs";
 const MANIFEST = resolve("data/extensions.json");
 
 function option(name) {
@@ -23,22 +21,30 @@ function option(name) {
 }
 
 function archivePaths() {
-  return process.argv.slice(2).filter((item) => !item.startsWith("--") && item !== option("--site"));
+  const site = option("--site");
+  return process.argv.slice(2).filter((item) => !item.startsWith("--") && item !== site);
 }
 
 function sha256(buffer) {
   return createHash("sha256").update(buffer).digest("hex");
 }
 
-async function upload(store, path) {
+async function upload(siteID, token, path) {
   const name = basename(path);
   const data = await readFile(path);
-  const digest = sha256(data);
-  await store.set(name, data, {
-    metadata: { sha256: digest, size: data.byteLength, uploadedAt: new Date().toISOString() },
+  const response = await fetch(`${API}/${siteID}/${STORE}/${encodeURIComponent(name)}`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/octet-stream",
+    },
+    body: data,
   });
-  console.log(`uploaded ${name} ${data.byteLength} bytes ${digest}`);
-  return { name, size: data.byteLength, sha256: digest };
+  if (!response.ok) {
+    throw new Error(`upload failed for ${name}: ${response.status} ${await response.text()}`);
+  }
+  console.log(`uploaded ${name} ${data.byteLength} bytes ${sha256(data)}`);
+  return { name, size: data.byteLength, sha256: sha256(data) };
 }
 
 async function rewriteManifest(uploaded) {
@@ -77,12 +83,10 @@ async function main() {
     return;
   }
 
-  const store = getStore({ name: STORE, siteID, token });
   const uploaded = [];
   for (const path of paths) {
-    uploaded.push(await upload(store, path));
+    uploaded.push(await upload(siteID, token, path));
   }
-
   if (process.argv.includes("--apply")) {
     await rewriteManifest(uploaded);
   }

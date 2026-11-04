@@ -1,73 +1,85 @@
-import { getStore } from "@netlify/blobs";
+/*
+ * GET /api/archives/<file>
+ *
+ * 扩展归档存放在 Netlify Blobs 的 extensions 仓库。函数读取边缘地址后原样返回，
+ * 不引入 npm 依赖，因此站点构建不需要安装 Node 包。
+ */
 
-// 扩展归档存放在 Netlify Blobs 的 extensions 仓库里，函数只负责按名称读取并输出。
-// 路径形如 /api/archives/rwpp-client-2.0.0-jvm.jar，与目录条目中的 url 字段一致。
-// 不使用 /api/extensions/：那条路径已经用于单条扩展的 JSON。
+const { basename } = require("node:path");
+
 const STORE = "extensions";
 const MARKER = "/api/archives/";
 const CACHE = "public, max-age=31536000, immutable";
 
-function requestedName(url) {
-  // 站点路由会把文件名放进 file 查询参数；直接调用函数时按路径解析。
-  const fromQuery = url.searchParams.get("file");
+function blobContext() {
+  const raw = process.env.NETLIFY_BLOBS_CONTEXT;
+  if (!raw) {
+    return null;
+  }
+  // 运行时注入的上下文是 base64 编码的 JSON，含站点、令牌与边缘地址。
+  return JSON.parse(Buffer.from(raw, "base64").toString("utf8"));
+}
+
+function requestedName(event) {
+  const fromQuery = event.queryStringParameters && event.queryStringParameters.file;
   if (fromQuery) {
-    return decodeURIComponent(fromQuery.trim());
+    return decodeURIComponent(String(fromQuery).trim());
   }
-  const index = url.pathname.indexOf(MARKER);
-  if (index < 0) {
-    return "";
-  }
-  return decodeURIComponent(url.pathname.slice(index + MARKER.length));
+  const path = event.path || "";
+  const index = path.indexOf(MARKER);
+  return index >= 0 ? decodeURIComponent(path.slice(index + MARKER.length)) : "";
 }
 
-function notFound() {
-  return new Response("Extension archive not found", { status: 404 });
-}
-
-export default async (request) => {
-  if (request.method !== "GET" && request.method !== "HEAD") {
-    return new Response("Method not allowed", {
-      status: 405,
-      headers: { Allow: "GET, HEAD" },
-    });
+exports.handler = async (event) => {
+  if (event.httpMethod !== "GET" && event.httpMethod !== "HEAD") {
+    return { statusCode: 405, headers: { Allow: "GET, HEAD" }, body: "Method not allowed" };
   }
 
-  const name = requestedName(new URL(request.url));
+  const name = requestedName(event);
   // 只接受单层文件名：目录分隔与上级引用一律拒绝。
   if (!name || name.includes("/") || name.includes("\\") || name.includes("..")) {
-    return notFound();
+    return { statusCode: 404, body: "Extension archive not found" };
   }
 
-  const store = getStore(STORE);
-  const entry = await store.getWithMetadata(name, { type: "stream" });
-  if (!entry || !entry.data) {
-    return notFound();
+  const context = blobContext();
+  if (!context || !context.token) {
+    console.error("Blob context is unavailable; cannot read extension archives.");
+    return { statusCode: 503, body: "Extension archive storage is unavailable" };
   }
 
-  const etag = entry.etag ? `"${entry.etag}"` : null;
-  if (etag && request.headers.get("if-none-match") === etag) {
-    return new Response(null, { status: 304, headers: { ETag: etag } });
+  const base = (context.uncachedEdgeURL || context.edgeURL || "").replace(/\/$/, "");
+  const target = `${base}/${STORE}/${encodeURIComponent(name)}`;
+  const upstream = await fetch(target, {
+    headers: { Authorization: `Bearer ${context.token}` },
+    cache: "no-store",
+  });
+
+  if (upstream.status === 404) {
+    return { statusCode: 404, body: "Extension archive not found" };
+  }
+  if (!upstream.ok) {
+    console.error(`Blob read failed for ${name}: ${upstream.status}`);
+    return { statusCode: 502, body: "Extension archive storage is unavailable" };
   }
 
-  const headers = new Headers({
+  const headers = {
     "Content-Type": "application/java-archive",
-    "Content-Disposition": `attachment; filename="${name}"`,
+    "Content-Disposition": `attachment; filename="${basename(name)}"`,
     "Cache-Control": CACHE,
     "X-Content-Type-Options": "nosniff",
-  });
+  };
+  const etag = upstream.headers.get("etag");
   if (etag) {
-    headers.set("ETag", etag);
-  }
-  const digest = entry.metadata && entry.metadata.sha256;
-  if (digest) {
-    headers.set("X-Checksum-Sha256", digest);
+    headers.ETag = etag;
+    if (event.headers["if-none-match"] === etag) {
+      return { statusCode: 304, headers, body: "" };
+    }
   }
 
-  // HEAD 只需头部信息，避免把归档读入响应体。
-  if (request.method === "HEAD") {
-    return new Response(null, { status: 200, headers });
+  if (event.httpMethod === "HEAD") {
+    return { statusCode: 200, headers, body: "" };
   }
-  return new Response(entry.data, { status: 200, headers });
+
+  const buffer = Buffer.from(await upstream.arrayBuffer());
+  return { statusCode: 200, headers, body: buffer.toString("base64"), isBase64Encoded: true };
 };
-
-export const config = { path: "/api/archives/*", preferStatic: false };
