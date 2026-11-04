@@ -28,17 +28,18 @@ layout: wide
 
 | 文件 | 用途 |
 | --- | --- |
-| `rwml-setup.exe` | 安装程序：内置 Java 25 运行时，定位游戏目录、替换 `game-lib.jar`、保留原版备份 |
+| `rwml-setup-fat.exe` | 安装程序：内置 Java 25 运行时，安装后即可启动 |
+| `rwml-setup.exe` | 安装程序：不含运行时，首次启动下载 Java 25 |
 | `game-lib.jar` | 宿主归档，无法运行安装程序时手动替换 |
 | `SHA256SUMS.txt` | 上述文件的 SHA-256 |
 
-安装程序包含 Java 25 运行时，文件较大。发行版页面上的文件列表可以直接点击下载。
+两个安装程序做的事情相同：定位游戏目录、备份并替换 `game-lib.jar`。区别只在于是否随包携带 Java 25。
 
 ## 安装
 
 1. 运行安装程序。程序从 Steam 注册表与库目录定位游戏，也可以手动选择。
 2. 确认目录后点击安装。原版 `game-lib.jar` 保存为 `game-lib.jar.original`，随后写入 RWML 的归档。
-3. 安装程序把内置的 Java 25 解压到游戏目录的 `rwml-runtime`。启动游戏时直接使用它，无需另外下载。
+3. 含运行时的版本把 Java 25 解压到游戏目录的 `rwml-runtime`，启动游戏时直接使用；不含运行时的版本在首次启动时获取。
 
 卸载或回退使用安装程序的“恢复原版”，也可以把 `game-lib.jar.original` 复制回 `game-lib.jar`。
 

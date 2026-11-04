@@ -39,7 +39,7 @@ RWML 在游戏启动前决定加载哪些扩展，在类加载阶段改写游戏
 | 项目 | 桌面 | Android |
 | --- | --- | --- |
 | 启动方式 | 替换后的 `game-lib.jar` | APK 内的宿主进程 |
-| Java | 安装程序内置 Java 25，缺少时自动下载 | 系统运行时 |
+| Java | 安装程序可选择内置 Java 25，缺少时自动下载 | 系统运行时 |
 | 扩展目录 | 游戏目录下的 `extensions/` | `/storage/emulated/0/rustedWarfare/extensions` |
 | 扩展仓库 | 启动器与扩展管理页浏览、安装、更新 | 启动器与扩展管理页浏览、安装、更新 |
 | 类改写 | 启动时安装 ASM agent | 预先生成 dex 并缓存 |

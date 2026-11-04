@@ -15,7 +15,7 @@ layout: wide
     </div>
     <div class="p-specs">
       <div class="p-spec"><span>当前版本</span><strong>1.0.2</strong></div>
-      <div class="p-spec"><span>桌面要求</span><strong>Windows 10/11 64 位，安装程序内置 Java 25</strong></div>
+      <div class="p-spec"><span>桌面要求</span><strong>Windows 10/11 64 位，安装程序可选内置 Java 25</strong></div>
       <div class="p-spec"><span>Android 要求</span><strong>Android 8.0（API 26）</strong></div>
       <div class="p-spec"><span>许可</span><strong>RWPP-Team Shield 1.0.0</strong></div>
     </div>
@@ -46,11 +46,11 @@ core 不依赖游戏，因此同一份 API 可以在桌面与 Android 的类路�
 
 ### 桌面
 
-安装程序随 Releases 发布，文件名 `rwml-setup.exe`。在[发行版页面](https://github.com/RWPP-Team/RWML/releases/latest)选择需要的文件下载。
+安装程序随 Releases 发布，分为 `rwml-setup-fat.exe` 与 `rwml-setup.exe` 两个文件，前者携带 Java 25，后者在首次启动时获取。在[发行版页面](https://github.com/RWPP-Team/RWML/releases/latest)选择需要的文件下载。
 
 1. 运行安装程序。程序会从 Steam 注册表与库目录定位游戏，也可以手动选择目录。
 2. 点击安装。原版 `game-lib.jar` 保存为 `game-lib.jar.original`，随后写入 RWML 的归档。
-3. 安装程序把内置的 Java 25 解压到 `rwml-runtime`，启动游戏时直接使用。
+3. 含运行时的安装程序把 Java 25 解压到 `rwml-runtime`，启动游戏时直接使用；不含运行时的版本由首次启动获取。
 
 扩展放在游戏目录下的 `extensions/`。恢复原版使用安装程序的“恢复原版”按钮，或把备份复制回 `game-lib.jar`。
 
