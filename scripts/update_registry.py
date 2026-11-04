@@ -15,8 +15,8 @@ Example (desktop and Android archives for the RWPP entry):
         --jar android=../RWPP/rwpp-client/build/extensions/rwpp-client-2.0.0-android.jar
 
 Run ``python scripts/generate_api.py`` afterwards to publish the change. The
-generated URLs point at the site archive endpoint, with R2 and GitHub stored as
-the two sources; the signing token is added at build time.
+generated URLs point at the site archive endpoint, with the release asset kept
+as the fallback address; the signing token is added at build time.
 """
 
 from __future__ import annotations
@@ -37,10 +37,6 @@ DESCRIPTOR = "META-INF/extension.properties"
 PLATFORMS = ("jvm", "android")
 TAG_PATTERN = re.compile(r"^v?[A-Za-z0-9][A-Za-z0-9._+-]*$")
 ARCHIVE_BASE_DEFAULT = "https://rwpp-team.top/api/archives"
-R2_BASE_DEFAULT = (
-    "https://57646052c8b5fdca02bdf6ab9b2e7664.r2.cloudflarestorage.com"
-    "/rwpp/extensions"
-)
 
 
 class RegistryUpdateError(Exception):
@@ -113,11 +109,6 @@ def main() -> int:
         default=ARCHIVE_BASE_DEFAULT,
         help="site archive endpoint used as the catalog url",
     )
-    parser.add_argument(
-        "--r2-base-url",
-        default=R2_BASE_DEFAULT,
-        help="private R2 object prefix used by the download function",
-    )
     parser.add_argument("--jar", action="append", default=[], metavar="PLATFORM=PATH",
                         help="archive to publish, repeatable")
     parser.add_argument("--dry-run", action="store_true", help="print the entry without writing")
@@ -128,7 +119,6 @@ def main() -> int:
         return 1
     base = arguments.base_url.replace("{tag}", arguments.tag).rstrip("/")
     archive_base = arguments.archive_base_url.rstrip("/")
-    r2_base = arguments.r2_base_url.rstrip("/")
 
     try:
         archives = parse_jar_arguments(arguments.jar)
@@ -164,7 +154,6 @@ def main() -> int:
             "platform": platform,
             "url": f"{archive_base}/{name}",
             "sources": {
-                "r2": f"{r2_base}/{name}",
                 "github": f"{base}/{name}",
             },
             "sha256": sha,

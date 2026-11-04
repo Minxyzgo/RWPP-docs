@@ -63,14 +63,14 @@
   status = 302
   force = true
 
-# 安装包仍由 GitHub Release 提供，扩展归档走带鉴权的 R2/GitHub 分发函数。
+# 安装包仍由发行版提供，扩展归档走带鉴权的下载入口。
 [[redirects]]
   from = "/downloads/github/:file"
   to = "https://github.com/RWPP-Team/RWML/releases/latest/download/:file"
   status = 302
   force = true
 
-# 归档入口：函数校验目录令牌与配额后签发 R2 预签名地址，必要时回退 GitHub。
+# 归档入口：校验目录令牌与请求频率后跳转到归档地址。
 [[redirects]]
   from = "/api/archives/:file"
   to = "/.netlify/functions/archive-download?file=:file"

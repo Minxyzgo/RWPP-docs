@@ -118,7 +118,7 @@ layout: home
     <div class="p-section__head">
       <div>
         <h2>扩展目录</h2>
-        <p>与启动器、文档站读取同一份 JSON。条目包含版本、平台、归档地址与校验值。</p>
+        <p>与 RWML 的扩展页、文档站读取同一份 JSON。条目包含版本、平台、归档地址与校验值。</p>
       </div>
       <a class="p-link" href="extensions/">全部扩展</a>
     </div>
@@ -162,7 +162,7 @@ layout: home
   <div class="p-wrap p-close__inner">
     <div>
       <h2>从安装开始</h2>
-      <p>先装 RWML，再导入 RWPP。扩展的安装与更新由启动器负责。</p>
+      <p>先装 RWML，再导入 RWPP。扩展的安装与更新由启动器与扩展管理页负责。</p>
     </div>
     <div class="p-actions">
       <a class="p-btn p-btn--primary" href="rwpp/install/">安装 RWPP</a>

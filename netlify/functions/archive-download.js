@@ -7,7 +7,8 @@
  * the free-tier budget is exhausted, GitHub Release is used instead. No R2
  * address is issued in that case, so a paused service cannot generate charges.
  *
- * The source map is generated from data/extensions.json by scripts/generate_api.py.
+ * The object address is built from deployment settings; the generated source
+ * map only carries the fallback address and the expected size and digest.
  */
 
 const crypto = require("node:crypto");
@@ -24,6 +25,17 @@ const IP_RATE_LIMIT = 20;
 // drift past the paid threshold even when several function instances run.
 const MONTHLY_BUDGET = Number(process.env.RWPP_R2_MONTHLY_BUDGET || 500_000);
 const TOKEN_LIFETIME_LIMIT = 10_000;
+const R2_BUCKET = process.env.RWPP_R2_BUCKET || "rwpp";
+const R2_PREFIX = (process.env.RWPP_R2_PREFIX || "extensions").replace(/^\/+|\/+$/g, "");
+
+/** Object address for a published archive, built from deployment settings. */
+function r2Location(file) {
+  const account = process.env.RWPP_R2_ACCOUNT_ID;
+  if (!account) {
+    return null;
+  }
+  return `https://${account}.r2.cloudflarestorage.com/${R2_BUCKET}/${R2_PREFIX}/${encodeURIComponent(file)}`;
+}
 
 const rateHits = new Map();
 const tokenSpend = new Map();
@@ -319,6 +331,7 @@ function requestedToken(event) {
 // Exported for local verification; Netlify only invokes the handler.
 exports.presign = presign;
 exports.verifyToken = verifyToken;
+exports.r2Location = r2Location;
 
 exports.handler = async (event) => {
   const file = requestedFile(event);
@@ -345,11 +358,12 @@ exports.handler = async (event) => {
 
   const blocked = await quotaBlock();
   const r2Reason = blocked || (tokenExhausted ? "archive token budget exhausted" : null);
-  if (!r2Reason && record.r2) {
+  const r2 = r2Location(file);
+  if (!r2Reason && r2) {
     try {
-      const probe = presign("HEAD", record.r2, PRESIGN_SECONDS);
+      const probe = presign("HEAD", r2, PRESIGN_SECONDS);
       if (probe && (await head(probe, true, record.size))) {
-        const location = presign("GET", record.r2, PRESIGN_SECONDS);
+        const location = presign("GET", r2, PRESIGN_SECONDS);
         if (location) {
           markIssued();
           tokenSpend.set(token, spent + 1);

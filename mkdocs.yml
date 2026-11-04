@@ -59,7 +59,7 @@ nav:
           - 扩展系统: rwml/extensions.md
           - 资源包: rwml/resource-packs.md
           - 界面框架: rwml/ui.md
-          - 发布: rwml/publishing.md
+          - 核心发布: rwml/publishing.md
       - RWPP:
           - 安装: rwpp/install.md
           - 客户端功能: rwpp/features.md

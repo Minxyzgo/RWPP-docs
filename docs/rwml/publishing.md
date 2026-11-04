@@ -1,6 +1,6 @@
-# 发布
+# 核心发布
 
-扩展作者依赖两个坐标：
+RWML 的核心库与映射后的游戏库发布到 Maven Central，供扩展作者编译时引用。扩展作者依赖两个坐标：
 
 ```kotlin
 compileOnly("io.github.rwpp-team:rwml-core:1.0.2")
@@ -45,7 +45,3 @@ compileOnly("io.github.rwpp-team:game-lib:v3-1.15")
 新版本需要同时更新 `gradle.properties` 中的版本、内置扩展的描述符与文档示例。已发布的 Central 版本不能覆盖，因此每次发布都要递增版本号。
 
 `rwml-core` 的公共 API 面向 Java 17 字节码，宿主工具链可以使用更新的 JDK，但扩展库的编译目标应保持 Java 17。
-
-## 扩展的发布
-
-扩展本身不需要上传到 Maven Central。作者只需提供归档、HTTPS 下载地址与 SHA-256，并写入扩展目录，客户端即可搜索、安装与更新。字段定义见 [仓库 API](../api/index.md)。

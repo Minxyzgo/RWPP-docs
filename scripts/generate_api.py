@@ -9,7 +9,7 @@ source data:
     docs/api/v1/search.json              compact records for search UIs
     docs/api/v1/extensions/<id>.json     one file per extension
     docs/api/v1/manifest.json            endpoint index, versions and counts
-    netlify/functions/archive-sources.json  archive source map for the download function
+    netlify/functions/archive-sources.json  internal map used by the download function
 
 Usage:
     python scripts/generate_api.py             # validate and write
@@ -42,7 +42,7 @@ ID_PATTERN = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]+$")
 VERSION_PATTERN = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._+-]*$")
 DIGEST_PATTERN = re.compile(r"^[0-9a-f]{64}$")
 ARCHIVE_PATH = "/api/archives/"
-SOURCE_KEYS = ("r2", "github")
+SOURCE_KEYS = ("github",)
 TOKEN_TTL_SECONDS = 30 * 24 * 3600
 
 REQUIRED_ENTRY_FIELDS = ("id", "name", "version", "artifacts")
@@ -82,6 +82,9 @@ def normalize_sources(raw: object, where: str) -> dict:
         return {}
     if not isinstance(raw, dict):
         raise RegistryError(f"{where}: 'sources' must be an object")
+    unknown = sorted(set(raw) - set(SOURCE_KEYS))
+    if unknown:
+        raise RegistryError(f"{where}: unsupported source(s): {', '.join(unknown)}")
     result = {}
     for name in SOURCE_KEYS:
         value = raw.get(name)
@@ -207,6 +210,20 @@ def load_registry() -> dict:
     }
 
 
+def public_entry(entry: dict) -> dict:
+    """Entry as served publicly.
+
+    Artifact source addresses are internal to the download function. They must
+    never appear in the catalog, per-entry files or search responses.
+    """
+    result = dict(entry)
+    result["artifacts"] = [
+        {key: value for key, value in artifact.items() if key != "sources"}
+        for artifact in entry["artifacts"]
+    ]
+    return result
+
+
 def search_record(entry: dict) -> dict:
     return {
         "id": entry["id"],
@@ -257,7 +274,11 @@ def sign_archive_urls(registry: dict, now: int) -> dict:
 
 
 def archive_sources(registry: dict) -> dict:
-    """Map every site archive URL to its R2 and GitHub sources."""
+    """Map every site archive URL to the fallback address used by the download function.
+
+    The primary object store is addressed from function environment variables, so
+    its location is not part of the registry or the generated files.
+    """
     files: dict[str, dict] = {}
     for entry in registry["extensions"]:
         for artifact in entry["artifacts"]:
@@ -269,15 +290,13 @@ def archive_sources(registry: dict) -> dict:
             if not name:
                 raise RegistryError(f"{where}: the site archive URL has no file name")
             sources = artifact.get("sources") or {}
-            for key in SOURCE_KEYS:
-                if key not in sources:
-                    raise RegistryError(f"{where}: the '{key}' source is required for site archives")
-                if PurePosixPath(urlparse(sources[key]).path).name != name:
-                    raise RegistryError(f"{where}: the '{key}' source points to another file")
+            if "github" not in sources:
+                raise RegistryError(f"{where}: the 'github' source is required for site archives")
+            if PurePosixPath(urlparse(sources["github"]).path).name != name:
+                raise RegistryError(f"{where}: the 'github' source points to another file")
             if name in files:
                 raise RegistryError(f"{where}: declared more than once")
             files[name] = {
-                "r2": sources["r2"],
                 "github": sources["github"],
                 "size": artifact["size"],
                 "sha256": artifact["sha256"],
@@ -310,7 +329,7 @@ def main() -> int:
         "name": registry["name"],
         "generatedAt": generated_at,
         "registryUpdatedAt": registry["updatedAt"],
-        "extensions": published["extensions"],
+        "extensions": [public_entry(entry) for entry in published["extensions"]],
     }
     search_payload = {
         "schemaVersion": registry["schemaVersion"],
@@ -343,7 +362,7 @@ def main() -> int:
     for entry in published["extensions"]:
         target = extensions_dir / f"{entry['id']}.json"
         keep.add(target.name)
-        write(target, entry)
+        write(target, public_entry(entry))
     for stale in extensions_dir.glob("*.json"):
         if stale.name not in keep:
             stale.unlink()

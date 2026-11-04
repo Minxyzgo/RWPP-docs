@@ -1,15 +1,15 @@
-# 仓库 API
+# 目录接口
 
-扩展目录是一组静态 JSON，由仓库的 `data/extensions.json` 生成，随站点一起部署。RWML 只读取 `/api/v1/index.json`，其余端点供网页、脚本与第三方工具使用。
+扩展目录是一组静态 JSON。RWML 读取 `/api/v1/index.json`，网页与第三方工具可以读取其余端点。
 
 | 端点 | 用途 |
 | --- | --- |
-| `GET /api/v1/index.json` | 完整目录，启动器与网页读取此文件 |
+| `GET /api/v1/index.json` | 完整目录，RWML 与网页读取此文件 |
 | `GET /api/v1/search.json` | 精简记录，适合搜索索引 |
 | `GET /api/v1/extensions/{id}.json` | 单个扩展的完整条目 |
 | `GET /api/v1/manifest.json` | 端点清单、生成时间与条目数量 |
-| `GET /api/search?q=&platform=` | 服务端搜索，由 Netlify Function 提供 |
-| `GET /api/archives/{文件名}?k={令牌}` | 归档分发入口，校验后签发 R2 地址或回退 GitHub |
+| `GET /api/search?q=&platform=` | 服务端搜索 |
+| `GET /api/archives/{文件名}?k={令牌}` | 归档下载入口 |
 
 ## 目录结构
 
@@ -40,11 +40,7 @@
         {
           "id": "io.github.rwpp",
           "platform": "jvm",
-          "url": "https://rwpp-team.top/api/archives/rwpp-client-2.0.0-beta01-jvm.jar?k=<目录令牌>",
-          "sources": {
-            "r2": "https://<account>.r2.cloudflarestorage.com/rwpp/extensions/rwpp-client-2.0.0-beta01-jvm.jar",
-            "github": "https://github.com/RWPP-Team/RWPP/releases/download/v2.0.0-beta01/rwpp-client-2.0.0-beta01-jvm.jar"
-          },
+          "url": "https://rwpp-team.top/api/archives/rwpp-client-2.0.0-beta01-jvm.jar?k=<令牌>",
           "sha256": "bb1bdcab43b838e907f3e2f598986d078c0d54267fa636fdbc77c38a24754139",
           "size": 79009892
         }
@@ -78,27 +74,26 @@
 | --- | --- | --- |
 | `id` | 否 | 归档内的扩展标识，缺省沿用条目 `id` |
 | `platform` | 否 | `jvm`、`android` 或留空表示全部平台 |
-| `url` | 是 | 归档的绝对 HTTPS 地址，指向本站分发入口并携带 `k` 令牌 |
-| `sources` | 否 | `r2` 与 `github` 两个来源地址，由分发函数使用 |
+| `url` | 是 | 归档地址，指向本站归档入口并携带令牌 |
 | `sha256` | 是 | 64 位十六进制摘要 |
 | `size` | 是 | 正整数字节数 |
 
 同一扩展可以携带多个归档：不同平台各一份，或把 API 与实现拆成两个 jar。宿主按当前平台取用全部匹配归档，逐个校验并写入扩展目录；首个失败即停止。
 
-## 归档分发
+## 归档下载
 
-`k` 令牌由目录构建时签发，绑定文件名、构建序列与有效期。密钥保存在站点环境变量，不进入仓库。分发入口按以下顺序处理请求：
+目录中的归档地址以 `/api/archives/` 开头，并带构建期签发的令牌。令牌绑定文件名与有效期，刷新目录即可取得新地址。
+
+归档入口按以下顺序处理请求：
 
 | 检查 | 结果 |
 | --- | --- |
-| 文件名不在来源表中 | 404 |
+| 文件名不在目录中 | 404 |
 | 令牌缺失、签名不符或已过期 | 401 |
-| 同一令牌或同一 IP 的请求频率超限 | 429，附带 `Retry-After` |
-| 配额正常且 R2 对象可用 | 302 到有效期五分钟的 R2 预签名地址 |
-| R2 不可用或免费额度耗尽 | 302 到 GitHub 附件 |
-| 两个来源都不可用 | 503，且不签发 R2 地址 |
+| 请求过于频繁 | 429，附带 `Retry-After` |
+| 校验通过 | 302 到归档地址 |
 
-配额闸门读取 Cloudflare 存储用量与当月核算状态。函数另设令牌累计额度与单实例月度预算，两者均低于免费额度。达到额度或预算后停止签发 R2 地址。`/api/search` 另按 IP 限制请求频率。
+归档地址只在短时间内有效。客户端应在一次安装中完成该条目的全部归档下载，重新开始安装前先刷新目录。
 
 ## 读取
 
@@ -107,7 +102,7 @@ curl -s https://<域名>/api/v1/index.json
 curl -s "https://<域名>/api/search?q=rwpp&platform=jvm"
 ```
 
-目录公开可读，没有写操作。网页与启动器都要求 HTTPS。
+目录公开可读，没有写操作。网页与宿主都要求 HTTPS。
 
 ## 在宿主中配置
 

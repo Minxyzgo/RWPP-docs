@@ -58,6 +58,8 @@ core 不依赖游戏，因此同一份 API 可以在桌面与 Android 的类路�
 
 安装 APK 后，首次启动会申请存储访问权限，再加载 `/storage/emulated/0/rustedWarfare/extensions` 中的扩展。扩展变更会重建受影响的 dex 缓存。
 
+启动器与扩展管理页都提供仓库浏览，可以搜索目录、安装与更新扩展。安装后的改动同样在下一个宿主进程生效。
+
 ## 扩展如何加载
 
 1. 启动器读取扩展目录，解析 `META-INF/extension.properties`。
@@ -69,7 +71,7 @@ core 不依赖游戏，因此同一份 API 可以在桌面与 Android 的类路�
 
 ## 仓库与资源包
 
-RWML 可以从 HTTPS 目录读取扩展列表，搜索、安装与更新都在启动器内完成。下载必须提供 SHA-256，单个归档上限 256 MiB，校验失败即丢弃文件。目录地址写在数据目录的 `repository.properties`，也可以用系统属性覆盖。
+RWML 可以从 HTTPS 目录读取扩展列表，桌面启动器与 Android 扩展管理页都提供搜索、安装与更新。下载必须提供 SHA-256，单个归档上限 256 MiB，校验失败即丢弃文件。目录地址写在数据目录的 `repository.properties`，也可以用系统属性覆盖。
 
 资源包属于扩展的一种，标记 `resourcePack=true` 后替换游戏资源。同一时间只有一个资源包生效，选择记录在 `data/extension-state.properties`。
 

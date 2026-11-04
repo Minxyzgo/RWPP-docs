@@ -1,8 +1,8 @@
 /*
  * 扩展目录：读取构建生成的 /api/v1/index.json 并渲染为可搜索的卡片列表。
  *
- * 数据来自 docs/api/v1/index.json，由 scripts/generate_api.py 生成，因此页面展示与 RWML
- * 扩展浏览器读取的是同一份目录。所有颜色来自 CSS 变量，深浅色切换不需要重新渲染。
+ * 数据来自 /api/v1/index.json，与 RWML 的扩展页读取同一份目录。所有颜色来自 CSS
+ * 变量，深浅色切换不需要重新渲染。
  */
 
 (function () {
@@ -306,7 +306,7 @@
       fillCategories();
       render();
     } catch (error) {
-      fail("扩展目录无法读取：" + error.message + "。请先运行 scripts/generate_api.py 生成 /api/v1。");
+      fail("扩展目录暂时无法读取：" + error.message + "。请稍后再试。");
     }
   }
 
