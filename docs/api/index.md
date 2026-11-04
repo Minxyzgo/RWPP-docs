@@ -17,13 +17,13 @@
 {
   "schemaVersion": 1,
   "name": "RWML Extension Registry",
-  "generatedAt": "2026-11-03T14:36:37Z",
+  "generatedAt": "2026-11-04T12:30:00Z",
   "extensions": [
     {
       "id": "io.github.rwpp",
       "name": "RWPP",
-      "version": "2.0.0",
-      "apiVersion": "1.0.2",
+      "version": "2.0.0-beta01",
+      "apiVersion": "1.0",
       "summary": "多人联机增强与扩展运行时。",
       "description": "较长的说明，可以包含换行。",
       "authors": ["RWPP Team"],
@@ -34,19 +34,19 @@
       "icon": "",
       "platforms": ["jvm", "android"],
       "downloads": 0,
-      "updatedAt": "2026-11-03",
+      "updatedAt": "2026-11-04",
       "notes": "此版本的更新说明。",
       "artifacts": [
         {
           "id": "io.github.rwpp",
           "platform": "jvm",
-          "url": "https://rwpp-team.top/api/archives/rwpp-client-2.0.0-jvm.jar?k=<目录令牌>",
+          "url": "https://rwpp-team.top/api/archives/rwpp-client-2.0.0-beta01-jvm.jar?k=<目录令牌>",
           "sources": {
-            "r2": "https://<account>.r2.cloudflarestorage.com/rwpp/extensions/rwpp-client-2.0.0-jvm.jar",
-            "github": "https://github.com/RWPP-Team/RWPP/releases/download/v2.0.0/rwpp-client-2.0.0-jvm.jar"
+            "r2": "https://<account>.r2.cloudflarestorage.com/rwpp/extensions/rwpp-client-2.0.0-beta01-jvm.jar",
+            "github": "https://github.com/RWPP-Team/RWPP/releases/download/v2.0.0-beta01/rwpp-client-2.0.0-beta01-jvm.jar"
           },
-          "sha256": "8545f6d6d3ae3981b19caf357168d24daaeb68f11b70792acf77afca2e9d30c6",
-          "size": 79041523
+          "sha256": "bb1bdcab43b838e907f3e2f598986d078c0d54267fa636fdbc77c38a24754139",
+          "size": 79009892
         }
       ]
     }

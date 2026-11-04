@@ -1,29 +1,29 @@
 {
   "files": {
-    "rwpp-api-1.0.2-jvm.jar": {
-      "r2": "https://57646052c8b5fdca02bdf6ab9b2e7664.r2.cloudflarestorage.com/rwpp/extensions/rwpp-api-1.0.2-jvm.jar",
-      "github": "https://github.com/RWPP-Team/RWPP/releases/download/v2.0.0/rwpp-api-1.0.2-jvm.jar",
-      "size": 9196390,
-      "sha256": "49312a183f06ad42855ca7af71b36ead034893485d3785f3836219cfbc4611ce"
+    "rwpp-api-2.0.0-beta01-jvm.jar": {
+      "r2": "https://57646052c8b5fdca02bdf6ab9b2e7664.r2.cloudflarestorage.com/rwpp/extensions/rwpp-api-2.0.0-beta01-jvm.jar",
+      "github": "https://github.com/RWPP-Team/RWPP/releases/download/v2.0.0-beta01/rwpp-api-2.0.0-beta01-jvm.jar",
+      "size": 9196530,
+      "sha256": "fcd6bfc3fb1ba4c0d91d00f1e93af5a169ac4ef83d3474d27bb0b411407ed79b"
     },
-    "rwpp-client-2.0.0-jvm.jar": {
-      "r2": "https://57646052c8b5fdca02bdf6ab9b2e7664.r2.cloudflarestorage.com/rwpp/extensions/rwpp-client-2.0.0-jvm.jar",
-      "github": "https://github.com/RWPP-Team/RWPP/releases/download/v2.0.0/rwpp-client-2.0.0-jvm.jar",
-      "size": 79041523,
-      "sha256": "8545f6d6d3ae3981b19caf357168d24daaeb68f11b70792acf77afca2e9d30c6"
+    "rwpp-client-2.0.0-beta01-jvm.jar": {
+      "r2": "https://57646052c8b5fdca02bdf6ab9b2e7664.r2.cloudflarestorage.com/rwpp/extensions/rwpp-client-2.0.0-beta01-jvm.jar",
+      "github": "https://github.com/RWPP-Team/RWPP/releases/download/v2.0.0-beta01/rwpp-client-2.0.0-beta01-jvm.jar",
+      "size": 79009892,
+      "sha256": "bb1bdcab43b838e907f3e2f598986d078c0d54267fa636fdbc77c38a24754139"
     },
-    "rwpp-api-1.0.2-android.jar": {
-      "r2": "https://57646052c8b5fdca02bdf6ab9b2e7664.r2.cloudflarestorage.com/rwpp/extensions/rwpp-api-1.0.2-android.jar",
-      "github": "https://github.com/RWPP-Team/RWPP/releases/download/v2.0.0/rwpp-api-1.0.2-android.jar",
-      "size": 12396163,
-      "sha256": "4c6f15a56f7d36e4ae885976a382bd77bc75bbce5a445ded31f47fe1d54eb43f"
+    "rwpp-api-2.0.0-beta01-android.jar": {
+      "r2": "https://57646052c8b5fdca02bdf6ab9b2e7664.r2.cloudflarestorage.com/rwpp/extensions/rwpp-api-2.0.0-beta01-android.jar",
+      "github": "https://github.com/RWPP-Team/RWPP/releases/download/v2.0.0-beta01/rwpp-api-2.0.0-beta01-android.jar",
+      "size": 12396172,
+      "sha256": "05b23018945f743716e425cc4b4cfee7330a1200ad6b553a1401aaff4a263b17"
     },
-    "rwpp-client-2.0.0-android.jar": {
-      "r2": "https://57646052c8b5fdca02bdf6ab9b2e7664.r2.cloudflarestorage.com/rwpp/extensions/rwpp-client-2.0.0-android.jar",
-      "github": "https://github.com/RWPP-Team/RWPP/releases/download/v2.0.0/rwpp-client-2.0.0-android.jar",
-      "size": 45393917,
-      "sha256": "1c887b55d25b832fdf13fbd52631b0deb3a9e587180e9aecea50cd3542da063d"
+    "rwpp-client-2.0.0-beta01-android.jar": {
+      "r2": "https://57646052c8b5fdca02bdf6ab9b2e7664.r2.cloudflarestorage.com/rwpp/extensions/rwpp-client-2.0.0-beta01-android.jar",
+      "github": "https://github.com/RWPP-Team/RWPP/releases/download/v2.0.0-beta01/rwpp-client-2.0.0-beta01-android.jar",
+      "size": 45368989,
+      "sha256": "0660ae4ccd78dc3ee8201bd1f59bab88dc4501ad2b548e76e7a4bdab126e487a"
     }
   },
-  "generatedAt": "2026-11-04T11:58:09Z"
+  "generatedAt": "2026-11-04T12:25:49Z"
 }
