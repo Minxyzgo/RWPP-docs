@@ -1,0 +1,103 @@
+site_name: RWPP-Team
+site_description: RWML 扩展运行时与 RWPP 客户端、服务端的官方文档与扩展目录。
+site_url: https://rwpp-team.top/
+repo_url: https://github.com/RWPP-Team
+repo_name: RWPP-Team
+edit_uri: ""
+copyright: RWPP-Team
+
+theme:
+  name: material
+  language: zh
+  custom_dir: overrides
+  favicon: img/logo.png
+  logo: img/logo.png
+  font: false
+  features:
+    - navigation.tabs
+    - navigation.tracking
+    - navigation.top
+    - navigation.sections
+    - navigation.instant
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tooltips
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: 切换到深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: 切换到浅色模式
+
+extra_css:
+  - stylesheets/site.css
+
+extra_javascript:
+  - javascripts/home.js
+  - javascripts/catalog.js
+
+nav:
+  - 首页: index.md
+  - 下载: downloads/index.md
+  - RWML: rwml/index.md
+  - RWPP: rwpp/index.md
+  - 扩展: extensions/index.md
+  - 文档:
+      - RWML:
+          - 概览: rwml/overview.md
+          - 扩展系统: rwml/extensions.md
+          - 资源包: rwml/resource-packs.md
+          - 界面框架: rwml/ui.md
+          - 发布: rwml/publishing.md
+      - RWPP:
+          - 安装: rwpp/install.md
+          - 客户端功能: rwpp/features.md
+          - 服务端: rwpp/server.md
+          - 常见问题: rwpp/faq.md
+      - 扩展开发:
+          - 开始: extension/start.md
+          - 元数据: extension/metadata.md
+          - 事件: extension/events.md
+          - 界面: extension/ui.md
+          - 命令: extension/commands.md
+      - 目录接口: api/index.md
+
+plugins:
+  - search
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+      permalink_title: 复制此节链接
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - admonition
+  - tables
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/RWPP-Team
+      name: GitHub

@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-04T04:51:57Z",
+  "count": 1,
+  "endpoints": {
+    "catalog": "/api/v1/index.json",
+    "search": "/api/v1/search.json",
+    "searchFunction": "/api/search?q=",
+    "extension": "/api/v1/extensions/{id}.json"
+  }
+}

@@ -1,0 +1,77 @@
+[build]
+  command = "pip install -r requirements.txt && python scripts/generate_api.py && mkdocs build --clean"
+  publish = "site"
+  functions = "netlify/functions"
+
+[build.environment]
+  PYTHON_VERSION = "3.12"
+
+# 目录与搜索响应是构建产物：允许跨域读取，并让客户端缓存五分钟。
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type"
+    Cache-Control = "public, max-age=300, must-revalidate"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/api/v1/*"
+  [headers.values]
+    Content-Type = "application/json; charset=utf-8"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# 稳定别名：客户端可以固定使用 /api/index.json，版本升级不改变调用地址。
+[[redirects]]
+  from = "/api/index.json"
+  to = "/api/v1/index.json"
+  status = 200
+
+[[redirects]]
+  from = "/api/extensions/:id"
+  to = "/api/v1/extensions/:id.json"
+  status = 200
+
+# 服务端搜索由 Netlify Function 提供，查询参数在重写时保留。
+[[redirects]]
+  from = "/api/search"
+  to = "/.netlify/functions/search"
+  status = 200
+
+# 安装包与宿主归档不进入站点仓库，指向 GitHub Release 的最新同名资产。
+# 302 让浏览器直接访问 GitHub CDN，不经过 Netlify 转发大文件。
+[[redirects]]
+  from = "/downloads/rwml-setup.exe"
+  to = "https://github.com/RWPP-Team/RWML/releases/latest/download/rwml-setup.exe"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/downloads/rwml-setup.msi"
+  to = "https://github.com/RWPP-Team/RWML/releases/latest/download/rwml-setup.msi"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/downloads/game-lib.jar"
+  to = "https://github.com/RWPP-Team/RWML/releases/latest/download/game-lib.jar"
+  status = 302
+  force = true
+
+# 多来源下载：GitHub 直接跳转最新发行版；Gitee 由函数解析最新标签。
+[[redirects]]
+  from = "/downloads/github/:file"
+  to = "https://github.com/RWPP-Team/RWML/releases/latest/download/:file"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/downloads/gitee/:file"
+  to = "/.netlify/functions/gitee-download?file=:file"
+  status = 200
+  force = true

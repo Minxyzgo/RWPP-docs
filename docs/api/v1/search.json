@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-04T04:51:57Z",
+  "extensions": [
+    {
+      "id": "io.github.rwpp",
+      "name": "RWPP",
+      "version": "2.0.0",
+      "summary": "Rusted Warfare 的客户端与无头服务端，提供 Aero 界面、房间管理、战绩、回放与扩展 API。",
+      "tags": [
+        "client",
+        "multiplayer",
+        "ui",
+        "mods",
+        "api"
+      ],
+      "categories": [
+        "客户端"
+      ],
+      "platforms": [
+        "jvm",
+        "android"
+      ],
+      "updatedAt": "2026-11-03",
+      "downloads": 0
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{#
+  宽版页面（产品页、目录页、首页）去掉文档侧栏，把内容区交给页面自己的版式。
+  版式由 front matter 的 layout 决定，普通文档页不受影响。
+#}
+
+{% set layout = page.meta.layout if page and page.meta else none %}
+
+{% block site_nav %}
+  {% if not layout %}{{ super() }}{% endif %}
+{% endblock %}
+
+{% block container %}
+  {% if layout %}
+    <div class="p-page p-page--{{ layout }}">
+      {{ page.content }}
+    </div>
+  {% else %}
+    {{ super() }}
+  {% endif %}
+{% endblock %}
