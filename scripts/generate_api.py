@@ -252,11 +252,6 @@ def main() -> int:
         if stale.name not in keep:
             stale.unlink()
 
-    # 构建期同步 Blobs 的结果随站点一起发布，便于核对归档是否已经落库。
-    status = ROOT / "data" / "blob-status.json"
-    if status.is_file():
-        write(API_DIR / "blob-status.json", json.loads(status.read_text(encoding="utf-8")))
-
     print(f"generated {len(registry['extensions'])} extension(s) in {API_DIR.relative_to(ROOT)}")
     return 0
 

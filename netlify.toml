@@ -1,5 +1,5 @@
 [build]
-  command = "node scripts/sync_archives.mjs && pip install -r requirements.txt && python scripts/generate_api.py && mkdocs build --clean"
+  command = "pip install -r requirements.txt && python scripts/generate_api.py && mkdocs build --clean"
   publish = "site"
   functions = "netlify/functions"
 
@@ -76,16 +76,3 @@
   status = 200
   force = true
 
-# 扩展归档由函数从 Blobs 流式返回，覆盖静态资源的长缓存与校验头。
-[[headers]]
-  for = "/api/archives/*"
-  [headers.values]
-    Access-Control-Allow-Origin = "*"
-    Cache-Control = "public, max-age=31536000, immutable"
-
-# 扩展归档：由函数从 Blobs 读取，路由显式指向函数，避免与单条扩展 JSON 的路径混淆。
-[[redirects]]
-  from = "/api/archives/:file"
-  to = "/.netlify/functions/extension-download?file=:file"
-  status = 200
-  force = true
