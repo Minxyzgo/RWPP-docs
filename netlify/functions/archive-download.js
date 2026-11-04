@@ -167,7 +167,11 @@ async function quotaBlock() {
   const storageLimit = Number(process.env.RWPP_R2_STORAGE_LIMIT || 9 * 1024 * 1024 * 1024);
   let state = {};
   try {
-    state = JSON.parse(process.env.RWPP_R2_QUOTA_STATE || "{}");
+    let raw = process.env.RWPP_R2_QUOTA_STATE || "";
+    if (raw && !raw.trim().startsWith("{")) {
+      raw = Buffer.from(raw, "base64url").toString("utf8");
+    }
+    state = JSON.parse(raw || "{}");
   } catch {
     state = {};
   }
