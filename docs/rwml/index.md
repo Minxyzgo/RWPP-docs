@@ -9,7 +9,7 @@ layout: wide
     <h1>RWML</h1>
     <p class="p-lead">面向 Rusted Warfare 桌面与 Android 的 mixin 扩展加载器。它解析依赖、选择版本、改写游戏类，并托管扩展仓库。</p>
     <div class="p-actions">
-      <a class="p-btn p-btn--primary" href="/downloads/rwml-setup.exe">下载安装程序</a>
+      <a class="p-btn p-btn--primary" href="https://github.com/RWPP-Team/RWML/releases/latest">下载安装程序</a>
       <a class="p-btn" href="../rwml/overview/">阅读文档</a>
       <a class="p-link" href="https://github.com/RWPP-Team/RWML">源代码</a>
     </div>
@@ -46,7 +46,7 @@ core 不依赖游戏，因此同一份 API 可以在桌面与 Android 的类路�
 
 ### 桌面
 
-安装程序随 Releases 发布，文件名 `rwml-setup.exe`。下载地址为 [rwml-setup.exe](/downloads/rwml-setup.exe)。
+安装程序随 Releases 发布，文件名 `rwml-setup.exe`。在[发行版页面](https://github.com/RWPP-Team/RWML/releases/latest)选择需要的文件下载。
 
 1. 运行安装程序。程序会从 Steam 注册表与库目录定位游戏，也可以手动选择目录。
 2. 点击安装。原版 `game-lib.jar` 保存为 `game-lib.jar.original`，随后写入 RWML 的归档。

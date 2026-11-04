@@ -4,7 +4,7 @@ RWPP 以扩展形式运行，因此先要有 RWML 宿主。安装顺序是宿主
 
 ## 准备
 
-- 桌面端：运行 [RWML 安装程序](/downloads/rwml-setup.exe)，替换 `game-lib.jar`。程序会定位游戏目录，也可以手动选择。
+- 桌面端：运行 [RWML 安装程序](https://github.com/RWPP-Team/RWML/releases/latest)，替换 `game-lib.jar`。程序会定位游戏目录，也可以手动选择。
 - 扩展包：Releases 提供的整合包，或分别下载 `rwpp-api` 与 `rwpp-client`。
 - Android：已安装 RWML 的 APK。
 ## 桌面端

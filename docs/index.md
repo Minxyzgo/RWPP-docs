@@ -16,7 +16,7 @@ layout: home
       </h1>
       <p class="cine__lead"><strong>更好的 Rusted Warfare。</strong>RWML 负责扩展的加载、校验与更新，RWPP 提供界面、联机与托管。</p>
       <div class="cine__actions">
-        <a class="p-btn p-btn--primary p-btn--lg" href="/downloads/rwml-setup.exe">下载安装程序</a>
+        <a class="p-btn p-btn--primary p-btn--lg" href="https://github.com/RWPP-Team/RWML/releases/latest">下载安装程序</a>
         <a class="p-btn p-btn--ghost p-btn--lg" href="rwml/">了解 RWML</a>
         <a class="cine__link" href="extensions/">浏览扩展目录</a>
       </div>
