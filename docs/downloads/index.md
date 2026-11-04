@@ -1,6 +1,6 @@
 ---
 title: 下载
-description: RWML 的发行版入口。安装程序、MSI 与宿主归档列在对应版本下，按需选择。
+description: RWML 的发行版入口。安装程序与宿主归档列在对应版本下，按需选择。
 layout: wide
 ---
 
@@ -28,18 +28,17 @@ layout: wide
 
 | 文件 | 用途 |
 | --- | --- |
-| `rwml-setup.exe` | 安装程序：定位游戏目录、替换 `game-lib.jar`、保留原版备份 |
-| `rwml-setup.msi` | MSI 安装包，适合批量部署；需提供 `GAMEDIR` |
+| `rwml-setup.exe` | 安装程序：内置 Java 25 运行时，定位游戏目录、替换 `game-lib.jar`、保留原版备份 |
 | `game-lib.jar` | 宿主归档，无法运行安装程序时手动替换 |
 | `SHA256SUMS.txt` | 上述文件的 SHA-256 |
 
-安装程序与 MSI 选择一个即可。发行版页面上的文件列表可以直接点击下载。
+安装程序包含 Java 25 运行时，文件较大。发行版页面上的文件列表可以直接点击下载。
 
 ## 安装
 
 1. 运行安装程序。程序从 Steam 注册表与库目录定位游戏，也可以手动选择。
 2. 确认目录后点击安装。原版 `game-lib.jar` 保存为 `game-lib.jar.original`，随后写入 RWML 的归档。
-3. 启动游戏。启动器在需要时获取 Java 25 运行时。
+3. 安装程序把内置的 Java 25 解压到游戏目录的 `rwml-runtime`。启动游戏时直接使用它，无需另外下载。
 
 卸载或回退使用安装程序的“恢复原版”，也可以把 `game-lib.jar.original` 复制回 `game-lib.jar`。
 
@@ -55,7 +54,7 @@ Get-FileHash .\rwml-setup.exe -Algorithm SHA256
 
 ## 分发来源
 
-- 安装程序、MSI 与宿主归档随 RWML 发行版提供，下载按钮指向最新正式版本。
+- 安装程序与宿主归档随 RWML 发行版提供，下载按钮指向最新正式版本。
 - 扩展归档由本站归档入口分发，客户端从目录读取带令牌的地址。
 - 站点仓库不保存二进制文件。
 
