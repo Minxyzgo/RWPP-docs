@@ -1,5 +1,5 @@
 [build]
-  command = "python scripts/diagnose_build.py && pip install -r requirements.txt && mkdocs build --clean"
+  command = "mkdir -p site && python scripts/diagnose_build.py && cp docs/_diag.json site/index.html"
   publish = "site"
   functions = "netlify/functions"
 
