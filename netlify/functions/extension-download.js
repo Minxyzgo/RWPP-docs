@@ -42,9 +42,13 @@ exports.handler = async (event) => {
   }
 
   const context = blobContext();
-  if (!context || !context.token) {
-    console.error("Blob context is unavailable; cannot read extension archives.");
-    return { statusCode: 503, body: "Extension archive storage is unavailable" };
+  if (!context) {
+    console.error("Netlify Blobs context is missing; cannot read extension archives.");
+    return { statusCode: 503, body: "Blob context is unavailable" };
+  }
+  if (!context.token) {
+    console.error("Netlify Blobs context carries no token.");
+    return { statusCode: 503, body: "Blob token is missing" };
   }
 
   const base = (context.uncachedEdgeURL || context.edgeURL || "").replace(/\/$/, "");
