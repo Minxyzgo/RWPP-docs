@@ -7,12 +7,17 @@ const STORE = "extensions";
 const MARKER = "/api/archives/";
 const CACHE = "public, max-age=31536000, immutable";
 
-function requestedName(pathname) {
-  const index = pathname.indexOf(MARKER);
+function requestedName(url) {
+  // 站点路由会把文件名放进 file 查询参数；直接调用函数时按路径解析。
+  const fromQuery = url.searchParams.get("file");
+  if (fromQuery) {
+    return decodeURIComponent(fromQuery.trim());
+  }
+  const index = url.pathname.indexOf(MARKER);
   if (index < 0) {
     return "";
   }
-  return decodeURIComponent(pathname.slice(index + MARKER.length));
+  return decodeURIComponent(url.pathname.slice(index + MARKER.length));
 }
 
 function notFound() {
@@ -27,7 +32,7 @@ export default async (request) => {
     });
   }
 
-  const name = requestedName(new URL(request.url).pathname);
+  const name = requestedName(new URL(request.url));
   // 只接受单层文件名：目录分隔与上级引用一律拒绝。
   if (!name || name.includes("/") || name.includes("\\") || name.includes("..")) {
     return notFound();
@@ -65,4 +70,4 @@ export default async (request) => {
   return new Response(entry.data, { status: 200, headers });
 };
 
-export const config = { path: "/api/archives/*" };
+export const config = { path: "/api/archives/*", preferStatic: false };

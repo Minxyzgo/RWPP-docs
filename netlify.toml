@@ -82,3 +82,10 @@
   [headers.values]
     Access-Control-Allow-Origin = "*"
     Cache-Control = "public, max-age=31536000, immutable"
+
+# 扩展归档：由函数从 Blobs 读取，路由显式指向函数，避免与单条扩展 JSON 的路径混淆。
+[[redirects]]
+  from = "/api/archives/:file"
+  to = "/.netlify/functions/extension-download?file=:file"
+  status = 200
+  force = true
