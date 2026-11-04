@@ -63,16 +63,23 @@
   status = 302
   force = true
 
-# 多来源下载：GitHub 直接跳转最新发行版；Gitee 由函数解析最新标签。
+# 安装包仍由 GitHub Release 提供，扩展归档走带鉴权的 R2/GitHub 分发函数。
 [[redirects]]
   from = "/downloads/github/:file"
   to = "https://github.com/RWPP-Team/RWML/releases/latest/download/:file"
   status = 302
   force = true
 
+# 归档入口：函数校验目录令牌与配额后签发 R2 预签名地址，必要时回退 GitHub。
 [[redirects]]
-  from = "/downloads/gitee/:file"
-  to = "/.netlify/functions/gitee-download?file=:file"
+  from = "/api/archives/:file"
+  to = "/.netlify/functions/archive-download?file=:file"
   status = 200
   force = true
+
+# 分发决策不缓存，配额状态变化后立即生效。
+[[headers]]
+  for = "/api/archives/*"
+  [headers.values]
+    Cache-Control = "no-store"
 

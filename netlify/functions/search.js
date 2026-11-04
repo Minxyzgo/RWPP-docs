@@ -5,9 +5,42 @@
  * /api/v1/index.json 中的条目一致，便于客户端复用同一套渲染逻辑。
  */
 
-const registry = require("../../data/extensions.json");
+// The generated catalog carries the signed archive URLs; the source registry is
+// only build input. Source addresses are removed before results are returned.
+const catalog = require("../../docs/api/v1/index.json");
 
 const PLATFORMS = new Set(["jvm", "android"]);
+const RATE_WINDOW_MS = 60_000;
+const RATE_LIMIT = 60;
+const ipHits = new Map();
+
+function rateLimited(client) {
+  const now = Date.now();
+  const hits = (ipHits.get(client) || []).filter((at) => now - at < RATE_WINDOW_MS);
+  if (hits.length >= RATE_LIMIT) {
+    ipHits.set(client, hits);
+    return true;
+  }
+  hits.push(now);
+  ipHits.set(client, hits);
+  if (ipHits.size > 4096) {
+    for (const [key, values] of ipHits) {
+      if (values.every((at) => now - at >= RATE_WINDOW_MS)) ipHits.delete(key);
+    }
+  }
+  return false;
+}
+
+function publicEntry(entry) {
+  return {
+    ...entry,
+    artifacts: (entry.artifacts || []).map((artifact) => {
+      const copy = { ...artifact };
+      delete copy.sources;
+      return copy;
+    }),
+  };
+}
 
 function normalize(value) {
   return String(value == null ? "" : value).trim().toLowerCase();
@@ -41,14 +74,15 @@ function score(entry, tokens) {
   return total;
 }
 
-function payload(body, statusCode) {
+function payload(body, statusCode, extraHeaders) {
   return {
     statusCode: statusCode || 200,
     headers: {
       "Content-Type": "application/json; charset=utf-8",
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET, OPTIONS",
-      "Cache-Control": "public, max-age=300",
+      "Cache-Control": statusCode >= 400 ? "no-store" : "public, max-age=300",
+      ...(extraHeaders || {}),
     },
     body: JSON.stringify(body),
   };
@@ -60,6 +94,12 @@ exports.handler = async (event) => {
   }
   if (event.httpMethod !== "GET" && event.httpMethod !== "HEAD") {
     return payload({ error: "Only GET is supported" }, 405);
+  }
+  const client = event.headers["x-nf-client-connection-ip"]
+    || event.headers["x-forwarded-for"]
+    || "unknown";
+  if (rateLimited(client)) {
+    return payload({ error: "Too many requests" }, 429, { "Retry-After": "60" });
   }
 
   const query = event.queryStringParameters || {};
@@ -75,7 +115,7 @@ exports.handler = async (event) => {
 
   const tokens = text ? text.split(/\s+/).filter(Boolean) : [];
   const matches = [];
-  for (const entry of registry.extensions || []) {
+  for (const entry of catalog.extensions || []) {
     if (platform && !(entry.platforms || []).includes(platform)) continue;
     if (category && !(entry.categories || []).map(normalize).includes(category)) continue;
     const rank = tokens.length === 0 ? 1 : score(entry, tokens);
@@ -86,9 +126,9 @@ exports.handler = async (event) => {
     String(left.entry.name).localeCompare(String(right.entry.name), "zh"));
 
   return payload({
-    schemaVersion: registry.schemaVersion || 1,
+    schemaVersion: catalog.schemaVersion || 1,
     query: { q: text, platform, category },
     total: matches.length,
-    results: matches.slice(0, limit).map((match) => match.entry),
+    results: matches.slice(0, limit).map((match) => publicEntry(match.entry)),
   });
 };

@@ -10,7 +10,7 @@ layout: wide
     <p class="p-lead">安装程序与宿主归档随每个 RWML 版本发布。先打开发行版页面，再选择需要的文件。</p>
     <div class="p-actions">
       <a class="p-btn p-btn--primary" href="https://github.com/RWPP-Team/RWML/releases/latest">打开 GitHub Release</a>
-      <a class="p-btn" href="https://gitee.com/rwpp-team/RWML/releases">Gitee 镜像</a>
+      <a class="p-btn" href="../rwml/extensions/">扩展仓库</a>
       <a class="p-link" href="https://qm.qq.com/q/auLINpWtr4">QQ 群</a>
     </div>
     <div class="p-specs">
@@ -53,11 +53,12 @@ Get-FileHash .\rwml-setup.exe -Algorithm SHA256
 
 输出应与文件中的对应行一致。摘要不符时不要运行安装程序。
 
-## 镜像说明
+## 分发来源
 
-- GitHub 发行版指向最新正式版本，发布后立即可用。
-- Gitee 入口解析镜像仓库的最新发行版标签，跳转到同名附件。镜像同步可能晚几分钟。
-- 站点不保存二进制文件，下载由发行版页面提供。
+- 安装程序、MSI 与宿主归档由 GitHub Release 提供，发行版页面指向最新正式版本。
+- 扩展归档保存在私有 Cloudflare R2 存储桶，GitHub 附件作为备用。分发入口校验目录令牌、请求频率与免费额度后签发临时地址。
+- 额度耗尽或 R2 不可用时，函数不再签发 R2 地址。两个来源都不可用时返回 503。
+- 站点不保存二进制文件。
 
 ## 遇到问题
 

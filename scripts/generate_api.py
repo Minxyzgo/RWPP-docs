@@ -9,6 +9,7 @@ source data:
     docs/api/v1/search.json              compact records for search UIs
     docs/api/v1/extensions/<id>.json     one file per extension
     docs/api/v1/manifest.json            endpoint index, versions and counts
+    netlify/functions/archive-sources.json  archive source map for the download function
 
 Usage:
     python scripts/generate_api.py             # validate and write
@@ -18,22 +19,31 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import base64
+import hashlib
+import hmac
 import json
+import os
 import re
 import sys
+import time
 from datetime import datetime, timezone
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parent.parent
 SOURCE = ROOT / "data" / "extensions.json"
 API_DIR = ROOT / "docs" / "api" / "v1"
+SOURCES_FILE = ROOT / "netlify" / "functions" / "archive-sources.json"
 
 SCHEMA_VERSION = 1
 PLATFORMS = {"jvm", "android"}
 ID_PATTERN = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]+$")
 VERSION_PATTERN = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._+-]*$")
 DIGEST_PATTERN = re.compile(r"^[0-9a-f]{64}$")
+ARCHIVE_PATH = "/api/archives/"
+SOURCE_KEYS = ("r2", "github")
+TOKEN_TTL_SECONDS = 30 * 24 * 3600
 
 REQUIRED_ENTRY_FIELDS = ("id", "name", "version", "artifacts")
 
@@ -67,6 +77,20 @@ def absolute_url(value: str, where: str) -> str:
     return value
 
 
+def normalize_sources(raw: object, where: str) -> dict:
+    if raw is None:
+        return {}
+    if not isinstance(raw, dict):
+        raise RegistryError(f"{where}: 'sources' must be an object")
+    result = {}
+    for name in SOURCE_KEYS:
+        value = raw.get(name)
+        if value is None:
+            continue
+        result[name] = absolute_url(text(value, f"sources.{name}", where), where)
+    return result
+
+
 def normalize_artifact(raw: object, entry_id: str, entry_platforms: list[str], where: str) -> dict:
     if not isinstance(raw, dict):
         raise RegistryError(f"{where}: every artifact must be an object")
@@ -87,7 +111,11 @@ def normalize_artifact(raw: object, entry_id: str, entry_platforms: list[str], w
     size = raw.get("size", 0)
     if not isinstance(size, int) or isinstance(size, bool) or size <= 0:
         raise RegistryError(f"{where}: 'size' must be a positive integer")
-    return {"id": artifact_id, "platform": platform, "url": url, "sha256": digest, "size": size}
+    artifact = {"id": artifact_id, "platform": platform, "url": url, "sha256": digest, "size": size}
+    sources = normalize_sources(raw.get("sources"), where)
+    if sources:
+        artifact["sources"] = sources
+    return artifact
 
 
 def normalize_entry(raw: object, position: int) -> dict:
@@ -193,6 +221,70 @@ def search_record(entry: dict) -> dict:
     }
 
 
+def sign_archive_urls(registry: dict, now: int) -> dict:
+    """Attach a signed, expiring token to every site archive URL.
+
+    The token binds the file name and a build sequence, so archive addresses
+    cannot be guessed or reused after the expiry window. The signing key is a
+    Netlify secret environment variable and never enters the repository.
+    """
+    secret = os.environ.get("RWPP_ARCHIVE_SECRET", "")
+    if not secret:
+        raise RegistryError("RWPP_ARCHIVE_SECRET is required to sign archive URLs")
+    try:
+        key = bytes.fromhex(secret)
+    except ValueError:
+        key = secret.encode("utf-8")
+    if not key:
+        raise RegistryError("RWPP_ARCHIVE_SECRET is empty")
+
+    signed = json.loads(json.dumps(registry))
+    for entry in signed["extensions"]:
+        for artifact in entry["artifacts"]:
+            base_url = artifact["url"].split("?", 1)[0]
+            if ARCHIVE_PATH not in urlparse(base_url).path:
+                continue
+            name = PurePosixPath(urlparse(base_url).path).name
+            claims = {"f": name, "s": now, "e": now + TOKEN_TTL_SECONDS}
+            payload = base64.urlsafe_b64encode(
+                json.dumps(claims, separators=(",", ":")).encode("utf-8")
+            ).decode("ascii").rstrip("=")
+            signature = base64.urlsafe_b64encode(
+                hmac.new(key, payload.encode("ascii"), hashlib.sha256).digest()
+            ).decode("ascii").rstrip("=")
+            artifact["url"] = f"{base_url}?k={payload}.{signature}"
+    return signed
+
+
+def archive_sources(registry: dict) -> dict:
+    """Map every site archive URL to its R2 and GitHub sources."""
+    files: dict[str, dict] = {}
+    for entry in registry["extensions"]:
+        for artifact in entry["artifacts"]:
+            path = urlparse(artifact["url"]).path
+            if ARCHIVE_PATH not in path:
+                continue
+            name = PurePosixPath(path).name
+            where = f"archive '{name}'"
+            if not name:
+                raise RegistryError(f"{where}: the site archive URL has no file name")
+            sources = artifact.get("sources") or {}
+            for key in SOURCE_KEYS:
+                if key not in sources:
+                    raise RegistryError(f"{where}: the '{key}' source is required for site archives")
+                if PurePosixPath(urlparse(sources[key]).path).name != name:
+                    raise RegistryError(f"{where}: the '{key}' source points to another file")
+            if name in files:
+                raise RegistryError(f"{where}: declared more than once")
+            files[name] = {
+                "r2": sources["r2"],
+                "github": sources["github"],
+                "size": artifact["size"],
+                "sha256": artifact["sha256"],
+            }
+    return {"files": files}
+
+
 def write(path: Path, payload: object) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -205,17 +297,20 @@ def main() -> int:
 
     try:
         registry = load_registry()
+        sources_payload = archive_sources(registry)
+        published = sign_archive_urls(registry, int(time.time()))
     except RegistryError as error:
         print(f"registry error: {error}", file=sys.stderr)
         return 1
 
     generated_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+    sources_payload["generatedAt"] = generated_at
     index_payload = {
         "schemaVersion": registry["schemaVersion"],
         "name": registry["name"],
         "generatedAt": generated_at,
         "registryUpdatedAt": registry["updatedAt"],
-        "extensions": registry["extensions"],
+        "extensions": published["extensions"],
     }
     search_payload = {
         "schemaVersion": registry["schemaVersion"],
@@ -241,10 +336,11 @@ def main() -> int:
     write(API_DIR / "index.json", index_payload)
     write(API_DIR / "search.json", search_payload)
     write(API_DIR / "manifest.json", manifest_payload)
+    write(SOURCES_FILE, sources_payload)
     extensions_dir = API_DIR / "extensions"
     extensions_dir.mkdir(parents=True, exist_ok=True)
     keep = set()
-    for entry in registry["extensions"]:
+    for entry in published["extensions"]:
         target = extensions_dir / f"{entry['id']}.json"
         keep.add(target.name)
         write(target, entry)

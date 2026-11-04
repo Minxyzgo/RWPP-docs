@@ -9,6 +9,7 @@
 | `GET /api/v1/extensions/{id}.json` | 单个扩展的完整条目 |
 | `GET /api/v1/manifest.json` | 端点清单、生成时间与条目数量 |
 | `GET /api/search?q=&platform=` | 服务端搜索，由 Netlify Function 提供 |
+| `GET /api/archives/{文件名}?k={令牌}` | 归档分发入口，校验后签发 R2 地址或回退 GitHub |
 
 ## 目录结构
 
@@ -39,7 +40,11 @@
         {
           "id": "io.github.rwpp",
           "platform": "jvm",
-          "url": "https://github.com/RWPP-Team/RWPP/releases/download/v2.0.0/rwpp-client-2.0.0-jvm.jar",
+          "url": "https://rwpp-team.top/api/archives/rwpp-client-2.0.0-jvm.jar?k=<目录令牌>",
+          "sources": {
+            "r2": "https://<account>.r2.cloudflarestorage.com/rwpp/extensions/rwpp-client-2.0.0-jvm.jar",
+            "github": "https://github.com/RWPP-Team/RWPP/releases/download/v2.0.0/rwpp-client-2.0.0-jvm.jar"
+          },
           "sha256": "8545f6d6d3ae3981b19caf357168d24daaeb68f11b70792acf77afca2e9d30c6",
           "size": 79041523
         }
@@ -73,11 +78,27 @@
 | --- | --- | --- |
 | `id` | 否 | 归档内的扩展标识，缺省沿用条目 `id` |
 | `platform` | 否 | `jvm`、`android` 或留空表示全部平台 |
-| `url` | 是 | 归档的绝对 HTTPS 地址，指向发行版附件 |
+| `url` | 是 | 归档的绝对 HTTPS 地址，指向本站分发入口并携带 `k` 令牌 |
+| `sources` | 否 | `r2` 与 `github` 两个来源地址，由分发函数使用 |
 | `sha256` | 是 | 64 位十六进制摘要 |
 | `size` | 是 | 正整数字节数 |
 
 同一扩展可以携带多个归档：不同平台各一份，或把 API 与实现拆成两个 jar。宿主按当前平台取用全部匹配归档，逐个校验并写入扩展目录；首个失败即停止。
+
+## 归档分发
+
+`k` 令牌由目录构建时签发，绑定文件名、构建序列与有效期。密钥保存在站点环境变量，不进入仓库。分发入口按以下顺序处理请求：
+
+| 检查 | 结果 |
+| --- | --- |
+| 文件名不在来源表中 | 404 |
+| 令牌缺失、签名不符或已过期 | 401 |
+| 同一令牌或同一 IP 的请求频率超限 | 429，附带 `Retry-After` |
+| 配额正常且 R2 对象可用 | 302 到有效期五分钟的 R2 预签名地址 |
+| R2 不可用或免费额度耗尽 | 302 到 GitHub 附件 |
+| 两个来源都不可用 | 503，且不签发 R2 地址 |
+
+配额闸门读取 Cloudflare 存储用量与当月核算状态。额度耗尽时可以直接停用 R2 分发。`/api/search` 另按 IP 限制请求频率。
 
 ## 读取
 
