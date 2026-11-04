@@ -14,7 +14,7 @@ repositories {
 
 dependencies {
     compileOnly("io.github.rwpp-team:rwml-core:1.0.2")
-    compileOnly("io.github.rwpp-team:game-lib:v2-1.15")
+    compileOnly("io.github.rwpp-team:game-lib:v3-1.15")
     compileOnly("io.github.rwpp-team:rwpp-api:2.0.0")
 }
 ```

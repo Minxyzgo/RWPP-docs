@@ -4,10 +4,10 @@
 
 ```kotlin
 compileOnly("io.github.rwpp-team:rwml-core:1.0.2")
-compileOnly("io.github.rwpp-team:game-lib:v2-1.15")
+compileOnly("io.github.rwpp-team:game-lib:v3-1.15")
 ```
 
-`game-lib` 的 `v2` 是映射修订号，游戏版本仍是 1.15。它附带反编译源码，便于在 IDE 中对照原版实现。两者都应以 `compileOnly` 引入：运行时由宿主提供 core，游戏类由宿主进程提供。
+`game-lib` 的 `v3` 是映射修订号，游戏版本仍是 1.15。它附带反编译源码，便于在 IDE 中对照原版实现。两者都应以 `compileOnly` 引入：运行时由宿主提供 core，游戏类由宿主进程提供。
 
 ## 构建要求
 
@@ -20,11 +20,11 @@ compileOnly("io.github.rwpp-team:game-lib:v2-1.15")
 仓库中的 `scripts/publish-core.ps1` 封装了签名、校验和上传：
 
 ```powershell
-.\scripts\publish-core.ps1 -Action PrepareSigning
-.\scripts\publish-core.ps1 -Action SaveToken
-.\scripts\publish-core.ps1 -Action Build -Offline
-.\scripts\publish-core.ps1 -Action Publish -Offline
-.\scripts\publish-core.ps1 -Action Status
+.\scripts\publish\publish-core.ps1 -Action PrepareSigning
+.\scripts\publish\publish-core.ps1 -Action SaveToken
+.\scripts\publish\publish-core.ps1 -Action Build -Offline
+.\scripts\publish\publish-core.ps1 -Action Publish -Offline
+.\scripts\publish\publish-core.ps1 -Action Status
 ```
 
 凭据与 RSA-4096 签名密钥保存在仓库之外的 `%USERPROFILE%\.gradle\rwml-central`，令牌与密码使用当前 Windows 用户加密。
@@ -34,11 +34,11 @@ compileOnly("io.github.rwpp-team:game-lib:v2-1.15")
 游戏库单独发布，使用同一套凭据：
 
 ```powershell
-.\scripts\publish-core.ps1 -Target GameLib -Action Build -Offline
-.\scripts\publish-core.ps1 -Target GameLib -Action Publish -Offline
+.\scripts\publish\publish-core.ps1 -Target GameLib -Action Build -Offline
+.\scripts\publish\publish-core.ps1 -Target GameLib -Action Publish -Offline
 ```
 
-它生成 `build/game-lib-v2-1.15-central-bundle.zip`，包含映射后的二进制与生成的 Java 源码。
+它生成 `build/game-lib-v3-1.15-central-bundle.zip`，包含映射后的二进制与生成的 Java 源码。
 
 ## 版本与兼容
 
