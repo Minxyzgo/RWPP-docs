@@ -16,13 +16,13 @@ layout: home
       </h1>
       <p class="cine__lead"><strong>更好的 Rusted Warfare。</strong>RWML 负责扩展的加载、校验与更新，RWPP 提供界面、联机与托管。</p>
       <div class="cine__actions">
-        <a class="p-btn p-btn--primary p-btn--lg" href="https://github.com/RWPP-Team/RWML/releases/latest">下载安装程序</a>
-        <a class="p-btn p-btn--ghost p-btn--lg" href="rwml/">了解 RWML</a>
+        <a class="p-btn p-btn--primary p-btn--lg" href="rwpp/install/">安装教程</a>
+        <a class="p-btn p-btn--ghost p-btn--lg" href="https://github.com/RWPP-Team/RWML/releases/latest">下载安装程序</a>
         <a class="cine__link" href="extensions/">浏览扩展目录</a>
       </div>
       <ul class="cine__facts">
         <li><span>运行时</span><strong>RWML 1.0.2</strong></li>
-        <li><span>客户端</span><strong>RWPP 2.0.0</strong></li>
+        <li><span>客户端</span><strong>RWPP 2.0.0-beta02</strong></li>
         <li><span>平台</span><strong>Windows、Linux、Android</strong></li>
         <li><span>许可</span><strong>RWPP-Team Shield 1.0.0</strong></li>
       </ul>
@@ -34,7 +34,7 @@ layout: home
 <span class="ok">[rwml]</span> Bytecode transformer is active; mixins apply as classes load.
 <span class="dim">[rwml]</span>   <span class="add">+</span> RWML Interface 1.0.2  [io.github.rwml.builtin]
 <span class="dim">[rwml]</span>   <span class="add">+</span> RWML API 1.0.2  [io.github.rwpp.api]
-<span class="dim">[rwml]</span>   <span class="add">+</span> RWPP 2.0.0  [io.github.rwpp]
+<span class="dim">[rwml]</span>   <span class="add">+</span> RWPP 2.0.0-beta02  [io.github.rwpp]
 <span class="dim">[rwml]</span> Starting Rusted Warfare <span class="cine__caret"></span></pre>
     </div>
   </div>

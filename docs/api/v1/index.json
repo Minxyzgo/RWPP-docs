@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
   "name": "RWML Extension Registry",
-  "generatedAt": "2026-11-05T04:28:51Z",
+  "generatedAt": "2026-11-05T12:53:15Z",
   "registryUpdatedAt": "2026-11-03",
   "extensions": [
     {
       "id": "io.github.rwpp",
       "name": "RWPP",
-      "version": "2.0.0-beta01",
+      "version": "2.0.0-beta02",
       "apiVersion": "1.0",
       "summary": "Rusted Warfare 的客户端与无头服务端，提供 Aero 界面、房间管理、战绩、回放与扩展 API。",
       "description": "RWPP 以两个扩展运行在 RWML 之上。客户端提供 Aero 界面、房间与玩家管理、单位禁用、黑名单、战绩与回放档案、沙盒工具与联机辅助；服务端在没有图形界面的进程里托管对局，同一端口提供 KCP 与 TCP。",
@@ -32,36 +32,36 @@
         "android"
       ],
       "downloads": 0,
-      "updatedAt": "2026-11-04",
+      "updatedAt": "2026-11-05",
       "notes": "安装后由 RWML 扩展浏览器负责后续更新；启用状态与手工导入的扩展一致。",
       "artifacts": [
         {
           "id": "io.github.rwpp.api",
           "platform": "jvm",
-          "url": "https://rwpp-team.top/api/archives/rwpp-api-2.0.0-beta01-jvm.jar?k=eyJmIjoicndwcC1hcGktMi4wLjAtYmV0YTAxLWp2bS5qYXIiLCJzIjoxNzkzODUyOTMxLCJlIjoxNzk2NDQ0OTMxfQ.XhIuZHFpYwyX3yXPWM3tTKxtuGflEkOqV04n3c5fJyM",
-          "sha256": "fcd6bfc3fb1ba4c0d91d00f1e93af5a169ac4ef83d3474d27bb0b411407ed79b",
-          "size": 9196530
+          "url": "https://rwpp-team.top/api/archives/rwpp-api-2.0.0-beta02-jvm.jar?k=eyJmIjoicndwcC1hcGktMi4wLjAtYmV0YTAyLWp2bS5qYXIiLCJzIjoxNzkzODgzMTk1LCJlIjoxNzk2NDc1MTk1fQ.6iNo7K2nWCnC1h17r76Q-JZwUjILEFDBlXjEs4PItbE",
+          "sha256": "22e6ff9520e9e488f480a0cb428b56f1a2c711e898dac7aa6734a46801192334",
+          "size": 9198070
         },
         {
           "id": "io.github.rwpp",
           "platform": "jvm",
-          "url": "https://rwpp-team.top/api/archives/rwpp-client-2.0.0-beta01-jvm.jar?k=eyJmIjoicndwcC1jbGllbnQtMi4wLjAtYmV0YTAxLWp2bS5qYXIiLCJzIjoxNzkzODUyOTMxLCJlIjoxNzk2NDQ0OTMxfQ.tUfQ-jnRTSjzKNoMaNpOwSUsQ_1CP8CJmMx5k-ql0yw",
-          "sha256": "bb1bdcab43b838e907f3e2f598986d078c0d54267fa636fdbc77c38a24754139",
-          "size": 79009892
+          "url": "https://rwpp-team.top/api/archives/rwpp-client-2.0.0-beta02-jvm.jar?k=eyJmIjoicndwcC1jbGllbnQtMi4wLjAtYmV0YTAyLWp2bS5qYXIiLCJzIjoxNzkzODgzMTk1LCJlIjoxNzk2NDc1MTk1fQ.YWyaDwF6GPwkm8YCrFrfxZ526kjbdMyM-T6yB30WVng",
+          "sha256": "e332c089feafa1c074a580bc6687d314b6651cdc41611f9fd541cd2b0edc73a4",
+          "size": 79046782
         },
         {
           "id": "io.github.rwpp.api",
           "platform": "android",
-          "url": "https://rwpp-team.top/api/archives/rwpp-api-2.0.0-beta01-android.jar?k=eyJmIjoicndwcC1hcGktMi4wLjAtYmV0YTAxLWFuZHJvaWQuamFyIiwicyI6MTc5Mzg1MjkzMSwiZSI6MTc5NjQ0NDkzMX0.JvSg6S3IDKgeumuXLr5t9ig0QuUO2C53rbLfp1fyC7k",
-          "sha256": "05b23018945f743716e425cc4b4cfee7330a1200ad6b553a1401aaff4a263b17",
-          "size": 12396172
+          "url": "https://rwpp-team.top/api/archives/rwpp-api-2.0.0-beta02-android.jar?k=eyJmIjoicndwcC1hcGktMi4wLjAtYmV0YTAyLWFuZHJvaWQuamFyIiwicyI6MTc5Mzg4MzE5NSwiZSI6MTc5NjQ3NTE5NX0.6gsI3nhe8yTQtob-QtxPGCkQSNS73Wy7VzbTF2zh6kI",
+          "sha256": "1af184a0e2170f7f83d2073ac3deb1573f03b343eeb35327d273c48a5cda033b",
+          "size": 12398081
         },
         {
           "id": "io.github.rwpp",
           "platform": "android",
-          "url": "https://rwpp-team.top/api/archives/rwpp-client-2.0.0-beta01-android.jar?k=eyJmIjoicndwcC1jbGllbnQtMi4wLjAtYmV0YTAxLWFuZHJvaWQuamFyIiwicyI6MTc5Mzg1MjkzMSwiZSI6MTc5NjQ0NDkzMX0.r653xLAA0v9lb-E6WNsoqE1k90VS--X69Kusrbhp2OI",
-          "sha256": "0660ae4ccd78dc3ee8201bd1f59bab88dc4501ad2b548e76e7a4bdab126e487a",
-          "size": 45368989
+          "url": "https://rwpp-team.top/api/archives/rwpp-client-2.0.0-beta02-android.jar?k=eyJmIjoicndwcC1jbGllbnQtMi4wLjAtYmV0YTAyLWFuZHJvaWQuamFyIiwicyI6MTc5Mzg4MzE5NSwiZSI6MTc5NjQ3NTE5NX0.Gjs7B6Cv97jyIAULPRua6d0duCgJut0ASBVzDx7awbE",
+          "sha256": "2f1b080a6654211a153ee35d073bf1e6001b2cdea0a08c6627c6ad2eb62fbbef",
+          "size": 45417715
         }
       ]
     }

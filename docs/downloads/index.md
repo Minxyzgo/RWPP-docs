@@ -9,7 +9,8 @@ layout: wide
     <h1>下载</h1>
     <p class="p-lead">安装程序与宿主归档随每个 RWML 版本发布。先打开发行版页面，再选择需要的文件。</p>
     <div class="p-actions">
-      <a class="p-btn p-btn--primary" href="https://github.com/RWPP-Team/RWML/releases/latest">打开 GitHub Release</a>
+      <a class="p-btn p-btn--primary" href="../rwpp/install/">安装教程</a>
+      <a class="p-btn" href="https://github.com/RWPP-Team/RWML/releases/latest">打开 GitHub Release</a>
       <a class="p-btn" href="../extensions/">扩展目录</a>
       <a class="p-link" href="https://qm.qq.com/q/auLINpWtr4">QQ 群</a>
     </div>

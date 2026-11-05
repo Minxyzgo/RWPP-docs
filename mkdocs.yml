@@ -49,6 +49,7 @@ extra_javascript:
 
 nav:
   - 首页: index.md
+  - 安装教程: rwpp/install.md
   - 下载: downloads/index.md
   - RWML: rwml/index.md
   - RWPP: rwpp/index.md
@@ -61,7 +62,6 @@ nav:
           - 界面框架: rwml/ui.md
           - 核心发布: rwml/publishing.md
       - RWPP:
-          - 安装: rwpp/install.md
           - 客户端功能: rwpp/features.md
           - 服务端: rwpp/server.md
           - 常见问题: rwpp/faq.md

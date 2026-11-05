@@ -1,25 +1,25 @@
 {
   "files": {
-    "rwpp-api-2.0.0-beta01-jvm.jar": {
-      "github": "https://github.com/RWPP-Team/RWPP/releases/download/v2.0.0-beta01/rwpp-api-2.0.0-beta01-jvm.jar",
-      "size": 9196530,
-      "sha256": "fcd6bfc3fb1ba4c0d91d00f1e93af5a169ac4ef83d3474d27bb0b411407ed79b"
+    "rwpp-api-2.0.0-beta02-jvm.jar": {
+      "github": "https://github.com/RWPP-Team/RWPP/releases/download/v2.0.0-beta02/rwpp-api-2.0.0-beta02-jvm.jar",
+      "size": 9198070,
+      "sha256": "22e6ff9520e9e488f480a0cb428b56f1a2c711e898dac7aa6734a46801192334"
     },
-    "rwpp-client-2.0.0-beta01-jvm.jar": {
-      "github": "https://github.com/RWPP-Team/RWPP/releases/download/v2.0.0-beta01/rwpp-client-2.0.0-beta01-jvm.jar",
-      "size": 79009892,
-      "sha256": "bb1bdcab43b838e907f3e2f598986d078c0d54267fa636fdbc77c38a24754139"
+    "rwpp-client-2.0.0-beta02-jvm.jar": {
+      "github": "https://github.com/RWPP-Team/RWPP/releases/download/v2.0.0-beta02/rwpp-client-2.0.0-beta02-jvm.jar",
+      "size": 79046782,
+      "sha256": "e332c089feafa1c074a580bc6687d314b6651cdc41611f9fd541cd2b0edc73a4"
     },
-    "rwpp-api-2.0.0-beta01-android.jar": {
-      "github": "https://github.com/RWPP-Team/RWPP/releases/download/v2.0.0-beta01/rwpp-api-2.0.0-beta01-android.jar",
-      "size": 12396172,
-      "sha256": "05b23018945f743716e425cc4b4cfee7330a1200ad6b553a1401aaff4a263b17"
+    "rwpp-api-2.0.0-beta02-android.jar": {
+      "github": "https://github.com/RWPP-Team/RWPP/releases/download/v2.0.0-beta02/rwpp-api-2.0.0-beta02-android.jar",
+      "size": 12398081,
+      "sha256": "1af184a0e2170f7f83d2073ac3deb1573f03b343eeb35327d273c48a5cda033b"
     },
-    "rwpp-client-2.0.0-beta01-android.jar": {
-      "github": "https://github.com/RWPP-Team/RWPP/releases/download/v2.0.0-beta01/rwpp-client-2.0.0-beta01-android.jar",
-      "size": 45368989,
-      "sha256": "0660ae4ccd78dc3ee8201bd1f59bab88dc4501ad2b548e76e7a4bdab126e487a"
+    "rwpp-client-2.0.0-beta02-android.jar": {
+      "github": "https://github.com/RWPP-Team/RWPP/releases/download/v2.0.0-beta02/rwpp-client-2.0.0-beta02-android.jar",
+      "size": 45417715,
+      "sha256": "2f1b080a6654211a153ee35d073bf1e6001b2cdea0a08c6627c6ad2eb62fbbef"
     }
   },
-  "generatedAt": "2026-11-05T04:28:51Z"
+  "generatedAt": "2026-11-05T12:53:15Z"
 }

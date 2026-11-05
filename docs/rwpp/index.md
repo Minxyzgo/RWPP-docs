@@ -9,11 +9,11 @@ layout: wide
     <h1>RWPP</h1>
     <p class="p-lead">建立在 RWML 之上的客户端与服务端。客户端由两个扩展组成，提供 Aero 界面、房间管理、单位禁用、黑名单与回放控制；服务端在没有图形界面的进程里托管对局。</p>
     <div class="p-actions">
-      <a class="p-btn p-btn--primary" href="../rwpp/install/">安装</a>
+      <a class="p-btn p-btn--primary" href="../rwpp/install/">安装教程</a>
       <a class="p-btn" href="https://github.com/RWPP-Team/RWPP">源代码</a>
     </div>
     <div class="p-specs">
-      <div class="p-spec"><span>当前版本</span><strong>2.0.0</strong></div>
+      <div class="p-spec"><span>当前版本</span><strong>2.0.0-beta02</strong></div>
       <div class="p-spec"><span>组成</span><strong>rwpp-api 与 rwpp-client</strong></div>
       <div class="p-spec"><span>客户端平台</span><strong>桌面 JVM 与 Android</strong></div>
       <div class="p-spec"><span>许可</span><strong>RWPP-Team Shield 1.0.0</strong></div>
