@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "name": "RWML Extension Registry",
-  "generatedAt": "2026-11-05T12:53:15Z",
+  "generatedAt": "2026-11-05T13:29:42Z",
   "registryUpdatedAt": "2026-11-03",
   "extensions": [
     {
@@ -38,28 +38,28 @@
         {
           "id": "io.github.rwpp.api",
           "platform": "jvm",
-          "url": "https://rwpp-team.top/api/archives/rwpp-api-2.0.0-beta02-jvm.jar?k=eyJmIjoicndwcC1hcGktMi4wLjAtYmV0YTAyLWp2bS5qYXIiLCJzIjoxNzkzODgzMTk1LCJlIjoxNzk2NDc1MTk1fQ.6iNo7K2nWCnC1h17r76Q-JZwUjILEFDBlXjEs4PItbE",
+          "url": "https://rwpp-team.top/api/archives/rwpp-api-2.0.0-beta02-jvm.jar?k=eyJmIjoicndwcC1hcGktMi4wLjAtYmV0YTAyLWp2bS5qYXIiLCJzIjoxNzkzODg1MzgyLCJlIjoxNzk2NDc3MzgyfQ.Jmul2krg9FtFofVNuafAJ4k5tc8uGq5ssXEm-FP0zR0",
           "sha256": "22e6ff9520e9e488f480a0cb428b56f1a2c711e898dac7aa6734a46801192334",
           "size": 9198070
         },
         {
           "id": "io.github.rwpp",
           "platform": "jvm",
-          "url": "https://rwpp-team.top/api/archives/rwpp-client-2.0.0-beta02-jvm.jar?k=eyJmIjoicndwcC1jbGllbnQtMi4wLjAtYmV0YTAyLWp2bS5qYXIiLCJzIjoxNzkzODgzMTk1LCJlIjoxNzk2NDc1MTk1fQ.YWyaDwF6GPwkm8YCrFrfxZ526kjbdMyM-T6yB30WVng",
+          "url": "https://rwpp-team.top/api/archives/rwpp-client-2.0.0-beta02-jvm.jar?k=eyJmIjoicndwcC1jbGllbnQtMi4wLjAtYmV0YTAyLWp2bS5qYXIiLCJzIjoxNzkzODg1MzgyLCJlIjoxNzk2NDc3MzgyfQ.cP9GfM3IMEdAMibPLqCmLuagH5qdFGZY_EbLWsTR8_4",
           "sha256": "e332c089feafa1c074a580bc6687d314b6651cdc41611f9fd541cd2b0edc73a4",
           "size": 79046782
         },
         {
           "id": "io.github.rwpp.api",
           "platform": "android",
-          "url": "https://rwpp-team.top/api/archives/rwpp-api-2.0.0-beta02-android.jar?k=eyJmIjoicndwcC1hcGktMi4wLjAtYmV0YTAyLWFuZHJvaWQuamFyIiwicyI6MTc5Mzg4MzE5NSwiZSI6MTc5NjQ3NTE5NX0.6gsI3nhe8yTQtob-QtxPGCkQSNS73Wy7VzbTF2zh6kI",
+          "url": "https://rwpp-team.top/api/archives/rwpp-api-2.0.0-beta02-android.jar?k=eyJmIjoicndwcC1hcGktMi4wLjAtYmV0YTAyLWFuZHJvaWQuamFyIiwicyI6MTc5Mzg4NTM4MiwiZSI6MTc5NjQ3NzM4Mn0.KLjGShlsLBhTbGBR6EDl-vO_GKD7-u6XandntMHw3P4",
           "sha256": "1af184a0e2170f7f83d2073ac3deb1573f03b343eeb35327d273c48a5cda033b",
           "size": 12398081
         },
         {
           "id": "io.github.rwpp",
           "platform": "android",
-          "url": "https://rwpp-team.top/api/archives/rwpp-client-2.0.0-beta02-android.jar?k=eyJmIjoicndwcC1jbGllbnQtMi4wLjAtYmV0YTAyLWFuZHJvaWQuamFyIiwicyI6MTc5Mzg4MzE5NSwiZSI6MTc5NjQ3NTE5NX0.Gjs7B6Cv97jyIAULPRua6d0duCgJut0ASBVzDx7awbE",
+          "url": "https://rwpp-team.top/api/archives/rwpp-client-2.0.0-beta02-android.jar?k=eyJmIjoicndwcC1jbGllbnQtMi4wLjAtYmV0YTAyLWFuZHJvaWQuamFyIiwicyI6MTc5Mzg4NTM4MiwiZSI6MTc5NjQ3NzM4Mn0.p9tsuIxEoIKIN_odYZzYeT2pLyWVk88s_7uddXWXoNM",
           "sha256": "2f1b080a6654211a153ee35d073bf1e6001b2cdea0a08c6627c6ad2eb62fbbef",
           "size": 45417715
         }

@@ -12,7 +12,7 @@ layout: wide
       <a class="p-btn p-btn--primary" href="../rwpp/install/">安装教程</a>
       <a class="p-btn" href="https://github.com/RWPP-Team/RWML/releases/latest">打开 GitHub Release</a>
       <a class="p-btn" href="../extensions/">扩展目录</a>
-      <a class="p-link" href="https://qm.qq.com/q/auLINpWtr4">QQ 群</a>
+      <a class="p-link" href="https://qm.qq.com/q/ncCHYxB5Ly">玩家交流群</a>
     </div>
     <div class="p-specs">
       <div class="p-spec"><span>当前版本</span><strong>1.0.2</strong></div>
@@ -62,6 +62,6 @@ Get-FileHash .\rwml-setup.exe -Algorithm SHA256
 
 ## 遇到问题
 
-安装失败、启动异常或扩展无法加载时，先查看游戏目录下的 `data/rwml-bootstrap.log`。也可以在 [Issues](https://github.com/RWPP-Team/RWPP/issues) 提交，或加入 [QQ 群](https://qm.qq.com/q/auLINpWtr4)（1004399208）询问。
+安装失败、启动异常或扩展无法加载时，先查看游戏目录下的 `data/rwml-bootstrap.log`。也可以在 [Issues](https://github.com/RWPP-Team/RWPP/issues) 提交，或加入 [玩家交流群](https://qm.qq.com/q/ncCHYxB5Ly)（927597495）询问。
 
 </div>

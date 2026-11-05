@@ -166,6 +166,7 @@ layout: home
     </div>
     <div class="p-actions">
       <a class="p-btn p-btn--primary" href="rwpp/install/">安装 RWPP</a>
+      <a class="p-btn" href="https://qm.qq.com/q/ncCHYxB5Ly">玩家交流群</a>
       <a class="p-btn" href="https://github.com/RWPP-Team">GitHub</a>
     </div>
   </div>

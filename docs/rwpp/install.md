@@ -34,7 +34,7 @@ RWPP 是 RWML 的扩展，先装好 RWML 才能使用。
 
 - 扩展页面里找不到 RWPP：确认 RWML 已装好，并重启一次游戏。
 - 提示版本不一致：在扩展页面删除旧版 RWPP，重新下载一次。
-- 仍然无法使用：加入 [QQ 群](https://qm.qq.com/q/auLINpWtr4)（1004399208）询问，或到 [Issues](https://github.com/RWPP-Team/RWPP/issues) 留言。
+- 仍然无法使用：加入 [玩家交流群](https://qm.qq.com/q/ncCHYxB5Ly)（927597495）询问，或到 [Issues](https://github.com/RWPP-Team/RWPP/issues) 留言。
 
 ## 下一步
 

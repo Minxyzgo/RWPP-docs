@@ -58,4 +58,4 @@ Linux 可用发行包中的启动脚本。macOS 目前不提供支持。
 
 ## 交流群
 
-问题在 Issues 里不方便描述时，可以加入 QQ 群 1004399208（[加群链接](https://qm.qq.com/q/auLINpWtr4)）。群里可以询问安装、扩展兼容与联机问题。
+安装、兼容与联机问题可以加入玩家 QQ 群 927597495（[加群链接](https://qm.qq.com/q/ncCHYxB5Ly)）。编写扩展的开发者请到[扩展开发](../extension/start.md)页查看开发者群。
