@@ -11,8 +11,7 @@
  * map only carries the fallback address and the expected size and digest.
  */
 
-const crypto = require("node:crypto");
-const sources = require("./archive-sources.json");
+const { presign, r2Location, verifyToken, getSources } = require("../lib/rwpp.js");
 
 const FILE_NAME = /^[A-Za-z0-9][A-Za-z0-9._-]*\.jar$/;
 const ARCHIVE_PATH = "/api/archives/";
@@ -25,87 +24,11 @@ const IP_RATE_LIMIT = 20;
 // drift past the paid threshold even when several function instances run.
 const MONTHLY_BUDGET = Number(process.env.RWPP_R2_MONTHLY_BUDGET || 500_000);
 const TOKEN_LIFETIME_LIMIT = 10_000;
-const R2_BUCKET = process.env.RWPP_R2_BUCKET || "rwpp";
-const R2_PREFIX = (process.env.RWPP_R2_PREFIX || "extensions").replace(/^\/+|\/+$/g, "");
-
-/** Object address for a published archive, built from deployment settings. */
-function r2Location(file) {
-  const account = process.env.RWPP_R2_ACCOUNT_ID;
-  if (!account) {
-    return null;
-  }
-  return `https://${account}.r2.cloudflarestorage.com/${R2_BUCKET}/${R2_PREFIX}/${encodeURIComponent(file)}`;
-}
 
 const rateHits = new Map();
 const tokenSpend = new Map();
 let issued = { month: "", count: 0 };
 let usageCache = { at: 0, bytes: 0, valid: false };
-
-function sha256(value) {
-  return crypto.createHash("sha256").update(value).digest("hex");
-}
-
-function hmac(key, value) {
-  return crypto.createHmac("sha256", key).update(value).digest();
-}
-
-function uriEncode(value) {
-  return encodeURIComponent(String(value)).replace(
-    /[!'()*]/g,
-    (character) => "%" + character.charCodeAt(0).toString(16).toUpperCase(),
-  );
-}
-
-function equal(left, right) {
-  const a = Buffer.from(String(left));
-  const b = Buffer.from(String(right));
-  return a.length === b.length && crypto.timingSafeEqual(a, b);
-}
-
-/** Verify the catalog token: HMAC signature, file binding, sequence and expiry. */
-function verifyToken(token, file) {
-  if (!token || typeof token !== "string") {
-    return null;
-  }
-  const dot = token.indexOf(".");
-  if (dot <= 0) {
-    return null;
-  }
-  const payload = token.slice(0, dot);
-  const signature = token.slice(dot + 1);
-  const secret = process.env.RWPP_ARCHIVE_SECRET;
-  if (!secret) {
-    return null;
-  }
-  let key;
-  try {
-    key = Buffer.from(secret, "hex");
-  } catch {
-    key = Buffer.from(secret, "utf8");
-  }
-  if (key.length === 0) {
-    key = Buffer.from(secret, "utf8");
-  }
-  const expected = crypto.createHmac("sha256", key).update(payload).digest("base64url");
-  if (!equal(signature, expected)) {
-    return null;
-  }
-  let claims;
-  try {
-    claims = JSON.parse(Buffer.from(payload, "base64url").toString("utf8"));
-  } catch {
-    return null;
-  }
-  if (!claims || claims.f !== file || typeof claims.s !== "number" || typeof claims.e !== "number") {
-    return null;
-  }
-  const now = Math.floor(Date.now() / 1000);
-  if (claims.s <= 0 || claims.s > now + 300 || claims.e <= now || claims.e - claims.s > 31 * 86400) {
-    return null;
-  }
-  return claims;
-}
 
 /** Per-instance sliding window. It stops bursts; the token and quota gate stop sustained abuse. */
 function rateLimited(key, limit) {
@@ -205,52 +128,6 @@ async function quotaBlock() {
   return null;
 }
 
-/** AWS Signature Version 4 presigned URL for a private R2 object. */
-function presign(method, target, expires) {
-  const url = new URL(target);
-  const host = url.host;
-  const canonicalUri = url.pathname;
-  const amzDate = new Date().toISOString().replace(/[:-]|\.\d{3}/g, "");
-  const dateStamp = amzDate.slice(0, 8);
-  const scope = `${dateStamp}/auto/s3/aws4_request`;
-  const accessKey = process.env.RWPP_R2_ACCESS_KEY_ID;
-  const secret = process.env.RWPP_R2_SECRET_ACCESS_KEY;
-  if (!accessKey || !secret) {
-    return null;
-  }
-  const query = {
-    "X-Amz-Algorithm": "AWS4-HMAC-SHA256",
-    "X-Amz-Credential": `${accessKey}/${scope}`,
-    "X-Amz-Date": amzDate,
-    "X-Amz-Expires": String(expires),
-    "X-Amz-SignedHeaders": "host",
-  };
-  const canonicalQuery = Object.keys(query)
-    .sort()
-    .map((name) => `${uriEncode(name)}=${uriEncode(query[name])}`)
-    .join("&");
-  const canonicalRequest = [
-    method,
-    canonicalUri,
-    canonicalQuery,
-    `host:${host}\n`,
-    "host",
-    "UNSIGNED-PAYLOAD",
-  ].join("\n");
-  const stringToSign = [
-    "AWS4-HMAC-SHA256",
-    amzDate,
-    scope,
-    sha256(canonicalRequest),
-  ].join("\n");
-  let key = hmac(Buffer.from(`AWS4${secret}`, "utf8"), dateStamp);
-  key = hmac(key, "auto");
-  key = hmac(key, "s3");
-  key = hmac(key, "aws4_request");
-  const signature = crypto.createHmac("sha256", key).update(stringToSign).digest("hex");
-  return `${url.origin}${canonicalUri}?${canonicalQuery}&X-Amz-Signature=${signature}`;
-}
-
 async function head(url, verifySize, size) {
   const response = await fetch(url, {
     method: "HEAD",
@@ -338,7 +215,8 @@ exports.handler = async (event) => {
   if (!file || !FILE_NAME.test(file)) {
     return failure(400, "invalid archive name");
   }
-  const record = sources.files[file];
+  const sourceFiles = await getSources();
+  const record = sourceFiles[file];
   if (!record) {
     return failure(404, "archive not found");
   }

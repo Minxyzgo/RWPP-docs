@@ -26,16 +26,43 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# 稳定别名：客户端可以固定使用 /api/index.json，版本升级不改变调用地址。
+# 目录与端点由 catalog 函数从 R2 的运行时 registry 渲染。force 让规则覆盖
+# 同名的构建期静态快照，R2 不可用时函数会自行返回该快照。
 [[redirects]]
   from = "/api/index.json"
-  to = "/api/v1/index.json"
+  to = "/.netlify/functions/catalog?kind=index"
   status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/v1/index.json"
+  to = "/.netlify/functions/catalog?kind=index"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/v1/search.json"
+  to = "/.netlify/functions/catalog?kind=search"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/v1/manifest.json"
+  to = "/.netlify/functions/catalog?kind=manifest"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/v1/extensions/:id"
+  to = "/.netlify/functions/catalog?kind=extension&id=:id"
+  status = 200
+  force = true
 
 [[redirects]]
   from = "/api/extensions/:id"
-  to = "/api/v1/extensions/:id.json"
+  to = "/.netlify/functions/catalog?kind=extension&id=:id"
   status = 200
+  force = true
 
 # 服务端搜索由 Netlify Function 提供，查询参数在重写时保留。
 [[redirects]]

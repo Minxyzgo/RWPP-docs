@@ -4,7 +4,6 @@
 
 ## 准备
 
-- JDK 25 用于构建，产物可以使用 Java 17 字节码。
 - 两个编译依赖：`rwml-core` 与映射后的 `game-lib`。需要 RWPP 的 API 时再引入 `rwpp-api`。
 
 ```kotlin
@@ -74,11 +73,9 @@ override fun onLoad(context: ExtensionContext) {
 
 `appKoin` 与 `gameScope` 由 API 扩展初始化。不要在静态初始化块里访问它们，那时 API 还没有加载。
 
-## 构建与安装
+## 安装
 
-把入口类、依赖与 `META-INF/extension.properties` 打进同一个 jar，或连同其他扩展打成一个整合包 zip。需要打包依赖时，把依赖合并进归档；宿主只提供 core、游戏类与 RWPP API。
-
-安装后重启游戏，启动日志会出现一行 `+ <名称> <版本> [<标识>]`。若出现失败行，日志会给出原因。
+导入归档后重启游戏。启动日志会出现一行 `+ <名称> <版本> [<标识>]`。若出现失败行，日志会给出原因。
 
 ## 开发者交流群
 

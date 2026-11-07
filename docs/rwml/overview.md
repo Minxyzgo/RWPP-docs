@@ -6,7 +6,7 @@ RWML 在游戏启动前决定加载哪些扩展，在类加载阶段改写游戏
 
 `core` 不引用游戏类，只定义扩展 API、依赖解析、仓库与引导流程。桌面与 Android 共用这一份实现。
 
-这条边界是硬性约束。core 一旦引用游戏类，宿主加载 core 时就会提前定义游戏类，Android 上的 mixin 随之失效。构建会检查 core 的类文件是否引用了宿主或游戏类型。
+这条边界是硬性约束。core 一旦引用游戏类，宿主加载 core 时就会提前定义游戏类，Android 上的 mixin 随之失效。core 的类文件不得引用宿主或游戏类型。
 
 游戏相关的部分在 `game-adapter`，平台相关的部分在 `desktop` 与 `android`。
 
@@ -67,4 +67,3 @@ RWML 在游戏启动前决定加载哪些扩展，在类加载阶段改写游戏
 - [扩展系统](extensions.md)
 - [资源包](resource-packs.md)
 - [界面框架](ui.md)
-- [核心发布](publishing.md)

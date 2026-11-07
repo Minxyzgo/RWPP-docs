@@ -4,22 +4,12 @@
 
 同一端口同时提供 KCP 与 TCP。客户端优先使用 KCP，失败后回退 TCP；两条路径共用同一套握手与加密实现。
 
-## 构建
-
-需要 JDK 25 与游戏资源。
-
-```powershell
-.\gradlew.bat :rwpp-server:installDist
-```
-
-产物位于 `build/install/rwpp-server/`，压缩包使用 `:rwpp-server:distZip`。
-
 ## 启动
 
 运行目录需要包含原版游戏的 `assets/`，扩展放入 `extensions/`。
 
 ```powershell
-.\scripts\start-server.ps1 -RuntimeDir 'E:\server-runtime' -Port 5123
+.\scripts\start-server.ps1 -RuntimeDir '<运行目录>' -Port 5123
 ```
 
 也可以直接调用发行包的 `bin/rwpp-server.bat`，Linux 使用 `bin/rwpp-server`。

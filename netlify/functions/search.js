@@ -7,7 +7,7 @@
 
 // The generated catalog carries the signed archive URLs; the source registry is
 // only build input. Source addresses are removed before results are returned.
-const catalog = require("../../docs/api/v1/index.json");
+const { getIndex } = require("../lib/rwpp.js");
 
 const PLATFORMS = new Set(["jvm", "android"]);
 const RATE_WINDOW_MS = 60_000;
@@ -89,6 +89,7 @@ function payload(body, statusCode, extraHeaders) {
 }
 
 exports.handler = async (event) => {
+  const catalog = await getIndex();
   if (event.httpMethod === "OPTIONS") {
     return payload({}, 204);
   }

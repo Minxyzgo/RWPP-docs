@@ -36,7 +36,7 @@ class MyLauncher : UiFramework {
 
 ## Compose
 
-界面通常使用 Compose Multiplatform 构建。扩展需要自行携带 Compose 运行时与资源，宿主不提供 UI 工具包。桌面与 Android 的依赖差异由各自的源集处理，界面代码可以共用。
+界面通常使用 Compose Multiplatform 实现。扩展需要自行携带 Compose 运行时与资源，宿主不提供 UI 工具包。桌面与 Android 的依赖差异由各自的源集处理，界面代码可以共用。
 
 RWPP 客户端的 Aero 控件位于客户端扩展内部，不属于公开 API。第三方扩展可以参照其行为，但不能依赖这些类，因为客户端升级可能改变它们。
 
